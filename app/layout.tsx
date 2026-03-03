@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   description:
     "Fullstack Developer especializado en React y NestJS. Construyo aplicaciones escalables con arquitectura limpia y experiencia premium.",
   icons: {
-    icon: "/images/Minimalist monogram.png",
-    apple: "/images/Minimalist monogram.png",
+    icon: "/images/minimalist-monogram.png",
+    apple: "/images/minimalist-monogram.png",
   },
 };
 
