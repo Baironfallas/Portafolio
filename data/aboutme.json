@@ -1,0 +1,12 @@
+{
+  "sectionId": "about",
+  "title": "Sobre mí",
+  "image": {
+    "src": "/images/profile.jpg",
+    "alt": "Foto de BJ"
+  },
+  "paragraphs": [
+   "Soy desarrollador fullstack y actualmente curso el último año de Ingeniería en Sistemas. Me apasiona construir software que no solo funcione, sino que esté bien estructurado y preparado para crecer.",
+    "Disfruto trabajar tanto en frontend como en backend, combinando experiencia de usuario con lógica sólida y arquitectura bien definida. Busco aplicar principios de ingeniería y buenas prácticas para desarrollar soluciones mantenibles, eficientes y alineadas a objetivos reales de negocio."
+  ]
+}

@@ -7,26 +7,21 @@
   {
     "name": "Backend",
     "icon": "Server",
-    "skills": ["NestJS", "Node.js", "Express", "REST APIs", "GraphQL"]
+    "skills": ["NestJS", "Node.js", ".NET", "REST APIs", "GraphQL"]
   },
   {
     "name": "Base de datos",
     "icon": "Database",
-    "skills": ["PostgreSQL", "MongoDB", "Redis", "Prisma"]
+    "skills": ["PostgreSQL", "MongoDB", "SQL Server", "MySQL"]
   },
   {
     "name": "Cloud",
     "icon": "Cloud",
-    "skills": ["AWS", "Vercel", "Railway", "Supabase"]
+    "skills": ["Railway", "Vercel", "Hostinger","Render"]
   },
   {
     "name": "Herramientas",
     "icon": "Wrench",
-    "skills": ["Git", "VS Code", "Figma", "Postman", "Notion"]
-  },
-  {
-    "name": "DevOps",
-    "icon": "Container",
-    "skills": ["Docker", "CI/CD", "GitHub Actions", "Nginx"]
+    "skills": ["Git", "GitHub", "VS Code", "Visual Studio", "Figma"]
   }
 ]
