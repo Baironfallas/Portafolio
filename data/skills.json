@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Frontend",
+    "icon": "Monitor",
+    "skills": ["React", "Next.js", "TypeScript", "TailwindCSS", "HTML/CSS"]
+  },
+  {
+    "name": "Backend",
+    "icon": "Server",
+    "skills": ["NestJS", "Node.js", "Express", "REST APIs", "GraphQL"]
+  },
+  {
+    "name": "Base de datos",
+    "icon": "Database",
+    "skills": ["PostgreSQL", "MongoDB", "Redis", "Prisma"]
+  },
+  {
+    "name": "Cloud",
+    "icon": "Cloud",
+    "skills": ["AWS", "Vercel", "Railway", "Supabase"]
+  },
+  {
+    "name": "Herramientas",
+    "icon": "Wrench",
+    "skills": ["Git", "VS Code", "Figma", "Postman", "Notion"]
+  },
+  {
+    "name": "DevOps",
+    "icon": "Container",
+    "skills": ["Docker", "CI/CD", "GitHub Actions", "Nginx"]
+  }
+]

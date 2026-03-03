@@ -1,0 +1,34 @@
+{
+  "name": "BJ",
+  "role": "Fullstack Developer",
+  "specialization": "React & NestJS",
+  "headline": "Fullstack Developer especializado en React y NestJS",
+  "subheadline": "Construyo aplicaciones escalables con arquitectura limpia y experiencia premium.",
+  "email": "bairon@example.com",
+  "github_url": "https://github.com/bairon",
+  "linkedin_url": "https://linkedin.com/in/bairon",
+  "hero_image_path": "/images/profile.jpg",
+  "cv_url": "/cv.pdf",
+  "education": [
+    {
+      "degree": "Ingeniería en Sistemas Computacionales",
+      "institution": "Universidad Nacional Autónoma",
+      "year": "2019 - 2023"
+    },
+    {
+      "degree": "Certificación AWS Cloud Practitioner",
+      "institution": "Amazon Web Services",
+      "year": "2023"
+    },
+    {
+      "degree": "Meta Front-End Developer Professional Certificate",
+      "institution": "Coursera / Meta",
+      "year": "2022"
+    }
+  ],
+  "languages": [
+    { "name": "Español", "level": "Nativo" },
+    { "name": "Inglés", "level": "Avanzado (C1)" },
+    { "name": "Portugués", "level": "Intermedio (B1)" }
+  ]
+}

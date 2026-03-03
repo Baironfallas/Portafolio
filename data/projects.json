@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "FinTrack",
+    "description": "Dashboard financiero para startups que monitorea ingresos, gastos y runway en tiempo real.",
+    "problem": "Startups necesitaban un dashboard financiero simple para monitorear ingresos, gastos y runway en tiempo real sin herramientas complejas como QuickBooks.",
+    "what_i_did": "Diseñe y desarrolle el frontend completo con React y el backend con NestJS, incluyendo integración con APIs bancarias y generación de reportes automatizados.",
+    "stack": ["React", "NestJS", "PostgreSQL", "Prisma", "TailwindCSS", "Docker"],
+    "architecture": "Monorepo con Turborepo. API REST con autenticación JWT. Cron jobs para sincronización de datos bancarios.",
+    "image_url": "/images/projects/fintrack.jpg",
+    "demo_url": "https://fintrack-demo.vercel.app",
+    "github_url": "https://github.com/bairon/fintrack"
+  },
+  {
+    "id": 2,
+    "name": "DevBoard",
+    "description": "Herramienta Kanban en tiempo real para equipos de desarrollo remoto con drag-and-drop.",
+    "problem": "Equipos de desarrollo remoto carecían de una herramienta liviana para gestionar sprints y tareas sin la complejidad de Jira.",
+    "what_i_did": "Construí una aplicación Kanban en tiempo real con drag-and-drop, notificaciones y filtros avanzados. Implementé WebSockets para sincronización en vivo.",
+    "stack": ["Next.js", "NestJS", "Socket.io", "MongoDB", "Redis", "TailwindCSS"],
+    "architecture": "Microservicios con gateway API. WebSocket server dedicado. Cache layer con Redis para sesiones y estado del board.",
+    "image_url": "/images/projects/devboard.jpg",
+    "demo_url": "https://devboard-demo.vercel.app",
+    "github_url": "https://github.com/bairon/devboard"
+  },
+  {
+    "id": 3,
+    "name": "MediConnect",
+    "description": "Sistema de gestión de citas y expedientes digitales para clínicas accesible y económico.",
+    "problem": "Clínicas pequeñas necesitaban un sistema de gestión de citas y expedientes digitales accesible y económico.",
+    "what_i_did": "Desarrollé el sistema completo de agendamiento, historial médico digital y notificaciones por email/SMS. Implementé roles y permisos granulares.",
+    "stack": ["React", "Node.js", "Express", "PostgreSQL", "AWS S3", "Twilio"],
+    "architecture": "Arquitectura en capas con separación clara de servicios. Almacenamiento de archivos en S3. Queue system para notificaciones.",
+    "image_url": "/images/projects/mediconnect.jpg",
+    "demo_url": "https://mediconnect-demo.vercel.app",
+    "github_url": "https://github.com/bairon/mediconnect"
+  },
+  {
+    "id": 4,
+    "name": "ShopFlow",
+    "description": "Plataforma e-commerce headless personalizable con panel admin, inventario y pagos.",
+    "problem": "Comercios locales necesitaban una plataforma e-commerce personalizable sin depender completamente de Shopify o WooCommerce.",
+    "what_i_did": "Creé un e-commerce headless con panel de administración, gestión de inventario, pasarela de pagos y analytics integrado.",
+    "stack": ["Next.js", "NestJS", "Stripe", "PostgreSQL", "Prisma", "Vercel"],
+    "architecture": "Headless commerce con API REST. SSR para SEO. Webhooks de Stripe para procesamiento de pagos. CDN para assets estáticos.",
+    "image_url": "/images/projects/shopflow.jpg",
+    "demo_url": "https://shopflow-demo.vercel.app",
+    "github_url": "https://github.com/bairon/shopflow"
+  }
+]
