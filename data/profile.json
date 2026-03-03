@@ -1,34 +1,28 @@
 {
   "name": "BJ",
   "role": "Fullstack Developer",
-  "specialization": "React & NestJS",
-  "headline": "Fullstack Developer especializado en React y NestJS",
-  "subheadline": "Construyo aplicaciones escalables con arquitectura limpia y experiencia premium.",
-  "email": "bairon@example.com",
-  "github_url": "https://github.com/bairon",
-  "linkedin_url": "https://linkedin.com/in/bairon",
+  "specialization": "Frontend & Backend ",
+  "headline": "Construyo software sólido y preparado para crecer.",
+  "subheadline": "Aplico principios de ingeniería y arquitectura para crear soluciones mantenibles y eficientes.",
+  "email": "fallasbaltodanobairon10@gmail.com",
+  "github_url": "https://github.com/Baironfallas",
+  "linkedin_url": "https://www.linkedin.com/in/bairon-fallas-baltodano-b9b439347/",
   "hero_image_path": "/images/profile.jpg",
   "cv_url": "/cv.pdf",
   "education": [
     {
-      "degree": "Ingeniería en Sistemas Computacionales",
-      "institution": "Universidad Nacional Autónoma",
-      "year": "2019 - 2023"
+      "degree": "Bachillerato en Educación Media",
+      "institution": "Colegio Técnico Profesional de Corralillo",
+      "year": "2016 - 2021"
     },
     {
-      "degree": "Certificación AWS Cloud Practitioner",
-      "institution": "Amazon Web Services",
-      "year": "2023"
-    },
-    {
-      "degree": "Meta Front-End Developer Professional Certificate",
-      "institution": "Coursera / Meta",
-      "year": "2022"
+      "degree": "Diplomado en Programación de Aplicaciones Informaticas",
+      "institution": "Universidad Nacional de Costa Rica",
+      "year": "2022 - 2025"
     }
   ],
   "languages": [
     { "name": "Español", "level": "Nativo" },
-    { "name": "Inglés", "level": "Avanzado (C1)" },
-    { "name": "Portugués", "level": "Intermedio (B1)" }
+    { "name": "Inglés", "level": "Básico (A2)" }
   ]
 }

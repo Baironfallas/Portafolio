@@ -25,7 +25,7 @@ export function SkillsSection() {
     <section id="skills" className="border-t border-border">
       <div className="mx-auto max-w-[1100px] px-6 py-12 md:py-14">
         <h2 className="mb-8 text-xl font-semibold tracking-tight text-foreground">
-          Stack
+          Habilidades
         </h2>
         <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
           {skillCategories.map((category) => {

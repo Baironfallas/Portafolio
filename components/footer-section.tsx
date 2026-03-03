@@ -9,7 +9,7 @@ export function FooterSection() {
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-[1100px] flex-col items-center gap-4 px-6 py-8 md:flex-row md:justify-between">
         <p className="text-xs text-muted-foreground">
-          {profile.name} &copy; {new Date().getFullYear()}. Built with React.
+          {profile.name} &copy; {new Date().getFullYear()}. All rights reserved.
         </p>
 
         <div className="flex items-center gap-4">

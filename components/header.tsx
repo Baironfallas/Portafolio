@@ -10,7 +10,7 @@ const profile: Profile = profileData;
 
 const navLinks = [
   { label: "Sobre mí", href: "#about" },
-  { label: "Stack", href: "#skills" },
+  { label: "Habilidades", href: "#skills" },
   { label: "Proyectos", href: "#projects" },
   { label: "Contacto", href: "#contact" },
 ];
@@ -22,7 +22,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-6">
         <a
-          href="#hero"
+          href="#about"
           className="text-base font-semibold tracking-tight text-foreground transition-opacity duration-200 hover:opacity-80"
         >
           {profile.name}

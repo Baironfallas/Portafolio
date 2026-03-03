@@ -30,8 +30,9 @@ export function ContactSection() {
         <div className="grid gap-10 md:grid-cols-2">
           <div>
             <p className="mb-6 max-w-sm leading-relaxed text-muted-foreground">
-              Si tienes un proyecto en mente o quieres colaborar, no dudes en
-              escribirme. Respondo en menos de 24 horas.
+              Abierto a nuevas oportunidades y colaboraciones. Si tienes un
+              proyecto en mente o deseas discutir una propuesta, estaré
+              encantado de escucharla.
             </p>
 
             <div className="flex flex-col gap-3">
