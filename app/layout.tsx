@@ -10,25 +10,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Bairon | Fullstack Developer",
+  title: "Bairon FB | Fullstack Developer",
   description:
     "Fullstack Developer especializado en React y NestJS. Construyo aplicaciones escalables con arquitectura limpia y experiencia premium.",
   icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
+    icon: "/images/Minimalist monogram.png",
+    apple: "/images/Minimalist monogram.png",
   },
 };
 
