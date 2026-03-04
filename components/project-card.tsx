@@ -18,7 +18,9 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
     if (prefersReduced || !cardRef.current) return;
 
     const isEven = index % 2 === 0;
@@ -42,7 +44,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           end: "top 60%",
           toggleActions: "play none none none",
         },
-      }
+      },
     );
 
     return () => {
