@@ -11,5 +11,17 @@
     "image_url": "/images/projects/landing.png",
     "demo_url": "https://landing-page-progra-lll.vercel.app/",
     "github_url": "https://github.com/Baironfallas/landing-page-progra-lll"
-  }
+  },
+   {
+  "id": 2,
+  "name": "Insectopedia - Gestión de Insectos",
+  "description": "Aplicación web desarrollada para gestionar un catálogo de insectos mediante operaciones CRUD, enfocada en el aprendizaje de TanStack Query para manejo de estado del servidor.",
+  "problem": "Como parte del curso de Programación IV era necesario implementar una aplicación que consumiera una API y permitiera realizar operaciones CRUD de forma eficiente, manejando correctamente el estado de los datos obtenidos del servidor.",
+  "what_i_did": "Desarrollé una aplicación web utilizando React y TypeScript donde implementé TanStack Query para gestionar la obtención, actualización y eliminación de datos desde una API. Organicé el proyecto con separación de servicios, hooks y componentes reutilizables, aplicando buenas prácticas en el consumo de APIs y manejo de estado asíncrono.",
+  "stack": ["React", "TypeScript", "TailwindCSS", "Vite", "TanStack Query"],
+  "architecture": "Arquitectura basada en componentes reutilizables en React, separación de responsabilidades entre servicios (API), hooks personalizados para TanStack Query y componentes de interfaz para operaciones CRUD.",
+  "image_url": "/images/projects/Insectopedia.png",
+  "demo_url": "https://proyecto-1-progra-4-insectopedia.vercel.app/",
+  "github_url": "https://github.com/Baironfallas/Proyecto-1-progra-4-insectopedia"
+}
 ]
