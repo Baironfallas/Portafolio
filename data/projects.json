@@ -10,18 +10,6 @@
     "architecture": "Arquitectura basada en componentes reutilizizables en React, separación de secciones (Hero, About, Gallery, Contact) y estilos con TailwindCSS.",
     "image_url": "/images/projects/landing.png",
     "demo_url": "https://landing-page-progra-lll.vercel.app/",
-    "github_url": "https://github.com/tuusuario/tu-repo"
-  },
-  {
-    "id": 2,
-    "name": "Landing Page Fotografía",
-    "description": "Landing page moderna para un estudio fotográfico enfocada en mostrar servicios, portafolio visual y facilitar el contacto con clientes.",
-    "problem": "El estudio necesitaba una página atractiva para presentar sus servicios y portafolio fotográfico de forma profesional y adaptable a dispositivos móviles.",
-    "what_i_did": "Diseñé y desarrollé la landing page completa utilizando React con TypeScript, implementando componentes reutilizables, diseño responsive y optimización visual para destacar las fotografías.",
-    "stack": ["React", "TypeScript", "TailwindCSS", "Vite"],
-    "architecture": "Arquitectura basada en componentes reutilizizables en React, separación de secciones (Hero, About, Gallery, Contact) y estilos con TailwindCSS.",
-    "image_url": "/images/projects/landing.png",
-    "demo_url": "https://landing-page-progra-lll.vercel.app/",
-    "github_url": "https://github.com/tuusuario/tu-repo"
+    "github_url": "https://github.com/Baironfallas/landing-page-progra-lll"
   }
 ]
