@@ -1,6 +1,14 @@
 "use client";
 
-import { Send, Mail, Github, Linkedin, User, AtSign, MessageSquare } from "lucide-react";
+import {
+  Send,
+  Mail,
+  Github,
+  Linkedin,
+  User,
+  AtSign,
+  MessageSquare,
+} from "lucide-react";
 import type { Profile } from "@/types/profile";
 import profileData from "@/data/profile.json";
 
