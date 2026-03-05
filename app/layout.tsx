@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://portfolio-two-rho-64.vercel.app"),
+  metadataBase: new URL("https://portafolio-two-rho-64.vercel.app/"),
   title: "Bairon FB | Fullstack Developer",
   description:
     "Fullstack Developer especializado en React y NestJS. Construyo aplicaciones escalables con arquitectura limpia y experiencia premium.",
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     title: "Bairon FB | Fullstack Developer",
     description:
       "Fullstack Developer especializado en React y NestJS. Construyo aplicaciones escalables con arquitectura limpia y experiencia premium.",
-    url: "https://portfolio-two-rho-64.vercel.app",
+    url: "https://portafolio-two-rho-64.vercel.app/",
     siteName: "Bairon Portfolio",
     images: [
       {
