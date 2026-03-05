@@ -1,0 +1,1 @@
+Este repositorio contiene mi sitio web de currículum y portafolio profesional, donde presento información sobre mi formación, habilidades y algunos de los proyectos que he desarrollado durante mi formación en Ingeniería en Sistemas.
