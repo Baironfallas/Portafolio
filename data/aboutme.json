@@ -2,7 +2,7 @@
   "sectionId": "about",
   "title": "Sobre mí",
   "image": {
-    "src": "/images/me.jpeg",
+    "src": "/images/profile.jpg",
     "alt": "Foto de BJ"
   },
   "paragraphs": [
