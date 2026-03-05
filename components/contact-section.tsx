@@ -1,6 +1,6 @@
 "use client";
 
-import { Send, Mail, Github, Linkedin } from "lucide-react";
+import { Send, Mail, Github, Linkedin, User, AtSign, MessageSquare } from "lucide-react";
 import type { Profile } from "@/types/profile";
 import profileData from "@/data/profile.json";
 
@@ -13,6 +13,7 @@ export function ContactSection() {
     email: "",
     message: "",
   });
+  const [focused, setFocused] = useState<string | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,12 +65,14 @@ export function ContactSection() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <div>
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            {/* Nombre */}
+            <div className="group relative">
               <label
                 htmlFor="contact-name"
-                className="mb-1.5 block text-sm font-medium text-foreground"
+                className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors duration-200 group-focus-within:text-foreground"
               >
+                <User className="h-3 w-3" />
                 Nombre
               </label>
               <input
@@ -77,18 +80,26 @@ export function ContactSection() {
                 type="text"
                 required
                 value={formState.name}
+                onFocus={() => setFocused("name")}
+                onBlur={() => setFocused(null)}
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, name: e.target.value }))
                 }
-                className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring"
+                className="w-full border-b-2 border-border bg-transparent pb-2 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-foreground/25 focus:border-primary focus:outline-none"
                 placeholder="Tu nombre"
               />
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ease-out ${focused === "name" ? "w-full" : "w-0"}`}
+              />
             </div>
-            <div>
+
+            {/* Email */}
+            <div className="group relative">
               <label
                 htmlFor="contact-email"
-                className="mb-1.5 block text-sm font-medium text-foreground"
+                className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors duration-200 group-focus-within:text-foreground"
               >
+                <AtSign className="h-3 w-3" />
                 Email
               </label>
               <input
@@ -96,18 +107,26 @@ export function ContactSection() {
                 type="email"
                 required
                 value={formState.email}
+                onFocus={() => setFocused("email")}
+                onBlur={() => setFocused(null)}
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, email: e.target.value }))
                 }
-                className="w-full rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring"
+                className="w-full border-b-2 border-border bg-transparent pb-2 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-foreground/25 focus:border-primary focus:outline-none"
                 placeholder="tu@email.com"
               />
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ease-out ${focused === "email" ? "w-full" : "w-0"}`}
+              />
             </div>
-            <div>
+
+            {/* Mensaje */}
+            <div className="group relative">
               <label
                 htmlFor="contact-message"
-                className="mb-1.5 block text-sm font-medium text-foreground"
+                className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors duration-200 group-focus-within:text-foreground"
               >
+                <MessageSquare className="h-3 w-3" />
                 Mensaje
               </label>
               <textarea
@@ -115,18 +134,24 @@ export function ContactSection() {
                 required
                 rows={4}
                 value={formState.message}
+                onFocus={() => setFocused("message")}
+                onBlur={() => setFocused(null)}
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, message: e.target.value }))
                 }
-                className="w-full resize-none rounded-lg border border-border bg-background px-3.5 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-ring focus:outline-none focus:ring-1 focus:ring-ring"
+                className="w-full resize-none border-b-2 border-border bg-transparent pb-2 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-foreground/25 focus:border-primary focus:outline-none"
                 placeholder="Cuéntame sobre tu proyecto..."
               />
+              <span
+                className={`absolute bottom-0 left-0 h-0.5 bg-primary transition-all duration-300 ease-out ${focused === "message" ? "w-full" : "w-0"}`}
+              />
             </div>
+
             <button
               type="submit"
-              className="inline-flex w-fit items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-opacity duration-200 hover:opacity-90"
+              className="group/btn mt-1 inline-flex w-fit items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all duration-200 hover:shadow-md hover:shadow-primary/20 active:scale-[0.98]"
             >
-              <Send className="h-4 w-4" />
+              <Send className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
               Enviar mensaje
             </button>
           </form>
