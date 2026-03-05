@@ -1,16 +1,3 @@
 Este repositorio contiene mi sitio web de currículum y portafolio profesional, donde presento información sobre mi formación, habilidades y algunos de los proyectos que he desarrollado durante mi formación en Ingeniería en Sistemas.
 
-El objetivo de este proyecto es mostrar de manera clara y accesible mi perfil como desarrollador, así como evidenciar las tecnologías y herramientas que utilizo en el desarrollo de aplicaciones web.
-El sitio web incluye las siguientes secciones principales:
-
-Inicio
-Presentación general y breve introducción sobre mi perfil profesional.
-
-Sobre mí
-Información sobre mi formación académica, intereses y enfoque profesional dentro del área de tecnología.
-
-Portafolio de proyectos
-Se muestran proyectos desarrollados durante mi proceso de aprendizaje, incluyendo descripción, tecnologías utilizadas y enlaces al código fuente.
-
-Contacto
-Sección para facilitar la comunicación profesional.
+El sitio web está organizado como una landing page personal que incluye secciones sobre mi perfil profesional, formación académica, habilidades técnicas y una sección de portafolio donde se muestran algunos de los proyectos realizados durante mi proceso de aprendizaje. Además, permite visualizar de forma clara las tecnologías utilizadas en cada proyecto y facilita el acceso a los repositorios correspondientes.
