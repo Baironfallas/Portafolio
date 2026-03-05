@@ -23,5 +23,29 @@
   "image_url": "/images/projects/Insectopedia.png",
   "demo_url": "https://proyecto-1-progra-4-insectopedia.vercel.app/",
   "github_url": "https://github.com/Baironfallas/Proyecto-1-progra-4-insectopedia"
+},
+{
+  "id": 3,
+  "name": "Coffee Club - Landing Page de Suscripción",
+  "description": "Landing page moderna para una cafetería de especialidad que ofrece planes de suscripción mensuales. La página presenta los beneficios de cada plan y busca incentivar la conversión de visitantes en miembros del club.",
+  "problem": "La cafetería necesitaba una página de aterrizaje clara y visualmente atractiva que comunicara su propuesta de valor y mostrara distintos planes de membresía, permitiendo a los usuarios entender fácilmente las diferencias entre cada nivel de suscripción.",
+  "what_i_did": "Diseñé y desarrollé una landing page enfocada en experiencia de usuario y conversión. Implementé tarjetas de precios para los distintos planes (Explorador, Conocedor y Maestro), destacando visualmente el plan más popular y utilizando llamados a la acción claros para incentivar la suscripción.",
+  "stack": ["React", "TypeScript", "CSS", "JavaScript"],
+  "architecture": "Arquitectura basada en componentes reutilizables utilizando React y TypeScript, con una estructura modular que separa secciones como planes de suscripción, beneficios y llamadas a la acción. El diseño está optimizado para claridad visual y conversión del usuario.",
+  "image_url": "/images/projects/cafeteria.png",
+  "demo_url": "https://cafeteria-six-lemon.vercel.app/",
+  "github_url": "https://github.com/Baironfallas/Cafeteria"
+},
+{
+  "id": 4,
+  "name": "Sistema RRHH - Centro Agrícola de Jicaral",
+  "description": "Plataforma web diseñada para modernizar la gestión de recursos humanos del Centro Agrícola de Jicaral, incluyendo una landing informativa y un panel administrativo para la gestión de empleados y procesos internos.",
+  "problem": "El Centro Agrícola de Jicaral necesitaba digitalizar varios procesos administrativos de recursos humanos que se realizaban de forma manual, como la gestión de empleados, solicitudes internas y cálculos laborales como aguinaldo y liquidaciones.",
+  "what_i_did": "Participé en el desarrollo de una solución web que incluye una landing page institucional para el área de recursos humanos y un módulo administrativo interno. Implementamos funcionalidades para gestionar información de empleados, registrar solicitudes, administrar vacaciones y calcular automáticamente aguinaldos y liquidaciones según los datos registrados.",
+  "stack": ["React", "TypeScript", "TailwindCSS", "NestJS", ".NET", "SQL Server"],
+  "architecture": "Arquitectura basada en separación de responsabilidades entre frontend y backend. El frontend se desarrolló con React y TypeScript utilizando componentes reutilizables, mientras que el backend maneja la lógica de negocio para empleados, solicitudes, vacaciones y cálculos laborales. La información se almacena en una base de datos relacional y se expone mediante APIs para consumo del sistema.",
+  "image_url": "/images/projects/RRHH.png",
+  "demo_url": "",
+  "github_url": ""
 }
 ]
