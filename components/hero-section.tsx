@@ -39,11 +39,12 @@ export function HeroSection() {
         </a>
         <a
           href={profile.cv_url}
-          download
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors duration-200 hover:bg-hover"
         >
           <FileDown className="h-4 w-4" />
-          Descargar CV
+          Ver CV
         </a>
       </div>
     </section>
