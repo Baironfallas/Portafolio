@@ -40,7 +40,8 @@ export function Header() {
           ))}
           <a
             href={profile.cv_url}
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:bg-hover hover:text-foreground"
           >
             <FileDown className="h-3.5 w-3.5" />
@@ -81,12 +82,13 @@ export function Header() {
           ))}
           <a
             href={profile.cv_url}
-            download
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}
             className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:bg-hover hover:text-foreground"
           >
             <FileDown className="h-3.5 w-3.5" />
-            Descargar CV
+            Ver CV
           </a>
         </nav>
       )}
