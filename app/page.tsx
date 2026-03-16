@@ -8,7 +8,6 @@ import { ProjectsSection } from "@/components/projects-section";
 import { ContactSection } from "@/components/contact-section";
 import { FooterSection } from "@/components/footer-section";
 import { PortfolioShell } from "@/components/portfolio-shell";
-import { ChatBox } from "@/components/chat-box";
 
 export default function Home() {
   return (
@@ -26,7 +25,6 @@ export default function Home() {
         </main>
         <FooterSection />
       </PortfolioShell>
-      <ChatBox />
     </>
   );
 }
