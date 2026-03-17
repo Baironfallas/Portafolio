@@ -23,20 +23,23 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     ).matches;
     if (prefersReduced || !cardRef.current) return;
 
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
     const isEven = index % 2 === 0;
 
     gsap.fromTo(
       cardRef.current,
       {
         opacity: 0,
-        x: isEven ? -40 : 40,
-        rotateY: isEven ? 4 : -4,
+        x: isMobile ? 0 : isEven ? -40 : 40,
+        y: isMobile ? 20 : 0,
+        rotateY: isMobile ? 0 : isEven ? 4 : -4,
       },
       {
         opacity: 1,
         x: 0,
+        y: 0,
         rotateY: 0,
-        duration: 0.8,
+        duration: isMobile ? 0.5 : 0.8,
         ease: "power3.out",
         scrollTrigger: {
           trigger: cardRef.current,
