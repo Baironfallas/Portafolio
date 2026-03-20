@@ -45,7 +45,7 @@
   "stack": ["React", "TypeScript", "TailwindCSS", "NestJS", ".NET", "SQL Server"],
   "architecture": "Arquitectura basada en separación de responsabilidades entre frontend y backend. El frontend se desarrolló con React y TypeScript utilizando componentes reutilizables, mientras que el backend maneja la lógica de negocio para empleados, solicitudes, vacaciones y cálculos laborales. La información se almacena en una base de datos relacional y se expone mediante APIs para consumo del sistema.",
   "image_url": "/images/projects/RRHH.png",
-  "demo_url": "",
+  "demo_url": "https://rrhh.cacjicaral.com/",
   "github_url": ""
 }
 ]
