@@ -99,3 +99,37 @@
     overscroll-behavior: contain;
   }
 }
+
+@layer components {
+  /* Minimal skill animations */
+  .skill-category {
+    @apply relative;
+  }
+
+  .skill-category::before {
+    content: '';
+    @apply absolute -left-2 -top-1 w-1 h-1 rounded-full bg-primary 
+           opacity-0 transition-opacity duration-300;
+  }
+
+  .skill-category:hover::before {
+    @apply opacity-100;
+  }
+
+  /* Smooth line accent on hover */
+  .skill-category::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-primary to-transparent
+           transition-all duration-300 ease-out;
+  }
+
+  .skill-category:hover::after {
+    @apply w-full;
+  }
+
+  /* Refined text animation for skills */
+  .skill-category li {
+    @apply relative;
+    perspective: 1000px;
+  }
+}
