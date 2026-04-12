@@ -1,0 +1,26 @@
+# robots.txt para portafolio - Bairon FB
+
+# Permitir a todos los bots
+User-agent: *
+Allow: /
+
+# Definir el sitemap
+Sitemap: https://portafolio-two-rho-64.vercel.app/sitemap.xml
+
+# Evitar indexar archivos innecesarios
+Disallow: /_next/
+Disallow: /*.json$
+Disallow: /private/
+
+# Velocidad de rastreo
+Crawl-delay: 1
+
+# Instrucciones específicas para Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Instrucciones específicas para Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
