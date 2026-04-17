@@ -27,12 +27,11 @@ export function EducationSection() {
 
     gsap.fromTo(
       cards,
-      { opacity: 0, y: 20 },
+      { opacity: 0 },
       {
         opacity: 1,
-        y: 0,
-        duration: 0.7,
-        stagger: 0.15,
+        duration: 0.6,
+        stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
           trigger: containerRef.current,

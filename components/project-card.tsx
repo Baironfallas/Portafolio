@@ -2,7 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import Image from "next/image";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight, Lock } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Project } from "@/types/project";
@@ -121,15 +121,25 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             <ExternalLink className="h-3.5 w-3.5" />
             Ver proyecto
           </a>
-          <a
-            href={project.github_url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-xs font-medium text-foreground transition-colors duration-200 hover:bg-hover"
-          >
-            <Github className="h-3.5 w-3.5" />
-            Código
-          </a>
+          {project.github_url ? (
+            <a
+              href={project.github_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-xs font-medium text-foreground transition-colors duration-200 hover:bg-hover"
+            >
+              <Github className="h-3.5 w-3.5" />
+              Código
+            </a>
+          ) : (
+            <div
+              className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 px-4 py-2 text-xs font-medium text-muted-foreground bg-muted/30"
+              title="Este proyecto es privado"
+            >
+              <Lock className="h-3.5 w-3.5" />
+              Privado
+            </div>
+          )}
         </div>
       </div>
     </div>
