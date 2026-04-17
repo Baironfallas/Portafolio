@@ -12,7 +12,7 @@ export function HeroSection() {
   const roleRef = useRef<HTMLParagraphElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const subheadlineRef = useRef<HTMLParagraphElement>(null);
-  const buttonRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const buttonRefs = useRef<Record<number, HTMLAnchorElement | null>>({});
 
   useEffect(() => {
     const timeline = gsap.timeline();
@@ -43,7 +43,7 @@ export function HeroSection() {
 
     // Entrada de los botones
     timeline.fromTo(
-      buttonRefs.current.filter(Boolean),
+      Object.values(buttonRefs.current).filter(Boolean),
       { opacity: 0 },
       { opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" },
       0.6
@@ -51,8 +51,9 @@ export function HeroSection() {
   }, []);
 
   const handleButtonHover = (index: number, isHovering: boolean) => {
-    if (buttonRefs.current[index]) {
-      gsap.to(buttonRefs.current[index], {
+    const element = buttonRefs.current[index];
+    if (element) {
+      gsap.to(element, {
         scale: isHovering ? 1.05 : 1,
         duration: 0.25,
         ease: "power2.out",
@@ -88,7 +89,9 @@ export function HeroSection() {
 
       <div className="flex flex-wrap items-center justify-center gap-3">
         <a
-          ref={(el) => (buttonRefs.current[0] = el)}
+          ref={(el) => {
+            if (el) buttonRefs.current[0] = el;
+          }}
           href="#contact"
           onMouseEnter={() => handleButtonHover(0, true)}
           onMouseLeave={() => handleButtonHover(0, false)}
@@ -99,7 +102,9 @@ export function HeroSection() {
         </a>
 
         <a
-          ref={(el) => (buttonRefs.current[1] = el)}
+          ref={(el) => {
+            if (el) buttonRefs.current[1] = el;
+          }}
           href="#projects"
           onMouseEnter={() => handleButtonHover(1, true)}
           onMouseLeave={() => handleButtonHover(1, false)}
@@ -110,7 +115,9 @@ export function HeroSection() {
         </a>
 
         <a
-          ref={(el) => (buttonRefs.current[2] = el)}
+          ref={(el) => {
+            if (el) buttonRefs.current[2] = el;
+          }}
           href={profile.cv_url}
           target="_blank"
           rel="noopener noreferrer"

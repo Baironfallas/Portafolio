@@ -26,12 +26,12 @@ export function LanguagesSection() {
 
     gsap.fromTo(
       items,
-      { opacity: 0, x: -20 },
+      { opacity: 0, y: -20 },
       {
         opacity: 1,
-        x: 0,
-        duration: 0.6,
-        stagger: 0.08,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
         ease: "power2.out",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -54,22 +54,22 @@ export function LanguagesSection() {
 
   return (
     <section id="languages" className="border-t border-border">
-      <div className="mx-auto max-w-[1100px] px-6 py-12 md:py-14">
-        <div className="mb-8 flex items-center gap-2.5">
+      <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-20">
+        <div className="mb-10 flex items-center gap-2.5">
           <Globe className="h-5 w-5 text-foreground" />
           <h2 className="text-xl font-semibold tracking-tight text-foreground">
             Idiomas
           </h2>
         </div>
 
-        <div ref={containerRef} className="flex flex-wrap gap-4">
+        <div ref={containerRef} className="flex flex-wrap gap-6">
           {profile.languages.map((lang, i) => (
             <div
               key={i}
               ref={(el) => (itemsRef.current[i] = el)}
               onMouseEnter={() => handleItemHover(i, true)}
               onMouseLeave={() => handleItemHover(i, false)}
-              className="lang-item flex items-center gap-4 rounded-xl border border-border px-5 py-4 transition-all duration-200 hover:bg-hover cursor-pointer"
+              className="lang-item flex items-center gap-4 rounded-xl border border-border px-7 py-6 transition-all duration-200 hover:bg-hover cursor-pointer"
               style={{ opacity: 0 }}
             >
               <span className="text-sm font-semibold text-foreground">

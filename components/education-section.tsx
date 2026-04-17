@@ -31,8 +31,8 @@ export function EducationSection() {
       {
         opacity: 1,
         y: 0,
-        duration: 0.6,
-        stagger: 0.1,
+        duration: 0.7,
+        stagger: 0.15,
         ease: "power2.out",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -55,22 +55,22 @@ export function EducationSection() {
 
   return (
     <section id="education" className="border-t border-border">
-      <div className="mx-auto max-w-[1100px] px-6 py-12 md:py-14">
-        <div className="mb-8 flex items-center gap-2.5">
+      <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-20">
+        <div className="mb-10 flex items-center gap-2.5">
           <GraduationCap className="h-5 w-5 text-foreground" />
           <h2 className="text-xl font-semibold tracking-tight text-foreground">
             Formación académica
           </h2>
         </div>
 
-        <div ref={containerRef} className="grid gap-4 md:grid-cols-3">
+        <div ref={containerRef} className="grid gap-6 md:grid-cols-3">
           {profile.education.map((edu, i) => (
             <div
               key={i}
               ref={(el) => (cardsRef.current[i] = el)}
               onMouseEnter={() => handleCardHover(i, true)}
               onMouseLeave={() => handleCardHover(i, false)}
-              className="edu-card flex flex-col rounded-xl border border-border p-5 transition-all duration-200 hover:bg-hover cursor-pointer"
+              className="edu-card flex flex-col rounded-xl border border-border p-6 transition-all duration-200 hover:bg-hover cursor-pointer"
               style={{ opacity: 0 }}
             >
               <p className="text-sm font-semibold text-foreground">
