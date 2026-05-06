@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X, FileDown } from "lucide-react";
 import gsap from "gsap";
-import { ThemeToggle } from "@/components/theme-toggle";
 import type { Profile } from "@/types/profile";
 import profileData from "@/data/profile.json";
 
@@ -160,13 +159,9 @@ export function Header() {
             <FileDown className="h-3.5 w-3.5" />
             CV
           </a>
-          <div className="ml-2">
-            <ThemeToggle />
-          </div>
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
           <button
             ref={menuButtonRef}
             onClick={handleMenuClick}
