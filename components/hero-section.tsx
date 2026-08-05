@@ -142,14 +142,6 @@ export function HeroSection() {
           Ver CV
         </a>
       </div>
-
-      <a
-        href="#about"
-        className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[11px] font-medium uppercase tracking-[0.22em] text-[#a1a1aa] transition-colors duration-200 ease-out hover:text-primary md:flex"
-      >
-        <span>Scroll</span>
-        <ArrowDown className="h-4 w-4 animate-bounce" />
-      </a>
     </section>
   );
 }
