@@ -4,12 +4,9 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import aboutData from "@/data/aboutme.json";
-import profileData from "@/data/profile.json";
 import type { AboutMe } from "@/types/aboutme";
-import type { Profile } from "@/types/profile";
 
 const about = aboutData as AboutMe;
-const profile = profileData as Profile;
 
 export function AboutSection() {
   const titleRef = useRef<HTMLDivElement>(null);
@@ -47,18 +44,18 @@ export function AboutSection() {
   return (
     <section id={about.sectionId} className="border-t border-border bg-background">
       <div className="mx-auto max-w-[1180px] px-6 py-16 md:py-20 lg:py-24">
-        <div className="grid items-stretch gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
           <div className="flex flex-col justify-center py-2 md:py-6 lg:py-10">
             <div
               ref={titleRef}
-              className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#d8b45f]"
+              className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-foreground/80"
             >
-              <span className="h-px w-10 bg-[#d8b45f]" />
+              <span className="h-px w-10 bg-foreground/70" />
               <span>{about.title}</span>
             </div>
 
             <h2 className="mb-8 max-w-xl text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
-              {profile.name}
+              Desarrollador Fullstack
             </h2>
 
             <div className="max-w-xl">
@@ -81,13 +78,13 @@ export function AboutSection() {
 
           <div
             ref={imageRef}
-            className="relative min-h-[420px] overflow-hidden rounded-lg border border-border bg-secondary/40 md:min-h-[560px] lg:min-h-[680px]"
+            className="relative h-[380px] overflow-hidden rounded-lg border border-border bg-secondary/40 md:h-[500px] lg:h-[580px]"
           >
             <Image
               src={about.image.src}
               alt={about.image.alt}
               fill
-              className="object-cover grayscale contrast-125 saturate-0"
+              className="object-cover object-center grayscale contrast-125 saturate-0"
               sizes="(max-width: 1024px) 100vw, 560px"
               priority={false}
             />
