@@ -17,6 +17,7 @@ const navLinks = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const logoRef = useRef<HTMLAnchorElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<Record<number, HTMLAnchorElement | null>>({});
@@ -49,6 +50,33 @@ export function Header() {
         }
       );
     }
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visibleEntry?.target.id) {
+          setActiveSection(visibleEntry.target.id);
+        }
+      },
+      {
+        rootMargin: "-35% 0px -50% 0px",
+        threshold: [0.1, 0.25, 0.5, 0.75],
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
   }, []);
 
   // Animación del menú móvil
@@ -117,14 +145,17 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-[#1a1a1a] bg-[#0a0a0a]/90 shadow-[0_1px_18px_rgba(0,0,0,0.18)] backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-[1100px] items-center justify-between px-6">
         <a
           ref={logoRef}
-          href="#about"
-          className="text-base font-semibold tracking-tight text-foreground transition-opacity duration-200 hover:opacity-80"
+          href="#hero"
+          className="group inline-flex items-center gap-2 text-base font-semibold tracking-tight text-foreground transition-opacity duration-200 hover:opacity-90"
         >
-          {profile.name}
+          <span>
+            B<span className="text-primary">J</span>
+          </span>
+          <span className="h-1.5 w-1.5 rounded-full bg-primary transition-transform duration-200 group-hover:scale-125" />
         </a>
 
         <nav
@@ -140,9 +171,22 @@ export function Header() {
               href={link.href}
               onMouseEnter={() => handleNavHover(index, true)}
               onMouseLeave={() => handleNavHover(index, false)}
-              className="rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:bg-hover hover:text-foreground"
+              className={[
+                "relative rounded-lg px-3 py-2 text-sm transition-colors duration-200 ease-out hover:text-primary",
+                activeSection === link.href.slice(1)
+                  ? "text-foreground"
+                  : "text-muted-foreground",
+              ].join(" ")}
             >
               {link.label}
+              <span
+                className={[
+                  "absolute bottom-1 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full bg-primary transition-all duration-200 ease-out",
+                  activeSection === link.href.slice(1)
+                    ? "scale-100 opacity-100"
+                    : "scale-0 opacity-0",
+                ].join(" ")}
+              />
             </a>
           ))}
           <a
@@ -154,7 +198,7 @@ export function Header() {
             rel="noopener noreferrer"
             onMouseEnter={() => handleNavHover(navLinks.length, true)}
             onMouseLeave={() => handleNavHover(navLinks.length, false)}
-            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:bg-hover hover:text-foreground"
+            className="inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 ease-out hover:text-primary"
           >
             <FileDown className="h-3.5 w-3.5" />
             CV
@@ -180,7 +224,7 @@ export function Header() {
       {mobileOpen && (
         <nav
           ref={mobileNavRef}
-          className="border-t border-border bg-background px-6 pb-4 pt-2 md:hidden overflow-hidden"
+          className="overflow-hidden border-t border-[#1a1a1a] bg-[#0a0a0a] px-6 pb-4 pt-2 md:hidden"
         >
           {navLinks.map((link) => (
             <a
@@ -189,9 +233,17 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
               onMouseEnter={(e) => handleMobileItemHover(e.currentTarget as HTMLElement, true)}
               onMouseLeave={(e) => handleMobileItemHover(e.currentTarget as HTMLElement, false)}
-              className="block rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:bg-hover hover:text-foreground"
+              className={[
+                "relative block rounded-lg px-3 py-2 text-sm transition-colors duration-200 ease-out hover:text-primary",
+                activeSection === link.href.slice(1)
+                  ? "text-foreground"
+                  : "text-muted-foreground",
+              ].join(" ")}
             >
               {link.label}
+              {activeSection === link.href.slice(1) && (
+                <span className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-y-1/2 rounded-full bg-primary" />
+              )}
             </a>
           ))}
           <a
@@ -201,7 +253,7 @@ export function Header() {
             onClick={() => setMobileOpen(false)}
             onMouseEnter={(e) => handleMobileItemHover(e.currentTarget as HTMLElement, true)}
             onMouseLeave={(e) => handleMobileItemHover(e.currentTarget as HTMLElement, false)}
-            className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 hover:bg-hover hover:text-foreground"
+            className="flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm text-muted-foreground transition-colors duration-200 ease-out hover:text-primary"
           >
             <FileDown className="h-3.5 w-3.5" />
             Ver CV

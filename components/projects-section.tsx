@@ -8,7 +8,7 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="border-t border-border">
       <div className="mx-auto max-w-[1100px] px-6 py-12 md:py-14">
-        <h2 className="mb-2 text-xl font-semibold tracking-tight text-foreground">
+        <h2 className="section-title-accent mb-2">
           Proyectos
         </h2>
         <p className="mb-8 text-sm text-muted-foreground">

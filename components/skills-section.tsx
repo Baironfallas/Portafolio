@@ -63,7 +63,7 @@ export function SkillsSection() {
   return (
     <section id="skills" className="border-t border-border">
       <div className="mx-auto max-w-[1100px] px-6 py-12 md:py-14">
-        <h2 className="mb-8 text-xl font-semibold tracking-tight text-foreground">
+        <h2 className="section-title-accent mb-8">
           Habilidades
         </h2>
         <div
@@ -80,9 +80,9 @@ export function SkillsSection() {
               >
                 <div className="mb-3 flex items-center gap-2">
                   {Icon && (
-                    <Icon className="h-[18px] w-[18px] text-muted-foreground transition-all duration-300 group-hover:text-foreground group-hover:scale-110" />
+                    <Icon className="h-[18px] w-[18px] text-muted-foreground transition-all duration-300 group-hover:scale-110 group-hover:text-primary" />
                   )}
-                  <h3 className="text-sm font-semibold text-foreground">
+                  <h3 className="text-sm font-semibold text-foreground transition-colors duration-300 group-hover:text-primary">
                     {category.name}
                   </h3>
                 </div>
@@ -90,7 +90,7 @@ export function SkillsSection() {
                   {category.skills.map((skill, skillIdx) => (
                     <li
                       key={skill}
-                      className="text-sm leading-relaxed text-muted-foreground transition-all duration-300 group-hover:text-foreground hover:translate-x-1 cursor-pointer"
+                      className="cursor-pointer text-sm leading-relaxed text-muted-foreground transition-all duration-300 hover:translate-x-1 hover:text-primary group-hover:text-foreground"
                       style={{
                         transitionDelay: `${skillIdx * 40}ms`,
                       }}

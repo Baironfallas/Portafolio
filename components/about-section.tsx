@@ -48,14 +48,14 @@ export function AboutSection() {
           <div className="flex flex-col justify-center py-2 md:py-6 lg:py-10">
             <div
               ref={titleRef}
-              className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-foreground/80"
+              className="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-primary"
             >
-              <span className="h-px w-10 bg-foreground/70" />
+              <span className="h-px w-10 bg-primary" />
               <span>{about.title}</span>
             </div>
 
             <h2 className="mb-8 max-w-xl text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
-              Desarrollador Fullstack
+              Desarrollador <span className="text-primary">Fullstack</span>
             </h2>
 
             <div className="max-w-xl">
@@ -78,7 +78,7 @@ export function AboutSection() {
 
           <div
             ref={imageRef}
-            className="relative h-[380px] overflow-hidden rounded-lg border border-border bg-secondary/40 md:h-[500px] lg:h-[580px]"
+            className="relative h-[380px] overflow-hidden rounded-lg border border-border bg-secondary/40 transition-colors duration-300 hover:border-primary/50 md:h-[500px] lg:h-[580px]"
           >
             <Image
               src={about.image.src}

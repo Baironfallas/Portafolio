@@ -32,7 +32,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="border-t border-border">
       <div className="mx-auto max-w-[1100px] px-6 py-12 md:py-14">
-        <h2 className="mb-8 text-xl font-semibold tracking-tight text-foreground">
+        <h2 className="section-title-accent mb-8">
           Contacto
         </h2>
 
@@ -47,7 +47,7 @@ export function ContactSection() {
             <div className="flex flex-col gap-3">
               <a
                 href={`mailto:${profile.email}`}
-                className="inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                className="inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
               >
                 <Mail className="h-[18px] w-[18px]" />
                 {profile.email}
@@ -56,7 +56,7 @@ export function ContactSection() {
                 href={profile.github_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                className="inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
               >
                 <Github className="h-[18px] w-[18px]" />
                 GitHub
@@ -65,7 +65,7 @@ export function ContactSection() {
                 href={profile.linkedin_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground"
+                className="inline-flex items-center gap-2.5 text-sm text-muted-foreground transition-colors duration-200 hover:text-primary"
               >
                 <Linkedin className="h-[18px] w-[18px]" />
                 LinkedIn
@@ -78,7 +78,7 @@ export function ContactSection() {
             <div className="group relative">
               <label
                 htmlFor="contact-name"
-                className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors duration-200 group-focus-within:text-foreground"
+                className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors duration-200 group-focus-within:text-primary"
               >
                 <User className="h-3 w-3" />
                 Nombre
@@ -93,7 +93,7 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, name: e.target.value }))
                 }
-                className="w-full border-b-2 border-border bg-transparent pb-2 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-foreground/25 focus:border-primary focus:outline-none"
+                className="w-full border-b-2 border-border bg-transparent pb-2 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-primary/40 focus:border-primary focus:outline-none"
                 placeholder="Tu nombre"
               />
               <span
@@ -105,7 +105,7 @@ export function ContactSection() {
             <div className="group relative">
               <label
                 htmlFor="contact-email"
-                className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors duration-200 group-focus-within:text-foreground"
+                className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors duration-200 group-focus-within:text-primary"
               >
                 <AtSign className="h-3 w-3" />
                 Email
@@ -120,7 +120,7 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, email: e.target.value }))
                 }
-                className="w-full border-b-2 border-border bg-transparent pb-2 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-foreground/25 focus:border-primary focus:outline-none"
+                className="w-full border-b-2 border-border bg-transparent pb-2 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-primary/40 focus:border-primary focus:outline-none"
                 placeholder="tu@email.com"
               />
               <span
@@ -132,7 +132,7 @@ export function ContactSection() {
             <div className="group relative">
               <label
                 htmlFor="contact-message"
-                className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors duration-200 group-focus-within:text-foreground"
+                className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-muted-foreground transition-colors duration-200 group-focus-within:text-primary"
               >
                 <MessageSquare className="h-3 w-3" />
                 Mensaje
@@ -147,7 +147,7 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, message: e.target.value }))
                 }
-                className="w-full resize-none border-b-2 border-border bg-transparent pb-2 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-foreground/25 focus:border-primary focus:outline-none"
+                className="w-full resize-none border-b-2 border-border bg-transparent pb-2 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-primary/40 focus:border-primary focus:outline-none"
                 placeholder="Cuéntame sobre tu proyecto..."
               />
               <span
@@ -157,7 +157,7 @@ export function ContactSection() {
 
             <button
               type="submit"
-              className="group/btn mt-1 inline-flex w-fit items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all duration-200 hover:shadow-md hover:shadow-primary/20 active:scale-[0.98]"
+              className="group/btn mt-1 inline-flex w-fit items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition-all duration-200 hover:bg-[#d4d4d8] hover:shadow-md hover:shadow-primary/10 active:scale-[0.98]"
             >
               <Send className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
               Enviar mensaje

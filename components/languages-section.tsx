@@ -55,8 +55,8 @@ export function LanguagesSection() {
     <section id="languages" className="border-t border-border">
       <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-20">
         <div className="mb-10 flex items-center gap-2.5">
-          <Globe className="h-5 w-5 text-foreground" />
-          <h2 className="text-xl font-semibold tracking-tight text-foreground">
+          <Globe className="h-5 w-5 text-primary" />
+          <h2 className="section-title-accent">
             Idiomas
           </h2>
         </div>
@@ -68,13 +68,13 @@ export function LanguagesSection() {
               ref={(el) => (itemsRef.current[i] = el)}
               onMouseEnter={() => handleItemHover(i, true)}
               onMouseLeave={() => handleItemHover(i, false)}
-              className="lang-item flex items-center gap-4 rounded-xl border border-border px-7 py-6 transition-all duration-200 hover:bg-hover cursor-pointer"
+              className="lang-item group flex cursor-pointer items-center gap-4 rounded-xl border border-border px-7 py-6 transition-all duration-200 hover:border-primary/50 hover:bg-primary/5"
               style={{ opacity: 0 }}
             >
-              <span className="text-sm font-semibold text-foreground">
+              <span className="text-sm font-semibold text-foreground transition-colors duration-200 group-hover:text-primary">
                 {lang.name}
               </span>
-              <span className="rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
+              <span className="rounded-md border border-primary/20 bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
                 {lang.level}
               </span>
             </div>

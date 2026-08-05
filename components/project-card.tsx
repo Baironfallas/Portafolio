@@ -60,7 +60,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <div
       ref={cardRef}
-      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-foreground/20 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:hover:shadow-[0_8px_30px_rgb(255,255,255,0.04)]"
+      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-[0_12px_36px_rgba(229,231,235,0.08)]"
       style={{ opacity: 0 }}
     >
       {/* Image / Preview */}
@@ -77,7 +77,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           href={project.demo_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-lg bg-background/90 text-foreground opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 hover:bg-background"
+          className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-lg bg-background/90 text-foreground opacity-0 backdrop-blur-sm transition-all duration-300 hover:bg-primary hover:text-primary-foreground group-hover:opacity-100"
           aria-label={`Ver demo de ${project.name}`}
         >
           <ArrowUpRight className="h-4 w-4" />
@@ -86,7 +86,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="mb-1.5 text-lg font-semibold text-foreground">
+        <h3 className="mb-1.5 text-lg font-semibold text-foreground transition-colors duration-300 group-hover:text-primary">
           {project.name}
         </h3>
         <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
@@ -98,7 +98,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {project.stack.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="rounded-md bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
+              className="rounded-md border border-primary/10 bg-primary/10 px-2 py-0.5 text-xs font-medium text-primary"
             >
               {tech}
             </span>
@@ -116,7 +116,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             href={project.demo_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-medium text-primary-foreground transition-opacity duration-200 hover:opacity-90"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-semibold text-primary-foreground transition-all duration-200 hover:bg-[#d4d4d8] hover:shadow-md hover:shadow-primary/10"
           >
             <ExternalLink className="h-3.5 w-3.5" />
             Ver proyecto
@@ -126,7 +126,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.github_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-xs font-medium text-foreground transition-colors duration-200 hover:bg-hover"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-primary/40 px-4 py-2 text-xs font-medium text-foreground transition-colors duration-200 hover:bg-primary/10 hover:text-primary"
             >
               <Github className="h-3.5 w-3.5" />
               Código

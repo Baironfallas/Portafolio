@@ -56,8 +56,8 @@ export function EducationSection() {
     <section id="education" className="border-t border-border">
       <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-20">
         <div className="mb-10 flex items-center gap-2.5">
-          <GraduationCap className="h-5 w-5 text-foreground" />
-          <h2 className="text-xl font-semibold tracking-tight text-foreground">
+          <GraduationCap className="h-5 w-5 text-primary" />
+          <h2 className="section-title-accent">
             Formación académica
           </h2>
         </div>
@@ -69,16 +69,16 @@ export function EducationSection() {
               ref={(el) => (cardsRef.current[i] = el)}
               onMouseEnter={() => handleCardHover(i, true)}
               onMouseLeave={() => handleCardHover(i, false)}
-              className="edu-card flex flex-col rounded-xl border border-border p-6 transition-all duration-200 hover:bg-hover cursor-pointer"
+              className="edu-card group flex cursor-pointer flex-col rounded-xl border border-border p-6 transition-all duration-200 hover:border-primary/50 hover:bg-primary/5"
               style={{ opacity: 0 }}
             >
-              <p className="text-sm font-semibold text-foreground">
+              <p className="text-sm font-semibold text-foreground transition-colors duration-200 group-hover:text-primary">
                 {edu.degree}
               </p>
               <p className="mt-1.5 text-sm text-muted-foreground">
                 {edu.institution}
               </p>
-              <p className="mt-auto pt-3 text-xs text-muted-foreground">
+              <p className="mt-auto pt-3 text-xs font-medium text-primary/80">
                 {edu.year}
               </p>
             </div>
