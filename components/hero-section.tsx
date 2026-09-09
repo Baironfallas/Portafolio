@@ -15,38 +15,54 @@ export function HeroSection() {
   const buttonRefs = useRef<Record<number, HTMLAnchorElement | null>>({});
 
   useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    const targets = [
+      roleRef.current,
+      headlineRef.current,
+      subheadlineRef.current,
+      ...Object.values(buttonRefs.current).filter(Boolean),
+    ];
+
+    if (prefersReduced) {
+      gsap.set(targets, { opacity: 1, y: 0 });
+      return;
+    }
+
     const timeline = gsap.timeline();
 
-    // Entrada suave del rol
+    // Entrada progresiva (fade-up) del rol
     timeline.fromTo(
       roleRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.6, ease: "power2.out" },
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
       0
     );
 
-    // Entrada suave del título
+    // Entrada progresiva del título
     timeline.fromTo(
       headlineRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.8, ease: "power2.out" },
-      0.2
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+      0.12
     );
 
-    // Entrada suave del subtítulo
+    // Entrada progresiva del subtítulo
     timeline.fromTo(
       subheadlineRef.current,
-      { opacity: 0 },
-      { opacity: 1, duration: 0.8, ease: "power2.out" },
-      0.4
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+      0.24
     );
 
     // Entrada de los botones
     timeline.fromTo(
       Object.values(buttonRefs.current).filter(Boolean),
-      { opacity: 0 },
-      { opacity: 1, duration: 0.6, stagger: 0.1, ease: "power2.out" },
-      0.6
+      { opacity: 0, y: 12 },
+      { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out" },
+      0.36
     );
   }, []);
 
@@ -54,8 +70,9 @@ export function HeroSection() {
     const element = buttonRefs.current[index];
     if (element) {
       gsap.to(element, {
-        scale: isHovering ? 1.05 : 1,
-        duration: 0.25,
+        scale: isHovering ? 1.03 : 1,
+        y: isHovering ? -2 : 0,
+        duration: 0.2,
         ease: "power2.out",
       });
     }

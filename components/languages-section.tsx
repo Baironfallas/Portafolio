@@ -74,7 +74,7 @@ export function LanguagesSection() {
               <span className="text-sm font-semibold text-foreground">
                 {lang.name}
               </span>
-              <span className="rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
+              <span className="lang-badge rounded-md bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
                 {lang.level}
               </span>
             </div>

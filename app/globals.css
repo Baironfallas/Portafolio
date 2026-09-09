@@ -87,7 +87,19 @@
     @apply bg-background text-foreground;
   }
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
   html.lenis, html.lenis body {
     height: auto;
@@ -131,5 +143,21 @@
   .skill-category li {
     @apply relative;
     perspective: 1000px;
+  }
+
+  /* Elegant hover micro-interaction for the profile image */
+  .profile-image-hover {
+    @apply transition-transform duration-300 ease-out;
+  }
+  .profile-image-hover:hover {
+    transform: scale(1.03);
+  }
+
+  /* Subtle micro-interaction for language level badges */
+  .lang-badge {
+    @apply transition-transform duration-200 ease-out;
+  }
+  .lang-badge:hover {
+    transform: translateY(-1px) scale(1.04);
   }
 }

@@ -14,6 +14,7 @@ import profileData from "@/data/profile.json";
 
 const profile: Profile = profileData;
 import { useState } from "react";
+import { AnimateOnScroll } from "@/components/animate-on-scroll";
 
 export function ContactSection() {
   const [formState, setFormState] = useState({
@@ -37,7 +38,7 @@ export function ContactSection() {
         </h2>
 
         <div className="grid gap-10 md:grid-cols-2">
-          <div>
+          <AnimateOnScroll>
             <p className="mb-6 max-w-sm leading-relaxed text-muted-foreground">
               Abierto a nuevas oportunidades y colaboraciones. Si tienes un
               proyecto en mente o deseas discutir una propuesta, estaré
@@ -71,8 +72,9 @@ export function ContactSection() {
                 LinkedIn
               </a>
             </div>
-          </div>
+          </AnimateOnScroll>
 
+          <AnimateOnScroll delay={0.1}>
           <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             {/* Nombre */}
             <div className="group relative">
@@ -163,6 +165,7 @@ export function ContactSection() {
               Enviar mensaje
             </button>
           </form>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>

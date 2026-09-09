@@ -23,8 +23,16 @@ export function Header() {
   const mobileNavRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
+  const prefersReducedMotion = () =>
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
   // Animación de entrada del logo
   useEffect(() => {
+    if (prefersReducedMotion()) {
+      if (logoRef.current) gsap.set(logoRef.current, { opacity: 1 });
+      return;
+    }
     if (logoRef.current) {
       gsap.fromTo(
         logoRef.current,
@@ -36,6 +44,7 @@ export function Header() {
 
   // Animación de entrada de los links de navegación
   useEffect(() => {
+    if (prefersReducedMotion()) return;
     if (navRef.current && Object.keys(linksRef.current).length > 0) {
       gsap.fromTo(
         Object.values(linksRef.current).filter(Boolean),
@@ -53,6 +62,7 @@ export function Header() {
 
   // Animación del menú móvil
   useEffect(() => {
+    if (prefersReducedMotion()) return;
     if (mobileNavRef.current) {
       if (mobileOpen) {
         gsap.fromTo(
