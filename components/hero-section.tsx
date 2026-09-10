@@ -81,7 +81,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative mx-auto flex max-w-[1100px] flex-col items-center px-6 pb-20 pt-24 text-center md:pb-28 md:pt-36"
+      className="relative mx-auto flex max-w-[1100px] flex-col items-center px-5 pb-16 pt-16 text-center sm:px-6 sm:pb-20 sm:pt-24 md:pb-28 md:pt-36"
     >
       <div
         aria-hidden
@@ -90,22 +90,22 @@ export function HeroSection() {
 
       <p
         ref={roleRef}
-        className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/40 px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground backdrop-blur-sm"
+        className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.08em] text-muted-foreground backdrop-blur-sm sm:px-3.5 sm:text-xs sm:tracking-[0.14em]"
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 shadow-[0_0_8px_1px] shadow-foreground/25" />
+        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/70 shadow-[0_0_8px_1px] shadow-foreground/25" />
         {profile.role} &middot; {profile.specialization}
       </p>
 
       <h1
         ref={headlineRef}
-        className="mb-6 max-w-3xl bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-4xl font-bold leading-[1.08] tracking-tight text-transparent text-balance sm:text-5xl lg:text-[3.5rem]"
+        className="mb-5 max-w-3xl bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-3xl font-bold leading-[1.12] tracking-tight text-transparent text-balance sm:mb-6 sm:text-4xl sm:leading-[1.08] md:text-5xl lg:text-[3.5rem]"
       >
         {profile.headline}
       </h1>
 
       <p
         ref={subheadlineRef}
-        className="mb-11 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[1.0625rem]"
+        className="mb-8 max-w-xl text-sm leading-relaxed text-muted-foreground sm:mb-11 sm:text-[1.0625rem]"
       >
         {profile.subheadline}
       </p>

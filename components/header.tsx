@@ -129,14 +129,14 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/70 backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-background/60">
       <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between gap-3 px-4 sm:px-6">
         <a
           ref={logoRef}
           href="#about"
-          className="group inline-flex items-center gap-2 text-[0.95rem] font-semibold tracking-tight text-foreground transition-opacity duration-200 hover:opacity-80"
+          className="group inline-flex min-w-0 items-center gap-2 text-[0.95rem] font-semibold tracking-tight text-foreground transition-opacity duration-200 hover:opacity-80"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-foreground/80 shadow-[0_0_10px_2px] shadow-foreground/25 transition-transform duration-300 group-hover:scale-125" />
-          {profile.name}
+          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/80 shadow-[0_0_10px_2px] shadow-foreground/25 transition-transform duration-300 group-hover:scale-125" />
+          <span className="truncate">{profile.name}</span>
         </a>
 
         <nav
@@ -193,7 +193,7 @@ export function Header() {
       {mobileOpen && (
         <nav
           ref={mobileNavRef}
-          className="border-t border-border bg-background/95 px-6 pb-5 pt-3 backdrop-blur-xl md:hidden overflow-hidden"
+          className="border-t border-border bg-background/95 px-4 pb-5 pt-3 backdrop-blur-xl sm:px-6 md:hidden overflow-hidden"
         >
           {navLinks.map((link) => (
             <a

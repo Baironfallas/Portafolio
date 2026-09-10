@@ -87,7 +87,7 @@ export function AboutSection() {
         </div>
 
         <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[13rem_1fr] md:gap-14 lg:grid-cols-[15rem_1fr]">
-          <div ref={imageRef} className="flex-shrink-0">
+          <div ref={imageRef} className="mx-auto w-full max-w-[13rem] flex-shrink-0 md:mx-0 md:max-w-none">
             <div className="group relative">
               <div
                 aria-hidden
@@ -111,7 +111,7 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="max-w-2xl">
+          <div className="min-w-0 max-w-2xl">
             {about.paragraphs.map((text, idx) => (
               <p
                 key={idx}

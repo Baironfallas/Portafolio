@@ -102,7 +102,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         </div>
 
         {/* Actions */}
-        <div className="mt-auto flex items-center gap-2 border-t border-border/60 pt-4">
+        <div className="mt-auto flex flex-wrap items-center gap-2 border-t border-border/60 pt-4">
           <a
             href={project.demo_url}
             target="_blank"
