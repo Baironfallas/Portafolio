@@ -23,29 +23,19 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     ).matches;
     if (prefersReduced || !cardRef.current) return;
 
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const isEven = index % 2 === 0;
-
     gsap.fromTo(
       cardRef.current,
-      {
-        opacity: 0,
-        x: isMobile ? 0 : isEven ? -40 : 40,
-        y: isMobile ? 20 : 0,
-        rotateY: isMobile ? 0 : isEven ? 4 : -4,
-      },
+      { opacity: 0, y: 12 },
       {
         opacity: 1,
-        x: 0,
         y: 0,
-        rotateY: 0,
-        duration: isMobile ? 0.5 : 0.8,
-        ease: "power3.out",
+        duration: 0.5,
+        delay: index * 0.08,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: cardRef.current,
-          start: "top 88%",
-          end: "top 60%",
-          toggleActions: "play none none none",
+          start: "top 85%",
+          once: true,
         },
       },
     );
@@ -60,7 +50,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <div
       ref={cardRef}
-      className="group flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-card transition-all duration-300 hover:border-foreground/25 hover:shadow-[0_10px_40px_-12px_rgb(0,0,0,0.5)]"
+      className="project-card group flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-card transition-all duration-300 hover:border-foreground/25 hover:shadow-[0_10px_40px_-12px_rgb(0,0,0,0.5)]"
       style={{ opacity: 0 }}
     >
       {/* Image / Preview */}

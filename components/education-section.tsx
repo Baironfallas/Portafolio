@@ -27,11 +27,12 @@ export function EducationSection() {
 
     gsap.fromTo(
       cards,
-      { opacity: 0 },
+      { opacity: 0, y: 12 },
       {
         opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.08,
         ease: "power2.out",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -71,11 +72,9 @@ export function EducationSection() {
               ref={(el) => (cardsRef.current[i] = el)}
               onMouseEnter={() => handleCardHover(i, true)}
               onMouseLeave={() => handleCardHover(i, false)}
-              className="edu-card group relative flex flex-col overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent p-5 transition-all duration-200 hover:border-border hover:bg-hover cursor-pointer"
+              className="edu-card group relative flex flex-col overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent p-5 transition-all duration-200 hover:border-border cursor-pointer"
               style={{ opacity: 0 }}
             >
-              <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-foreground/25 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
               <div className="mb-3 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 shadow-[0_0_8px_1px] shadow-foreground/25" />
                 <span className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-muted-foreground">

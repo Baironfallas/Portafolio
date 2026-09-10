@@ -26,11 +26,12 @@ export function LanguagesSection() {
 
     gsap.fromTo(
       items,
-      { opacity: 0 },
+      { opacity: 0, y: 12 },
       {
         opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.08,
         ease: "power2.out",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -90,7 +91,7 @@ export function LanguagesSection() {
                 ref={(el) => (itemsRef.current[i] = el)}
                 onMouseEnter={() => handleItemHover(i, true)}
                 onMouseLeave={() => handleItemHover(i, false)}
-                className="lang-item group flex items-center justify-between gap-4 rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent px-5 py-4 transition-all duration-200 hover:border-border hover:bg-hover cursor-pointer"
+                className="lang-item group flex items-center justify-between gap-4 overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent px-5 py-4 transition-all duration-200 hover:border-border cursor-pointer"
                 style={{ opacity: 0 }}
               >
                 <div className="flex flex-col gap-2">
