@@ -87,7 +87,19 @@
     @apply bg-background text-foreground;
   }
   html {
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
   html.lenis, html.lenis body {
     height: auto;
@@ -102,28 +114,43 @@
 
 @layer components {
   /* Minimal skill animations */
-  .skill-category {
+  .skill-category,
+  .edu-card,
+  .lang-item,
+  .project-card {
     @apply relative;
   }
 
-  .skill-category::before {
+  .skill-category::before,
+  .edu-card::before,
+  .lang-item::before,
+  .project-card::before {
     content: '';
-    @apply absolute -left-2 -top-1 w-1 h-1 rounded-full bg-primary 
+    @apply absolute -left-2 -top-1 w-1 h-1 rounded-full bg-primary
            opacity-0 transition-opacity duration-300;
   }
 
-  .skill-category:hover::before {
+  .skill-category:hover::before,
+  .edu-card:hover::before,
+  .lang-item:hover::before,
+  .project-card:hover::before {
     @apply opacity-100;
   }
 
   /* Smooth line accent on hover */
-  .skill-category::after {
+  .skill-category::after,
+  .edu-card::after,
+  .lang-item::after,
+  .project-card::after {
     content: '';
     @apply absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-primary to-transparent
            transition-all duration-300 ease-out;
   }
 
-  .skill-category:hover::after {
+  .skill-category:hover::after,
+  .edu-card:hover::after,
+  .lang-item:hover::after,
+  .project-card:hover::after {
     @apply w-full;
   }
 
@@ -131,5 +158,21 @@
   .skill-category li {
     @apply relative;
     perspective: 1000px;
+  }
+
+  /* Elegant hover micro-interaction for the profile image */
+  .profile-image-hover {
+    @apply transition-transform duration-300 ease-out;
+  }
+  .profile-image-hover:hover {
+    transform: scale(1.03);
+  }
+
+  /* Subtle micro-interaction for language level badges */
+  .lang-badge {
+    @apply transition-transform duration-200 ease-out;
+  }
+  .lang-badge:hover {
+    transform: translateY(-1px) scale(1.04);
   }
 }

@@ -27,11 +27,12 @@ export function EducationSection() {
 
     gsap.fromTo(
       cards,
-      { opacity: 0 },
+      { opacity: 0, y: 12 },
       {
         opacity: 1,
-        duration: 0.6,
-        stagger: 0.1,
+        y: 0,
+        duration: 0.5,
+        stagger: 0.08,
         ease: "power2.out",
         scrollTrigger: {
           trigger: containerRef.current,
@@ -53,33 +54,40 @@ export function EducationSection() {
   };
 
   return (
-    <section id="education" className="border-t border-border">
-      <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-20">
-        <div className="mb-10 flex items-center gap-2.5">
-          <GraduationCap className="h-5 w-5 text-foreground" />
-          <h2 className="text-xl font-semibold tracking-tight text-foreground">
+    <section id="education" className="border-t border-border/70">
+      <div className="mx-auto max-w-[1100px] px-5 py-14 sm:px-6 md:py-16">
+        <div className="mb-10 flex items-center gap-3">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40">
+            <GraduationCap className="h-[18px] w-[18px] text-foreground" />
+          </span>
+          <h2 className="text-xl font-semibold tracking-tight text-foreground md:text-[1.375rem]">
             Formación académica
           </h2>
         </div>
 
-        <div ref={containerRef} className="grid gap-6 md:grid-cols-3">
+        <div ref={containerRef} className="grid gap-4 sm:gap-5 md:grid-cols-3">
           {profile.education.map((edu, i) => (
             <div
               key={i}
               ref={(el) => (cardsRef.current[i] = el)}
               onMouseEnter={() => handleCardHover(i, true)}
               onMouseLeave={() => handleCardHover(i, false)}
-              className="edu-card flex flex-col rounded-xl border border-border p-6 transition-all duration-200 hover:bg-hover cursor-pointer"
+              className="edu-card group relative flex flex-col overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent p-5 transition-all duration-200 hover:border-border cursor-pointer"
               style={{ opacity: 0 }}
             >
-              <p className="text-sm font-semibold text-foreground">
+              <div className="mb-3 flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 shadow-[0_0_8px_1px] shadow-foreground/25" />
+                <span className="text-[0.6875rem] font-medium uppercase tracking-[0.12em] text-muted-foreground">
+                  {edu.year}
+                </span>
+              </div>
+
+              <p className="text-[0.9375rem] font-semibold leading-snug text-foreground">
                 {edu.degree}
               </p>
-              <p className="mt-1.5 text-sm text-muted-foreground">
+              <p className="mt-1.5 flex items-center gap-1.5 text-sm text-muted-foreground">
+                <GraduationCap className="h-3.5 w-3.5 shrink-0 opacity-60" />
                 {edu.institution}
-              </p>
-              <p className="mt-auto pt-3 text-xs text-muted-foreground">
-                {edu.year}
               </p>
             </div>
           ))}

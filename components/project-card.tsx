@@ -23,29 +23,19 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     ).matches;
     if (prefersReduced || !cardRef.current) return;
 
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
-    const isEven = index % 2 === 0;
-
     gsap.fromTo(
       cardRef.current,
-      {
-        opacity: 0,
-        x: isMobile ? 0 : isEven ? -40 : 40,
-        y: isMobile ? 20 : 0,
-        rotateY: isMobile ? 0 : isEven ? 4 : -4,
-      },
+      { opacity: 0, y: 12 },
       {
         opacity: 1,
-        x: 0,
         y: 0,
-        rotateY: 0,
-        duration: isMobile ? 0.5 : 0.8,
-        ease: "power3.out",
+        duration: 0.5,
+        delay: index * 0.08,
+        ease: "power2.out",
         scrollTrigger: {
           trigger: cardRef.current,
-          start: "top 88%",
-          end: "top 60%",
-          toggleActions: "play none none none",
+          start: "top 85%",
+          once: true,
         },
       },
     );
@@ -60,24 +50,25 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <div
       ref={cardRef}
-      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-foreground/20 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:hover:shadow-[0_8px_30px_rgb(255,255,255,0.04)]"
+      className="project-card group flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-card transition-all duration-300 hover:border-foreground/25 hover:shadow-[0_10px_40px_-12px_rgb(0,0,0,0.5)]"
       style={{ opacity: 0 }}
     >
       {/* Image / Preview */}
-      <div className="relative aspect-video w-full overflow-hidden bg-secondary">
+      <div className="relative aspect-video w-full overflow-hidden border-b border-border/70 bg-secondary">
         <Image
           src={project.image_url}
           alt={`Vista previa de ${project.name}`}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover brightness-[0.92] saturate-[0.9] transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:brightness-100 group-hover:saturate-100"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-t from-card/70 via-transparent to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-30" />
+        <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5" />
         <a
           href={project.demo_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-lg bg-background/90 text-foreground opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 hover:bg-background"
+          className="absolute right-3 top-3 flex h-9 w-9 translate-y-1 items-center justify-center rounded-lg border border-border/60 bg-background/80 text-foreground opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-background"
           aria-label={`Ver demo de ${project.name}`}
         >
           <ArrowUpRight className="h-4 w-4" />
@@ -86,10 +77,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="mb-1.5 text-lg font-semibold text-foreground">
+        <h3 className="mb-2 text-[0.9375rem] font-semibold tracking-tight text-foreground">
           {project.name}
         </h3>
-        <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+        <p className="mb-4 line-clamp-3 text-[0.8125rem] leading-relaxed text-muted-foreground">
           {project.description}
         </p>
 
@@ -98,25 +89,25 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {project.stack.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="rounded-md bg-secondary px-2 py-0.5 text-xs font-medium text-secondary-foreground"
+              className="rounded-md border border-border/60 bg-background/40 px-2 py-0.5 text-[0.6875rem] font-medium leading-none text-muted-foreground"
             >
               {tech}
             </span>
           ))}
           {project.stack.length > 4 && (
-            <span className="rounded-md bg-secondary px-2 py-0.5 text-xs font-medium text-muted-foreground">
+            <span className="rounded-md border border-border/60 bg-background/40 px-2 py-0.5 text-[0.6875rem] font-medium leading-none text-muted-foreground/70">
               +{project.stack.length - 4}
             </span>
           )}
         </div>
 
         {/* Actions */}
-        <div className="mt-auto flex items-center gap-3">
+        <div className="mt-auto flex flex-wrap items-center gap-2 border-t border-border/60 pt-4">
           <a
             href={project.demo_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-xs font-medium text-primary-foreground transition-opacity duration-200 hover:opacity-90"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-xs font-semibold text-primary-foreground transition-opacity duration-200 hover:opacity-90"
           >
             <ExternalLink className="h-3.5 w-3.5" />
             Ver proyecto
@@ -126,14 +117,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.github_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-border px-4 py-2 text-xs font-medium text-foreground transition-colors duration-200 hover:bg-hover"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-border/70 px-3.5 py-2 text-xs font-medium text-muted-foreground transition-colors duration-200 hover:border-border hover:bg-hover hover:text-foreground"
             >
               <Github className="h-3.5 w-3.5" />
               Código
             </a>
           ) : (
             <div
-              className="inline-flex items-center gap-1.5 rounded-lg border border-border/50 px-4 py-2 text-xs font-medium text-muted-foreground bg-muted/30"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-dashed border-border/60 px-3.5 py-2 text-xs font-medium text-muted-foreground/80"
               title="Este proyecto es privado"
             >
               <Lock className="h-3.5 w-3.5" />
