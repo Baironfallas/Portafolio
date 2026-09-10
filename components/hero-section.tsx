@@ -81,30 +81,36 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="mx-auto flex max-w-[1100px] flex-col items-center px-6 pb-16 pt-20 text-center md:pt-28"
+      className="relative mx-auto flex max-w-[1100px] flex-col items-center px-6 pb-20 pt-24 text-center md:pb-28 md:pt-36"
     >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[420px] w-[min(90vw,720px)] -translate-x-1/2 rounded-full bg-foreground/[0.06] blur-[120px]"
+      />
+
       <p
         ref={roleRef}
-        className="mb-3 text-sm font-medium tracking-wide text-muted-foreground"
+        className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/40 px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground backdrop-blur-sm"
       >
+        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80 shadow-[0_0_8px_1px] shadow-emerald-400/40" />
         {profile.role} &middot; {profile.specialization}
       </p>
 
       <h1
         ref={headlineRef}
-        className="mb-5 max-w-2xl text-3xl font-bold leading-tight tracking-tight text-foreground text-balance md:text-4xl lg:text-[2.75rem]"
+        className="mb-6 max-w-3xl bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-4xl font-bold leading-[1.08] tracking-tight text-transparent text-balance sm:text-5xl lg:text-[3.5rem]"
       >
         {profile.headline}
       </h1>
 
       <p
         ref={subheadlineRef}
-        className="mb-10 max-w-lg text-base leading-relaxed text-muted-foreground"
+        className="mb-11 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-[1.0625rem]"
       >
         {profile.subheadline}
       </p>
 
-      <div className="flex flex-wrap items-center justify-center gap-3">
+      <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
         <a
           ref={(el) => {
             if (el) buttonRefs.current[0] = el;
@@ -112,7 +118,7 @@ export function HeroSection() {
           href="#contact"
           onMouseEnter={() => handleButtonHover(0, true)}
           onMouseLeave={() => handleButtonHover(0, false)}
-          className="inline-flex items-center gap-2 rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-all duration-200 hover:opacity-90"
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_1px_0_0_rgba(255,255,255,0.4)_inset,0_8px_24px_-8px_rgba(0,0,0,0.5)] transition-all duration-200 hover:opacity-90"
         >
           <Mail className="h-4 w-4" />
           Contactar
@@ -125,7 +131,7 @@ export function HeroSection() {
           href="#projects"
           onMouseEnter={() => handleButtonHover(1, true)}
           onMouseLeave={() => handleButtonHover(1, false)}
-          className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-all duration-200 hover:bg-hover"
+          className="inline-flex items-center justify-center gap-2 rounded-xl border border-border/80 bg-background/40 px-5 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-200 hover:border-border hover:bg-hover"
         >
           <ArrowDown className="h-4 w-4" />
           Ver proyectos
@@ -140,7 +146,7 @@ export function HeroSection() {
           rel="noopener noreferrer"
           onMouseEnter={() => handleButtonHover(2, true)}
           onMouseLeave={() => handleButtonHover(2, false)}
-          className="inline-flex items-center gap-2 rounded-lg border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-all duration-200 hover:bg-hover"
+          className="inline-flex items-center justify-center gap-2 rounded-xl border border-border/80 bg-background/40 px-5 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-200 hover:border-border hover:bg-hover"
         >
           <FileDown className="h-4 w-4" />
           Ver CV

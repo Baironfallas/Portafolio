@@ -67,33 +67,55 @@ export function AboutSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id={about.sectionId} className="border-t border-border">
-      <div className="mx-auto max-w-[1100px] px-6 py-12 md:py-14">
-        <h2 ref={titleRef} className="mb-8 text-xl font-semibold tracking-tight text-foreground">
+    <section ref={sectionRef} id={about.sectionId} className="relative border-t border-border/70">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"
+      />
+      <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-24">
+        <h2
+          ref={titleRef}
+          className="mb-12 flex items-center gap-3 text-2xl font-semibold tracking-tight text-foreground md:text-[1.75rem]"
+        >
+          <span className="h-px w-8 bg-gradient-to-r from-foreground/60 to-transparent" />
           {about.title}
         </h2>
 
-        <div className="flex flex-col items-start gap-8 md:flex-row md:gap-12">
+        <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[13rem_1fr] md:gap-14 lg:grid-cols-[15rem_1fr]">
           <div ref={imageRef} className="flex-shrink-0">
-            <div className="profile-image-hover relative h-44 w-44 overflow-hidden rounded-xl border border-border md:h-52 md:w-52">
-              <Image
-                src={about.image.src}
-                alt={about.image.alt}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 176px, 208px"
+            <div className="group relative">
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -inset-3 rounded-[1.4rem] bg-foreground/[0.07] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
               />
+              <div className="relative rounded-2xl bg-gradient-to-br from-border/80 via-border/30 to-transparent p-px">
+                <div className="profile-image-hover relative aspect-square w-full overflow-hidden rounded-2xl border border-border/60 bg-background md:h-60 md:w-60 lg:h-[15rem] lg:w-[15rem]">
+                  <Image
+                    src={about.image.src}
+                    alt={about.image.alt}
+                    fill
+                    className="object-cover grayscale-[0.15] transition-all duration-500 group-hover:grayscale-0"
+                    sizes="(max-width: 768px) 100vw, 240px"
+                  />
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/5"
+                  />
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="flex-1">
+          <div className="max-w-2xl">
             {about.paragraphs.map((text, idx) => (
               <p
                 key={idx}
                 ref={(el) => (paragraphsRef.current[idx] = el)}
                 className={[
-                  "leading-relaxed text-muted-foreground",
-                  idx > 0 ? "mt-4" : "",
+                  "leading-relaxed",
+                  idx === 0
+                    ? "text-lg text-foreground/90 md:text-xl"
+                    : "mt-5 text-muted-foreground",
                 ].join(" ")}
               >
                 {text}

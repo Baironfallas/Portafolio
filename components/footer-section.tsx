@@ -6,16 +6,20 @@ const profile: Profile = profileData;
 
 export function FooterSection() {
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto flex max-w-[1100px] flex-col items-center gap-4 px-6 py-8 md:flex-row md:justify-between">
-        <p className="text-xs text-muted-foreground">
+    <footer className="relative border-t border-border/70">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"
+      />
+      <div className="mx-auto flex max-w-[1100px] flex-col items-center gap-5 px-6 py-10 md:flex-row md:justify-between md:py-8">
+        <p className="order-2 text-xs tracking-wide text-muted-foreground md:order-1">
           {profile.name} &copy; {new Date().getFullYear()}. All rights reserved.
         </p>
 
-        <div className="flex items-center gap-4">
+        <div className="order-1 flex items-center gap-2 md:order-2">
           <a
             href={`mailto:${profile.email}`}
-            className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:bg-hover hover:text-foreground"
             aria-label="Email"
           >
             <Mail className="h-4 w-4" />
@@ -24,7 +28,7 @@ export function FooterSection() {
             href={profile.github_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:bg-hover hover:text-foreground"
             aria-label="GitHub"
           >
             <Github className="h-4 w-4" />
@@ -33,7 +37,7 @@ export function FooterSection() {
             href={profile.linkedin_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground transition-colors duration-200 hover:text-foreground"
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:bg-hover hover:text-foreground"
             aria-label="LinkedIn"
           >
             <Linkedin className="h-4 w-4" />
