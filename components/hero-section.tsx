@@ -85,14 +85,14 @@ export function HeroSection() {
     >
       <div
         aria-hidden
-        className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[420px] w-[min(90vw,720px)] -translate-x-1/2 rounded-full bg-foreground/[0.06] blur-[120px]"
+        className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[420px] w-[min(90vw,720px)] -translate-x-1/2 rounded-full bg-foreground/[0.05] blur-[120px]"
       />
 
       <p
         ref={roleRef}
         className="mb-5 inline-flex items-center gap-2 rounded-full border border-border/70 bg-background/40 px-3.5 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground backdrop-blur-sm"
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400/80 shadow-[0_0_8px_1px] shadow-emerald-400/40" />
+        <span className="h-1.5 w-1.5 rounded-full bg-foreground/70 shadow-[0_0_8px_1px] shadow-foreground/25" />
         {profile.role} &middot; {profile.specialization}
       </p>
 
@@ -110,7 +110,7 @@ export function HeroSection() {
         {profile.subheadline}
       </p>
 
-      <div className="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+      <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
         <a
           ref={(el) => {
             if (el) buttonRefs.current[0] = el;

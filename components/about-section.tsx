@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import { UserRound } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import aboutData from "@/data/aboutme.json";
@@ -72,14 +73,18 @@ export function AboutSection() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"
       />
-      <div className="mx-auto max-w-[1100px] px-6 py-16 md:py-24">
-        <h2
-          ref={titleRef}
-          className="mb-12 flex items-center gap-3 text-2xl font-semibold tracking-tight text-foreground md:text-[1.75rem]"
-        >
-          <span className="h-px w-8 bg-gradient-to-r from-foreground/60 to-transparent" />
-          {about.title}
-        </h2>
+      <div className="mx-auto max-w-[1100px] px-6 py-14 md:py-16">
+        <div className="mb-10 flex items-center gap-3">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40">
+            <UserRound className="h-[18px] w-[18px] text-foreground" />
+          </span>
+          <h2
+            ref={titleRef}
+            className="text-xl font-semibold tracking-tight text-foreground md:text-[1.375rem]"
+          >
+            {about.title}
+          </h2>
+        </div>
 
         <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-[13rem_1fr] md:gap-14 lg:grid-cols-[15rem_1fr]">
           <div ref={imageRef} className="flex-shrink-0">
