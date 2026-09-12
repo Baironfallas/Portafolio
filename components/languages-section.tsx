@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Profile } from "@/types/profile";
 import profileData from "@/data/profile.json";
+import { RevealText } from "@/components/reveal-text";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -68,14 +69,14 @@ export function LanguagesSection() {
   };
 
   return (
-    <section id="languages" className="border-t border-border/70">
-      <div className="mx-auto max-w-[1100px] px-5 py-14 sm:px-6 md:py-16">
+    <section id="languages" className="section-divider">
+      <div className="mx-auto max-w-[1100px] px-5 py-16 sm:px-6 md:py-20 lg:py-24">
         <div className="mb-10 flex items-center gap-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40">
             <Globe className="h-[18px] w-[18px] text-foreground" />
           </span>
-          <h2 className="text-xl font-semibold tracking-tight text-foreground md:text-[1.375rem]">
-            Idiomas
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+            <RevealText>Idiomas</RevealText>
           </h2>
         </div>
 

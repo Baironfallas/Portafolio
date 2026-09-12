@@ -15,6 +15,7 @@ import profileData from "@/data/profile.json";
 const profile: Profile = profileData;
 import { useState } from "react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
+import { RevealText } from "@/components/reveal-text";
 
 export function ContactSection() {
   const [formState, setFormState] = useState({
@@ -31,14 +32,14 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="border-t border-border/70">
-      <div className="mx-auto max-w-[1100px] px-5 py-14 sm:px-6 md:py-16">
+    <section id="contact" className="section-divider">
+      <div className="mx-auto max-w-[1100px] px-5 py-16 sm:px-6 md:py-20 lg:py-24">
         <div className="mb-10 flex items-center gap-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40">
             <Mail className="h-[18px] w-[18px] text-foreground" />
           </span>
-          <h2 className="text-xl font-semibold tracking-tight text-foreground md:text-[1.375rem]">
-            Contacto
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+            <RevealText>Contacto</RevealText>
           </h2>
         </div>
 

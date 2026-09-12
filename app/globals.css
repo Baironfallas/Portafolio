@@ -51,7 +51,7 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-sans: 'Space Grotesk', 'Space Grotesk Fallback', system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -128,6 +128,27 @@
 }
 
 @layer components {
+  /* Cinematic scene divider: soft gradient line with a glowing center beam */
+  .section-divider {
+    @apply relative;
+  }
+  .section-divider::before {
+    content: '';
+    @apply pointer-events-none absolute inset-x-0 top-0 h-px
+           bg-gradient-to-r from-transparent via-border to-transparent;
+  }
+  .section-divider::after {
+    content: '';
+    left: 50%;
+    top: -1px;
+    width: min(220px, 60%);
+    height: 2px;
+    filter: blur(6px);
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(255, 255, 255, 0.35), transparent 70%);
+    @apply pointer-events-none absolute;
+  }
+
   /* Minimal skill animations */
   .skill-category,
   .edu-card,
