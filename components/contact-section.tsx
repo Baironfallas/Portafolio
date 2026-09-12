@@ -15,6 +15,7 @@ import profileData from "@/data/profile.json";
 const profile: Profile = profileData;
 import { useState } from "react";
 import { AnimateOnScroll } from "@/components/animate-on-scroll";
+import { RevealText } from "@/components/reveal-text";
 
 export function ContactSection() {
   const [formState, setFormState] = useState({
@@ -31,14 +32,14 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="border-t border-border/70">
-      <div className="mx-auto max-w-[1100px] px-5 py-14 sm:px-6 md:py-16">
+    <section id="contact" className="section-divider">
+      <div className="mx-auto max-w-[1100px] px-5 py-16 sm:px-6 md:py-20 lg:py-24">
         <div className="mb-10 flex items-center gap-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40">
             <Mail className="h-[18px] w-[18px] text-foreground" />
           </span>
-          <h2 className="text-xl font-semibold tracking-tight text-foreground md:text-[1.375rem]">
-            Contacto
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+            <RevealText>Contacto</RevealText>
           </h2>
         </div>
 
@@ -54,7 +55,7 @@ export function ContactSection() {
               <div className="flex flex-col gap-2.5">
                 <a
                   href={`mailto:${profile.email}`}
-                  className="group flex items-center gap-3 rounded-lg border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent px-4 py-3 text-sm text-muted-foreground transition-all duration-200 hover:border-border hover:bg-hover hover:text-foreground"
+                  className="group flex items-center gap-3 rounded-lg border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent px-4 py-3 text-sm text-muted-foreground transition-all duration-200 hover:border-brand/50 hover:bg-hover hover:text-foreground hover:shadow-[0_0_0_1px_rgba(var(--brand-rgb),0.5),0_10px_30px_-10px_rgba(var(--brand-rgb),0.35)]"
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border/70 bg-background/60 transition-colors duration-200 group-hover:text-foreground">
                     <Mail className="h-4 w-4" />
@@ -65,7 +66,7 @@ export function ContactSection() {
                   href={profile.github_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-lg border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent px-4 py-3 text-sm text-muted-foreground transition-all duration-200 hover:border-border hover:bg-hover hover:text-foreground"
+                  className="group flex items-center gap-3 rounded-lg border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent px-4 py-3 text-sm text-muted-foreground transition-all duration-200 hover:border-brand/50 hover:bg-hover hover:text-foreground hover:shadow-[0_0_0_1px_rgba(var(--brand-rgb),0.5),0_10px_30px_-10px_rgba(var(--brand-rgb),0.35)]"
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border/70 bg-background/60 transition-colors duration-200 group-hover:text-foreground">
                     <Github className="h-4 w-4" />
@@ -76,7 +77,7 @@ export function ContactSection() {
                   href={profile.linkedin_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-lg border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent px-4 py-3 text-sm text-muted-foreground transition-all duration-200 hover:border-border hover:bg-hover hover:text-foreground"
+                  className="group flex items-center gap-3 rounded-lg border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent px-4 py-3 text-sm text-muted-foreground transition-all duration-200 hover:border-brand/50 hover:bg-hover hover:text-foreground hover:shadow-[0_0_0_1px_rgba(var(--brand-rgb),0.5),0_10px_30px_-10px_rgba(var(--brand-rgb),0.35)]"
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-border/70 bg-background/60 transition-colors duration-200 group-hover:text-foreground">
                     <Linkedin className="h-4 w-4" />
@@ -90,7 +91,7 @@ export function ContactSection() {
           <AnimateOnScroll delay={0.1}>
           <form
             onSubmit={handleSubmit}
-            className="flex flex-col gap-5 rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent p-5 sm:p-6 md:p-7"
+            className="flex flex-col gap-5 rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent p-5 transition-all duration-200 focus-within:border-brand/50 focus-within:shadow-[0_0_0_1px_rgba(var(--brand-rgb),0.5),0_10px_30px_-10px_rgba(var(--brand-rgb),0.35)] sm:p-6 md:p-7"
           >
             {/* Nombre */}
             <div className="group relative">
@@ -111,11 +112,11 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, name: e.target.value }))
                 }
-                className="w-full rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-foreground/40 focus:bg-background/60 focus:outline-none"
+                className="w-full rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-brand/50 focus:bg-background/60 focus:outline-none"
                 placeholder="Tu nombre"
               />
               <span
-                className={`absolute -bottom-px left-0 h-px rounded-full bg-foreground/50 transition-all duration-300 ease-out ${focused ==="name" ? "w-full" : "w-0"}`}
+                className={`absolute -bottom-px left-0 h-px rounded-full bg-brand transition-all duration-300 ease-out ${focused ==="name" ? "w-full" : "w-0"}`}
               />
             </div>
 
@@ -138,11 +139,11 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, email: e.target.value }))
                 }
-                className="w-full rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-foreground/40 focus:bg-background/60 focus:outline-none"
+                className="w-full rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-brand/50 focus:bg-background/60 focus:outline-none"
                 placeholder="tu@email.com"
               />
               <span
-                className={`absolute -bottom-px left-0 h-px rounded-full bg-foreground/50 transition-all duration-300 ease-out ${focused ==="email" ? "w-full" : "w-0"}`}
+                className={`absolute -bottom-px left-0 h-px rounded-full bg-brand transition-all duration-300 ease-out ${focused ==="email" ? "w-full" : "w-0"}`}
               />
             </div>
 
@@ -165,11 +166,11 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, message: e.target.value }))
                 }
-                className="w-full resize-none rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-foreground/40 focus:bg-background/60 focus:outline-none"
+                className="w-full resize-none rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-brand/50 focus:bg-background/60 focus:outline-none"
                 placeholder="Cuéntame sobre tu proyecto..."
               />
               <span
-                className={`absolute -bottom-px left-0 h-px rounded-full bg-foreground/50 transition-all duration-300 ease-out ${focused ==="message" ? "w-full" : "w-0"}`}
+                className={`absolute -bottom-px left-0 h-px rounded-full bg-brand transition-all duration-300 ease-out ${focused ==="message" ? "w-full" : "w-0"}`}
               />
             </div>
 

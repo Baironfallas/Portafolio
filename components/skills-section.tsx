@@ -13,6 +13,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { SkillCategory } from "@/types/skill";
 import skillsData from "@/data/skills.json";
+import { AnimatedCounter } from "@/components/animated-counter";
+import { RevealText } from "@/components/reveal-text";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -61,14 +63,14 @@ export function SkillsSection() {
   }, []);
 
   return (
-    <section id="skills" className="border-t border-border/70">
-      <div className="mx-auto max-w-[1100px] px-5 py-14 sm:px-6 md:py-16">
+    <section id="skills" className="section-divider">
+      <div className="mx-auto max-w-[1100px] px-5 py-16 sm:px-6 md:py-20 lg:py-24">
         <div className="mb-10 flex items-center gap-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40">
             <Wrench className="h-[18px] w-[18px] text-foreground" />
           </span>
-          <h2 className="text-xl font-semibold tracking-tight text-foreground md:text-[1.375rem]">
-            Habilidades
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+            <RevealText>Habilidades</RevealText>
           </h2>
         </div>
         <div
@@ -80,7 +82,7 @@ export function SkillsSection() {
             return (
               <div
                 key={category.name}
-                className="skill-category group relative flex flex-col overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent p-5 transition-all duration-200 hover:border-border"
+                className="skill-category group relative flex flex-col overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent p-5 transition-all duration-200 hover:border-brand/50 hover:shadow-[0_0_0_1px_rgba(var(--brand-rgb),0.5),0_10px_30px_-10px_rgba(var(--brand-rgb),0.35)]"
                 style={{ opacity: 0 }}
               >
                 <div className="mb-4 flex items-center gap-2.5">
@@ -92,9 +94,10 @@ export function SkillsSection() {
                   <h3 className="text-sm font-semibold text-foreground">
                     {category.name}
                   </h3>
-                  <span className="ml-auto text-xs tabular-nums text-muted-foreground/70">
-                    {category.skills.length}
-                  </span>
+                  <AnimatedCounter
+                    value={category.skills.length}
+                    className="ml-auto text-xs tabular-nums text-muted-foreground/70"
+                  />
                 </div>
                 <ul className="flex flex-wrap gap-1.5">
                   {category.skills.map((skill, skillIdx) => (

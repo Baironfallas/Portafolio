@@ -17,11 +17,35 @@ const navLinks = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState<string>("");
   const logoRef = useRef<HTMLAnchorElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<Record<number, HTMLAnchorElement | null>>({});
   const mobileNavRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Indicador de sección activa mientras se hace scroll
+  useEffect(() => {
+    const sections = navLinks
+      .map((link) => document.querySelector(link.href))
+      .filter((el): el is Element => el !== null);
+
+    if (sections.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveHref(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   const prefersReducedMotion = () =>
     typeof window !== "undefined" &&
@@ -135,7 +159,7 @@ export function Header() {
           href="#about"
           className="group inline-flex min-w-0 items-center gap-2 text-[0.95rem] font-semibold tracking-tight text-foreground transition-opacity duration-200 hover:opacity-80"
         >
-          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/80 shadow-[0_0_10px_2px] shadow-foreground/25 transition-transform duration-300 group-hover:scale-125" />
+          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand shadow-[0_0_10px_2px] shadow-brand/40 transition-transform duration-300 group-hover:scale-125" />
           <span className="truncate">{profile.name}</span>
         </a>
 
@@ -152,7 +176,12 @@ export function Header() {
               href={link.href}
               onMouseEnter={() => handleNavHover(index, true)}
               onMouseLeave={() => handleNavHover(index, false)}
-              className="rounded-full px-3.5 py-1.5 text-[0.8125rem] font-medium text-muted-foreground transition-colors duration-200 hover:bg-hover/70 hover:text-foreground"
+              className={[
+                "rounded-full px-3.5 py-1.5 text-[0.8125rem] font-medium transition-colors duration-200",
+                activeHref === link.href
+                  ? "bg-brand/15 text-foreground"
+                  : "text-muted-foreground hover:bg-brand/10 hover:text-foreground",
+              ].join(" ")}
             >
               {link.label}
             </a>
@@ -202,7 +231,7 @@ export function Header() {
               onClick={() => setMobileOpen(false)}
               onMouseEnter={(e) => handleMobileItemHover(e.currentTarget as HTMLElement, true)}
               onMouseLeave={(e) => handleMobileItemHover(e.currentTarget as HTMLElement, false)}
-              className="block rounded-lg px-3 py-2.5 text-sm text-muted-foreground transition-colors duration-200 hover:bg-hover hover:text-foreground"
+              className="block rounded-lg px-3 py-2.5 text-sm text-muted-foreground transition-colors duration-200 hover:bg-brand/10 hover:text-foreground"
             >
               {link.label}
             </a>

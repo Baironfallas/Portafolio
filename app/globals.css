@@ -25,6 +25,9 @@
   --ring: #FFFFFF;
   --radius: 0.625rem;
   --hover: #1F2937;
+  --brand: #8B5CF6;
+  --brand-foreground: #FFFFFF;
+  --brand-rgb: 139, 92, 246;
 }
 
 .dark {
@@ -48,10 +51,13 @@
   --input: #27272A;
   --ring: #FFFFFF;
   --hover: #1F2937;
+  --brand: #8B5CF6;
+  --brand-foreground: #FFFFFF;
+  --brand-rgb: 139, 92, 246;
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-sans: 'Space Grotesk', 'Space Grotesk Fallback', system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -73,6 +79,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-hover: var(--hover);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -110,9 +118,45 @@
   .lenis.lenis-smooth [data-lenis-prevent] {
     overscroll-behavior: contain;
   }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body::before {
+      display: none;
+    }
+  }
 }
 
 @layer components {
+  /* Cinematic scene divider: soft gradient line with a glowing center beam */
+  .section-divider {
+    @apply relative;
+  }
+  .section-divider::before {
+    content: '';
+    @apply pointer-events-none absolute inset-x-0 top-0 h-px
+           bg-gradient-to-r from-transparent via-border to-transparent;
+  }
+  .section-divider::after {
+    content: '';
+    left: 50%;
+    top: -1px;
+    width: min(220px, 60%);
+    height: 2px;
+    filter: blur(6px);
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, rgba(var(--brand-rgb), 0.45), transparent 70%);
+    @apply pointer-events-none absolute;
+  }
+
   /* Minimal skill animations */
   .skill-category,
   .edu-card,
@@ -126,7 +170,7 @@
   .lang-item::before,
   .project-card::before {
     content: '';
-    @apply absolute -left-2 -top-1 w-1 h-1 rounded-full bg-primary
+    @apply absolute -left-2 -top-1 w-1 h-1 rounded-full bg-brand
            opacity-0 transition-opacity duration-300;
   }
 
@@ -143,7 +187,7 @@
   .lang-item::after,
   .project-card::after {
     content: '';
-    @apply absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-primary to-transparent
+    @apply absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-brand to-transparent
            transition-all duration-300 ease-out;
   }
 

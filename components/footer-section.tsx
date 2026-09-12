@@ -6,11 +6,7 @@ const profile: Profile = profileData;
 
 export function FooterSection() {
   return (
-    <footer className="relative border-t border-border/70">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-border to-transparent"
-      />
+    <footer className="section-divider">
       <div className="mx-auto flex max-w-[1100px] flex-col items-center gap-5 px-5 py-10 sm:px-6 md:flex-row md:justify-between md:py-8">
         <p className="order-2 text-center text-xs tracking-wide text-muted-foreground md:order-1">
           {profile.name} &copy; {new Date().getFullYear()}. All rights reserved.

@@ -48,11 +48,20 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
   }, [index]);
 
   return (
-    <div
-      ref={cardRef}
-      className="project-card group flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-card transition-all duration-300 hover:border-foreground/25 hover:shadow-[0_10px_40px_-12px_rgb(0,0,0,0.5)]"
-      style={{ opacity: 0 }}
-    >
+    <div className="group relative rounded-xl bg-border/70 p-px">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background:
+            "conic-gradient(from 180deg, rgba(var(--brand-rgb), 0.8), rgba(var(--brand-rgb), 0) 30%, rgba(var(--brand-rgb), 0) 70%, rgba(var(--brand-rgb), 0.8))",
+        }}
+      />
+      <div
+        ref={cardRef}
+        className="project-card relative z-10 flex h-full flex-col overflow-hidden rounded-xl bg-card transition-all duration-300 group-hover:shadow-[0_10px_40px_-12px_rgb(0,0,0,0.5)]"
+        style={{ opacity: 0 }}
+      >
       {/* Image / Preview */}
       <div className="relative aspect-video w-full overflow-hidden border-b border-border/70 bg-secondary">
         <Image
@@ -132,6 +141,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </div>
           )}
         </div>
+      </div>
       </div>
     </div>
   );

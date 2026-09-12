@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Profile } from "@/types/profile";
 import profileData from "@/data/profile.json";
+import { RevealText } from "@/components/reveal-text";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -48,6 +49,9 @@ export function LanguagesSection() {
         scale: isHovering ? 1.05 : 1,
         duration: 0.25,
         ease: "power2.out",
+        boxShadow: isHovering
+          ? "0 0 0 1px rgba(var(--brand-rgb), 0.5), 0 10px 30px -10px rgba(var(--brand-rgb), 0.35)"
+          : "0 0 0 1px rgba(var(--brand-rgb), 0)",
       });
     }
   };
@@ -68,14 +72,14 @@ export function LanguagesSection() {
   };
 
   return (
-    <section id="languages" className="border-t border-border/70">
-      <div className="mx-auto max-w-[1100px] px-5 py-14 sm:px-6 md:py-16">
+    <section id="languages" className="section-divider">
+      <div className="mx-auto max-w-[1100px] px-5 py-16 sm:px-6 md:py-20 lg:py-24">
         <div className="mb-10 flex items-center gap-3">
           <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40">
             <Globe className="h-[18px] w-[18px] text-foreground" />
           </span>
-          <h2 className="text-xl font-semibold tracking-tight text-foreground md:text-[1.375rem]">
-            Idiomas
+          <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+            <RevealText>Idiomas</RevealText>
           </h2>
         </div>
 
@@ -91,7 +95,7 @@ export function LanguagesSection() {
                 ref={(el) => (itemsRef.current[i] = el)}
                 onMouseEnter={() => handleItemHover(i, true)}
                 onMouseLeave={() => handleItemHover(i, false)}
-                className="lang-item group flex items-center justify-between gap-4 overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent px-5 py-4 transition-all duration-200 hover:border-border cursor-pointer"
+                className="lang-item group flex items-center justify-between gap-4 overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent px-5 py-4 transition-colors duration-200 hover:border-brand/50 cursor-pointer"
                 style={{ opacity: 0 }}
               >
                 <div className="flex flex-col gap-2">
@@ -105,7 +109,7 @@ export function LanguagesSection() {
                         className={[
                           "h-1 w-5 rounded-full transition-colors duration-300",
                           dot < strength
-                            ? "bg-foreground/80"
+                            ? "bg-brand"
                             : "bg-border",
                         ].join(" ")}
                       />
