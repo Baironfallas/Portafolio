@@ -170,7 +170,7 @@
   .lang-item::before,
   .project-card::before {
     content: '';
-    @apply absolute -left-2 -top-1 w-1 h-1 rounded-full bg-primary
+    @apply absolute -left-2 -top-1 w-1 h-1 rounded-full bg-brand
            opacity-0 transition-opacity duration-300;
   }
 
@@ -187,7 +187,7 @@
   .lang-item::after,
   .project-card::after {
     content: '';
-    @apply absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-primary to-transparent
+    @apply absolute bottom-0 left-0 h-px w-0 bg-gradient-to-r from-brand to-transparent
            transition-all duration-300 ease-out;
   }
 
