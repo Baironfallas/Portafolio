@@ -54,7 +54,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
           background:
-            "conic-gradient(from 180deg, rgba(255,255,255,0.7), rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.7))",
+            "conic-gradient(from 180deg, rgba(var(--brand-rgb), 0.8), rgba(var(--brand-rgb), 0) 30%, rgba(var(--brand-rgb), 0) 70%, rgba(var(--brand-rgb), 0.8))",
         }}
       />
       <div

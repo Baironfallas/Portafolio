@@ -82,7 +82,7 @@ export function SkillsSection() {
             return (
               <div
                 key={category.name}
-                className="skill-category group relative flex flex-col overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent p-5 transition-all duration-200 hover:border-border"
+                className="skill-category group relative flex flex-col overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent p-5 transition-all duration-200 hover:border-brand/50 hover:shadow-[0_0_0_1px_rgba(var(--brand-rgb),0.5),0_10px_30px_-10px_rgba(var(--brand-rgb),0.35)]"
                 style={{ opacity: 0 }}
               >
                 <div className="mb-4 flex items-center gap-2.5">

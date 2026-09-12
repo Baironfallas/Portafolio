@@ -143,7 +143,7 @@ export function HeroSection() {
         ref={roleRef}
         className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.08em] text-muted-foreground backdrop-blur-sm sm:px-3.5 sm:text-xs sm:tracking-[0.14em]"
       >
-        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/70 shadow-[0_0_8px_1px] shadow-foreground/25" />
+        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand shadow-[0_0_8px_1px] shadow-brand/40" />
         {profile.role} &middot; {profile.specialization}
       </p>
 
@@ -169,7 +169,7 @@ export function HeroSection() {
           href="#contact"
           onMouseEnter={() => handleButtonHover(0, true)}
           onMouseLeave={() => handleButtonHover(0, false)}
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_1px_0_0_rgba(255,255,255,0.4)_inset,0_8px_24px_-8px_rgba(0,0,0,0.5)] transition-all duration-200 hover:opacity-90"
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_1px_0_0_rgba(255,255,255,0.4)_inset,0_8px_24px_-8px_rgba(0,0,0,0.5)] transition-all duration-200 hover:opacity-90 hover:shadow-[0_1px_0_0_rgba(255,255,255,0.4)_inset,0_8px_24px_-8px_rgba(0,0,0,0.5),0_0_28px_-4px_rgba(var(--brand-rgb),0.65)]"
         >
           <Mail className="h-4 w-4" />
           Contactar

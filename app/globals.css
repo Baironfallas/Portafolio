@@ -25,6 +25,9 @@
   --ring: #FFFFFF;
   --radius: 0.625rem;
   --hover: #1F2937;
+  --brand: #8B5CF6;
+  --brand-foreground: #FFFFFF;
+  --brand-rgb: 139, 92, 246;
 }
 
 .dark {
@@ -48,6 +51,9 @@
   --input: #27272A;
   --ring: #FFFFFF;
   --hover: #1F2937;
+  --brand: #8B5CF6;
+  --brand-foreground: #FFFFFF;
+  --brand-rgb: 139, 92, 246;
 }
 
 @theme inline {
@@ -73,6 +79,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-hover: var(--hover);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -145,7 +153,7 @@
     height: 2px;
     filter: blur(6px);
     transform: translateX(-50%);
-    background: radial-gradient(closest-side, rgba(255, 255, 255, 0.35), transparent 70%);
+    background: radial-gradient(closest-side, rgba(var(--brand-rgb), 0.45), transparent 70%);
     @apply pointer-events-none absolute;
   }
 
