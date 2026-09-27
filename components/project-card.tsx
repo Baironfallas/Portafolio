@@ -79,7 +79,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           href={project.demo_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute right-3 top-3 flex h-9 w-9 translate-y-1 items-center justify-center rounded-lg border border-border/60 bg-background/80 text-foreground opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-background"
+          className="absolute right-3 top-3 flex h-9 w-9 translate-y-0 items-center justify-center rounded-lg border border-border/60 bg-background/80 text-foreground opacity-100 backdrop-blur-md transition-all duration-300 hover:bg-background md:translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100"
           aria-label={`Ver demo de ${project.name}`}
         >
           <ArrowUpRight className="h-4 w-4" />
