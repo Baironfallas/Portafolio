@@ -114,6 +114,36 @@ export function HeroSection() {
     };
   }, []);
 
+  // El glow sigue sutilmente al cursor en desktop para dar profundidad
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const canHover = window.matchMedia("(hover: hover)").matches;
+
+    if (prefersReduced || !canHover || !sectionRef.current || !glowRef.current) {
+      return;
+    }
+
+    const section = sectionRef.current;
+    const glow = glowRef.current;
+
+    const handleMouseMove = (event: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const relativeX = (event.clientX - rect.left) / rect.width - 0.5;
+
+      // Solo se anima el eje X: el eje Y ya lo controla el parallax de scroll
+      gsap.to(glow, {
+        x: relativeX * 80,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+    };
+
+    section.addEventListener("mousemove", handleMouseMove);
+    return () => section.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   const handleButtonHover = (index: number, isHovering: boolean) => {
     const element = buttonRefs.current[index];
     if (element) {

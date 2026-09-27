@@ -68,6 +68,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           src={project.image_url}
           alt={`Vista previa de ${project.name}`}
           fill
+          placeholder="blur"
+          blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMxRjI5MzciLz48L3N2Zz4="
           className="object-cover brightness-[0.92] saturate-[0.9] transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:brightness-100 group-hover:saturate-100"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
@@ -89,7 +91,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <h3 className="mb-2 text-[0.9375rem] font-semibold tracking-tight text-foreground">
           {project.name}
         </h3>
-        <p className="mb-4 line-clamp-3 text-[0.8125rem] leading-relaxed text-muted-foreground">
+        <p className="mb-4 line-clamp-3 min-h-[3.9rem] text-[0.8125rem] leading-relaxed text-muted-foreground">
           {project.description}
         </p>
 
