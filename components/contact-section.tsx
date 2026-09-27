@@ -112,7 +112,7 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, name: e.target.value }))
                 }
-                className="w-full rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-brand/50 focus:bg-background/60 focus:outline-none"
+                className="w-full rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-base text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-brand/50 focus:bg-background/60 focus:outline-none sm:text-sm"
                 placeholder="Tu nombre"
               />
               <span
@@ -139,7 +139,7 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, email: e.target.value }))
                 }
-                className="w-full rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-brand/50 focus:bg-background/60 focus:outline-none"
+                className="w-full rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-base text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-brand/50 focus:bg-background/60 focus:outline-none sm:text-sm"
                 placeholder="tu@email.com"
               />
               <span
@@ -166,7 +166,7 @@ export function ContactSection() {
                 onChange={(e) =>
                   setFormState((s) => ({ ...s, message: e.target.value }))
                 }
-                className="w-full resize-none rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-sm text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-brand/50 focus:bg-background/60 focus:outline-none"
+                className="w-full resize-none rounded-lg border border-border/70 bg-background/40 px-3.5 py-2.5 text-base text-foreground transition-colors duration-300 placeholder:text-muted-foreground/60 hover:border-border focus:border-brand/50 focus:bg-background/60 focus:outline-none sm:text-sm"
                 placeholder="Cuéntame sobre tu proyecto..."
               />
               <span

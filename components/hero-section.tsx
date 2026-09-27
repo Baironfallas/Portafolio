@@ -78,13 +78,17 @@ export function HeroSection() {
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
     ).matches;
+    // En mobile un flick de scroll recorre todo el efecto en una fracción de
+    // segundo y se siente brusco en vez de cinematográfico, así que se omite
+    // por debajo del breakpoint md y se suaviza la intensidad en desktop.
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-    if (prefersReduced || !sectionRef.current) return;
+    if (prefersReduced || isMobile || !sectionRef.current) return;
 
     const scrollTween = gsap.to(contentRef.current, {
-      opacity: 0.15,
-      y: -60,
-      scale: 0.96,
+      opacity: 0.4,
+      y: -30,
+      scale: 0.98,
       ease: "none",
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -95,8 +99,8 @@ export function HeroSection() {
     });
 
     const glowTween = gsap.to(glowRef.current, {
-      y: 140,
-      scale: 1.25,
+      y: 80,
+      scale: 1.15,
       ease: "none",
       scrollTrigger: {
         trigger: sectionRef.current,
@@ -112,6 +116,36 @@ export function HeroSection() {
       glowTween.scrollTrigger?.kill();
       glowTween.kill();
     };
+  }, []);
+
+  // El glow sigue sutilmente al cursor en desktop para dar profundidad
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    const canHover = window.matchMedia("(hover: hover)").matches;
+
+    if (prefersReduced || !canHover || !sectionRef.current || !glowRef.current) {
+      return;
+    }
+
+    const section = sectionRef.current;
+    const glow = glowRef.current;
+
+    const handleMouseMove = (event: MouseEvent) => {
+      const rect = section.getBoundingClientRect();
+      const relativeX = (event.clientX - rect.left) / rect.width - 0.5;
+
+      // Solo se anima el eje X: el eje Y ya lo controla el parallax de scroll
+      gsap.to(glow, {
+        x: relativeX * 80,
+        duration: 0.8,
+        ease: "power2.out",
+      });
+    };
+
+    section.addEventListener("mousemove", handleMouseMove);
+    return () => section.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   const handleButtonHover = (index: number, isHovering: boolean) => {

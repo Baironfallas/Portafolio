@@ -68,6 +68,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           src={project.image_url}
           alt={`Vista previa de ${project.name}`}
           fill
+          placeholder="blur"
+          blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxIiBoZWlnaHQ9IjEiPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiMxRjI5MzciLz48L3N2Zz4="
           className="object-cover brightness-[0.92] saturate-[0.9] transition-all duration-500 ease-out group-hover:scale-[1.04] group-hover:brightness-100 group-hover:saturate-100"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
@@ -77,7 +79,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           href={project.demo_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="absolute right-3 top-3 flex h-9 w-9 translate-y-1 items-center justify-center rounded-lg border border-border/60 bg-background/80 text-foreground opacity-0 backdrop-blur-md transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 hover:bg-background"
+          className="absolute right-3 top-3 flex h-9 w-9 translate-y-0 items-center justify-center rounded-lg border border-border/60 bg-background/80 text-foreground opacity-100 backdrop-blur-md transition-all duration-300 hover:bg-background md:translate-y-1 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100"
           aria-label={`Ver demo de ${project.name}`}
         >
           <ArrowUpRight className="h-4 w-4" />
@@ -89,7 +91,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <h3 className="mb-2 text-[0.9375rem] font-semibold tracking-tight text-foreground">
           {project.name}
         </h3>
-        <p className="mb-4 line-clamp-3 text-[0.8125rem] leading-relaxed text-muted-foreground">
+        <p className="mb-4 line-clamp-3 min-h-[3.9rem] text-[0.8125rem] leading-relaxed text-muted-foreground">
           {project.description}
         </p>
 

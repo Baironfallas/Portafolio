@@ -15,7 +15,7 @@ export function FooterSection() {
         <div className="order-1 flex items-center gap-2 md:order-2">
           <a
             href={`mailto:${profile.email}`}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:bg-hover hover:text-foreground"
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-border/70 bg-background/40 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:bg-hover hover:text-foreground sm:h-9 sm:w-9"
             aria-label="Email"
           >
             <Mail className="h-4 w-4" />
@@ -24,7 +24,7 @@ export function FooterSection() {
             href={profile.github_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:bg-hover hover:text-foreground"
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-border/70 bg-background/40 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:bg-hover hover:text-foreground sm:h-9 sm:w-9"
             aria-label="GitHub"
           >
             <Github className="h-4 w-4" />
@@ -33,7 +33,7 @@ export function FooterSection() {
             href={profile.linkedin_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:bg-hover hover:text-foreground"
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-border/70 bg-background/40 text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:bg-hover hover:text-foreground sm:h-9 sm:w-9"
             aria-label="LinkedIn"
           >
             <Linkedin className="h-4 w-4" />

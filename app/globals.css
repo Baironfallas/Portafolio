@@ -15,7 +15,7 @@
   --secondary: #1F2937;
   --secondary-foreground: #FFFFFF;
   --muted: #1F2937;
-  --muted-foreground: #9CA3AF;
+  --muted-foreground: #A7AEBA;
   --accent: #1F2937;
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
@@ -25,9 +25,9 @@
   --ring: #FFFFFF;
   --radius: 0.625rem;
   --hover: #1F2937;
-  --brand: #8B5CF6;
-  --brand-foreground: #FFFFFF;
-  --brand-rgb: 139, 92, 246;
+  --brand: #FFFFFF;
+  --brand-foreground: #111111;
+  --brand-rgb: 255, 255, 255;
 }
 
 .dark {
@@ -42,7 +42,7 @@
   --secondary: #1F2937;
   --secondary-foreground: #FFFFFF;
   --muted: #1F2937;
-  --muted-foreground: #9CA3AF;
+  --muted-foreground: #A7AEBA;
   --accent: #1F2937;
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
@@ -51,9 +51,9 @@
   --input: #27272A;
   --ring: #FFFFFF;
   --hover: #1F2937;
-  --brand: #8B5CF6;
-  --brand-foreground: #FFFFFF;
-  --brand-rgb: 139, 92, 246;
+  --brand: #FFFFFF;
+  --brand-foreground: #111111;
+  --brand-rgb: 255, 255, 255;
 }
 
 @theme inline {
@@ -93,6 +93,15 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid rgba(var(--brand-rgb), 0.7);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
   }
   html {
     scroll-behavior: smooth;

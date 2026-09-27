@@ -207,13 +207,13 @@ export function Header() {
           <button
             ref={menuButtonRef}
             onClick={handleMenuClick}
-            className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/60 transition-colors duration-200 hover:bg-hover"
+            className="flex h-11 w-11 items-center justify-center rounded-lg border border-border/60 transition-colors duration-200 hover:bg-hover active:bg-hover"
             aria-label="Abrir menú"
           >
             {mobileOpen ? (
-              <X className="h-[18px] w-[18px] text-foreground" />
+              <X className="h-5 w-5 text-foreground" />
             ) : (
-              <Menu className="h-[18px] w-[18px] text-foreground" />
+              <Menu className="h-5 w-5 text-foreground" />
             )}
           </button>
         </div>
