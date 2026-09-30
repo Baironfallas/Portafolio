@@ -79,7 +79,7 @@ export function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative mx-1 mb-1 min-h-[900px] overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black"
+      className="relative mx-1 mb-1 overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black"
     >
       <div
         aria-hidden="true"
@@ -101,32 +101,6 @@ export function SkillsSection() {
             <p className="mt-6 max-w-[500px] text-base leading-relaxed text-white/62 sm:mt-7 sm:text-lg">
               Tecnologías y herramientas que utilizo para desarrollar soluciones escalables, eficientes y de calidad.
             </p>
-
-            <div className="relative mt-8 hidden max-w-[500px] overflow-hidden rounded-2xl border border-white/10 bg-black/35 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_60px_-45px_rgba(0,0,0,0.95)] backdrop-blur-sm sm:block">
-              <div className="flex items-center gap-1.5 border-b border-white/10 px-4 py-3">
-                <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-                <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-              </div>
-              <pre className="p-6 font-mono text-[0.85rem] leading-[2] text-white/40">
-                <code>{`import { Profile } from "@/types/profile";
-
-export default function Build({ profile }: Profile) {
-  const stack = ["React", "Next.js", "TypeScript"];
-
-  return (
-    <main className="min-h-screen">
-      <h1>Ideas into products.</h1>
-      <ul>
-        {stack.map((tech) => (
-          <li key={tech}>{tech}</li>
-        ))}
-      </ul>
-    </main>
-  );
-}`}</code>
-              </pre>
-            </div>
           </div>
 
           <div
@@ -140,39 +114,38 @@ export default function Build({ profile }: Profile) {
               return (
                 <article
                   key={category.name}
-                  className={`skill-category group relative flex min-h-[260px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-black/35 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04),0_20px_60px_-45px_rgba(0,0,0,0.95)] backdrop-blur-sm transition-colors duration-300 hover:border-white/25 hover:bg-white/[0.035] sm:p-6 ${
-                    isTools ? "sm:col-span-2 sm:min-h-[200px]" : ""
+                  className={`skill-category group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-black/35 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-white/20 ${
+                    isTools ? "sm:col-span-2" : ""
                   }`}
                   style={{ opacity: 0 }}
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3.5">
                     {Icon && (
-                      <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/[0.025] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]">
-                        <Icon className="h-6 w-6 text-white/85 transition-transform duration-300 group-hover:scale-110" />
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/15 bg-white/[0.025]">
+                        <Icon className="h-5 w-5 text-white/85" />
                       </span>
                     )}
 
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center justify-between gap-3">
-                        <h3 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                        <h3 className="text-lg font-semibold tracking-tight text-white">
                           {category.name}
                         </h3>
                         <AnimatedCounter
                           value={category.skills.length}
-                          className="text-sm tabular-nums text-white/50"
+                          className="text-xs tabular-nums text-white/50"
                         />
                       </div>
 
-                      <p className="mt-2 max-w-[36ch] text-sm leading-relaxed text-white/55 sm:text-base">
+                      <p className="mt-1.5 max-w-[36ch] text-sm leading-relaxed text-white/50">
                         {categoryDescriptions[category.name]}
                       </p>
 
-                      <ul className="mt-5 flex flex-wrap gap-2">
-                        {category.skills.map((skill, skillIndex) => (
+                      <ul className="mt-4 flex flex-wrap gap-1.5">
+                        {category.skills.map((skill) => (
                           <li
                             key={skill}
-                            className="cursor-default rounded-full border border-white/15 bg-black/20 px-3 py-1.5 text-xs font-medium leading-none text-white/70 transition-all duration-200 hover:-translate-y-0.5 hover:border-white/35 hover:bg-white/[0.05] hover:text-white sm:text-sm"
-                            style={{ transitionDelay: `${skillIndex * 35}ms` }}
+                            className="cursor-default rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs font-medium leading-none text-white/65"
                           >
                             {skill}
                           </li>
