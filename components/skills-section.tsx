@@ -133,7 +133,7 @@ export function SkillsSection() {
                         </h3>
                         <AnimatedCounter
                           value={category.skills.length}
-                          className="text-xs tabular-nums text-white/50"
+                          className="shrink-0 text-xs tabular-nums text-white/50"
                         />
                       </div>
 

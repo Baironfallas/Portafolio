@@ -133,12 +133,12 @@ export function HeroSection() {
       ref={sectionRef}
       id="hero"
       aria-labelledby="hero-title"
-      className="relative isolate mx-1 mt-1 min-h-[756px] w-[calc(100%_-_0.5rem)] overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black sm:min-h-[786px] md:min-h-[calc(100svh_-_0.5rem)]"
+      className="relative isolate mx-1 mt-1 flex w-[calc(100%_-_0.5rem)] flex-col overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black md:block md:min-h-[calc(100svh_-_0.5rem)]"
     >
       <div
         ref={portraitRef}
         aria-hidden="true"
-        className="absolute inset-y-0 right-[-8%] left-[18%]"
+        className="relative h-[46vh] max-h-[380px] w-full md:absolute md:inset-y-0 md:right-[-8%] md:left-[18%] md:h-auto md:max-h-none md:w-auto"
       >
         <Image
           src="/images/me2.png"
@@ -146,13 +146,17 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="h-full w-full object-cover object-center grayscale-[0.2]"
+          className="h-full w-full object-cover object-[center_22%] grayscale-[0.2] md:object-center"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black md:hidden"
         />
       </div>
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.74)_25%,rgba(0,0,0,0.42)_42%,rgba(0,0,0,0.12)_60%,rgba(0,0,0,0.08)_100%),linear-gradient(180deg,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.3)_30%,rgba(0,0,0,0.24)_100%)]"
+        className="hidden md:block md:absolute md:inset-0 md:bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.74)_25%,rgba(0,0,0,0.42)_42%,rgba(0,0,0,0.12)_60%,rgba(0,0,0,0.08)_100%),linear-gradient(180deg,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.3)_30%,rgba(0,0,0,0.24)_100%)]"
       />
       <div
         aria-hidden="true"
@@ -161,17 +165,21 @@ export function HeroSection() {
 
       <div
         ref={contentRef}
-        className="relative z-10 mx-auto flex min-h-[756px] w-full max-w-[1440px] flex-col justify-center px-5 py-20 sm:min-h-[786px] sm:px-8 md:min-h-[calc(100svh_-_0.5rem)] md:py-24 lg:px-16 xl:px-20"
+        className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-center px-5 py-8 sm:px-8 sm:py-10 md:min-h-[calc(100svh_-_0.5rem)] md:py-24 lg:px-16 xl:px-20"
       >
         <div className="max-w-[470px]">
           <p
             ref={eyebrowRef}
-            className="mb-5 flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs"
+            className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs"
           >
-            <span className="h-px w-8 bg-white/55" />
-            Bairon Fallas
-            <span className="text-white/25">|</span>
-            {profile.role}
+            <span className="flex items-center gap-3">
+              <span className="h-px w-8 bg-white/55" />
+              Bairon Fallas
+            </span>
+            <span className="flex items-center gap-3">
+              <span className="text-white/25">|</span>
+              {profile.role}
+            </span>
           </p>
 
           <h1
