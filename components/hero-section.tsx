@@ -186,7 +186,7 @@ export function HeroSection() {
           </h1>
 
           <div ref={copyRef} className="mt-6 max-w-[430px] sm:mt-7">
-            <p className="text-sm leading-relaxed text-white/62 sm:text-[0.95rem]">
+            <p className="text-base leading-relaxed text-white/62 sm:text-lg">
               {profile.subheadline}
             </p>
           </div>

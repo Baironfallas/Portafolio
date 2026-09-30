@@ -128,7 +128,7 @@ export function SkillsSection() {
 
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center justify-between gap-3">
-                        <h3 className="text-lg font-semibold tracking-tight text-white">
+                        <h3 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
                           {category.name}
                         </h3>
                         <AnimatedCounter

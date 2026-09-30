@@ -77,28 +77,28 @@ export function EducationSection() {
                 <div key={index} className="edu-item relative pl-8 sm:pl-12">
                   <span className="absolute left-[-0.15rem] top-3 flex h-4 w-4 items-center justify-center rounded-full bg-white/85" />
 
-                  <div className="mb-3 text-[0.7rem] font-medium uppercase tracking-[0.22em] text-white/60">
+                  <div className="mb-3 text-xs font-medium uppercase tracking-[0.22em] text-white/60">
                     {edu.year}
                   </div>
 
                   <div className="max-w-[620px]">
-                    <h3 className="text-2xl font-semibold leading-tight text-white sm:text-[2.2rem] sm:leading-[1.05]">
+                    <h3 className="text-xl font-semibold leading-tight text-white sm:text-2xl">
                       {edu.degree}
                     </h3>
 
-                    <div className="mt-3 flex items-center gap-2 text-base text-white/80">
-                      <GraduationCap className="h-4 w-4 shrink-0 text-white/80" />
+                    <div className="mt-3 flex items-center gap-2 text-sm text-white/70">
+                      <GraduationCap className="h-4 w-4 shrink-0 text-white/70" />
                       <span>{edu.institution}</span>
                     </div>
 
                     {index === 0 && (
-                      <p className="mt-3 max-w-[540px] text-base leading-relaxed text-white/70">
+                      <p className="mt-3 max-w-[540px] text-sm leading-relaxed text-white/55">
                         Formación integral con énfasis en tecnología, trabajo en equipo y resolución de problemas.
                       </p>
                     )}
 
                     {index === 1 && (
-                      <p className="mt-3 max-w-[560px] text-base leading-relaxed text-white/70">
+                      <p className="mt-3 max-w-[560px] text-sm leading-relaxed text-white/55">
                         Profundización en desarrollo de software, estructuras de datos, bases de datos y arquitectura de aplicaciones.
                       </p>
                     )}

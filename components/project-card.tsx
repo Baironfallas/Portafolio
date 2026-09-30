@@ -88,10 +88,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
       {/* Content */}
       <div className="flex flex-1 flex-col p-5">
-        <h3 className="mb-2 text-[0.9375rem] font-semibold tracking-tight text-foreground">
+        <h3 className="mb-2 text-lg font-semibold tracking-tight text-foreground sm:text-xl">
           {project.name}
         </h3>
-        <p className="mb-4 line-clamp-3 min-h-[3.9rem] text-[0.8125rem] leading-relaxed text-muted-foreground">
+        <p className="mb-4 line-clamp-3 min-h-[3.9rem] text-sm leading-relaxed text-muted-foreground">
           {project.description}
         </p>
 
@@ -100,13 +100,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           {project.stack.slice(0, 4).map((tech) => (
             <span
               key={tech}
-              className="rounded-md border border-border/60 bg-background/40 px-2 py-0.5 text-[0.6875rem] font-medium leading-none text-muted-foreground"
+              className="rounded-md border border-border/60 bg-background/40 px-2 py-0.5 text-xs font-medium leading-none text-muted-foreground"
             >
               {tech}
             </span>
           ))}
           {project.stack.length > 4 && (
-            <span className="rounded-md border border-border/60 bg-background/40 px-2 py-0.5 text-[0.6875rem] font-medium leading-none text-muted-foreground/70">
+            <span className="rounded-md border border-border/60 bg-background/40 px-2 py-0.5 text-xs font-medium leading-none text-muted-foreground/70">
               +{project.stack.length - 4}
             </span>
           )}
@@ -118,7 +118,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             href={project.demo_url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-xs font-semibold text-primary-foreground transition-opacity duration-200 hover:opacity-90"
+            className="inline-flex items-center gap-1.5 rounded-lg bg-primary px-3.5 py-2 text-sm font-semibold text-primary-foreground transition-opacity duration-200 hover:opacity-90"
           >
             <ExternalLink className="h-3.5 w-3.5" />
             Ver proyecto
@@ -128,14 +128,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
               href={project.github_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 rounded-lg border border-border/70 px-3.5 py-2 text-xs font-medium text-muted-foreground transition-colors duration-200 hover:border-border hover:bg-hover hover:text-foreground"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-border/70 px-3.5 py-2 text-sm font-medium text-muted-foreground transition-colors duration-200 hover:border-border hover:bg-hover hover:text-foreground"
             >
               <Github className="h-3.5 w-3.5" />
               Código
             </a>
           ) : (
             <div
-              className="inline-flex items-center gap-1.5 rounded-lg border border-dashed border-border/60 px-3.5 py-2 text-xs font-medium text-muted-foreground/80"
+              className="inline-flex items-center gap-1.5 rounded-lg border border-dashed border-border/60 px-3.5 py-2 text-sm font-medium text-muted-foreground/80"
               title="Este proyecto es privado"
             >
               <Lock className="h-3.5 w-3.5" />
