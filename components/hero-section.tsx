@@ -81,7 +81,7 @@ export function HeroSection() {
     const reducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches;
 
     if (reducedMotion || isMobile || !sectionRef.current) return;
 
@@ -133,12 +133,12 @@ export function HeroSection() {
       ref={sectionRef}
       id="hero"
       aria-labelledby="hero-title"
-      className="relative isolate mx-1 mt-1 flex w-[calc(100%_-_0.5rem)] flex-col overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black md:block md:min-h-[calc(100svh_-_0.5rem)]"
+      className="relative isolate mx-1 mt-1 flex w-[calc(100%_-_0.5rem)] flex-col overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black lg:block lg:min-h-[calc(100svh_-_0.5rem)]"
     >
       <div
         ref={portraitRef}
         aria-hidden="true"
-        className="relative h-[46vh] max-h-[380px] w-full md:absolute md:inset-y-0 md:right-[-8%] md:left-[18%] md:h-auto md:max-h-none md:w-auto"
+        className="relative h-[46vh] max-h-[380px] w-full sm:h-[52vh] sm:max-h-[460px] lg:absolute lg:inset-0 lg:h-auto lg:max-h-none lg:w-auto"
       >
         <Image
           src="/images/me2.png"
@@ -146,17 +146,17 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="h-full w-full object-cover object-[center_22%] grayscale-[0.2] md:object-center"
+          className="h-full w-full object-cover object-[center_22%] grayscale-[0.2] lg:object-[68%_center]"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black md:hidden"
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black lg:hidden"
         />
       </div>
 
       <div
         aria-hidden="true"
-        className="hidden md:block md:absolute md:inset-0 md:bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.74)_25%,rgba(0,0,0,0.42)_42%,rgba(0,0,0,0.12)_60%,rgba(0,0,0,0.08)_100%),linear-gradient(180deg,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.3)_30%,rgba(0,0,0,0.24)_100%)]"
+        className="hidden lg:block lg:absolute lg:inset-0 lg:bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.74)_25%,rgba(0,0,0,0.42)_42%,rgba(0,0,0,0.12)_60%,rgba(0,0,0,0.08)_100%),linear-gradient(180deg,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.3)_30%,rgba(0,0,0,0.24)_100%)]"
       />
       <div
         aria-hidden="true"
@@ -165,7 +165,7 @@ export function HeroSection() {
 
       <div
         ref={contentRef}
-        className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-center px-5 py-8 sm:px-8 sm:py-10 md:min-h-[calc(100svh_-_0.5rem)] md:py-24 lg:px-16 xl:px-20"
+        className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-center px-5 py-8 sm:px-8 sm:py-10 lg:min-h-[calc(100svh_-_0.5rem)] lg:py-24 lg:px-16 xl:px-20"
       >
         <div className="max-w-[470px]">
           <p
