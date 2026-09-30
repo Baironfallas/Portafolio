@@ -133,12 +133,12 @@ export function HeroSection() {
       ref={sectionRef}
       id="hero"
       aria-labelledby="hero-title"
-      className="relative isolate min-h-[760px] w-full overflow-hidden bg-[#070a0c] sm:min-h-[790px] md:min-h-screen"
+      className="relative isolate mx-1 mt-1 min-h-[756px] w-[calc(100%_-_0.5rem)] overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black sm:min-h-[786px] md:min-h-[calc(100svh_-_0.5rem)]"
     >
       <div
         ref={portraitRef}
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 h-[62%] origin-center md:inset-0 md:h-auto"
+        className="absolute inset-y-0 right-[-8%] left-[18%]"
       >
         <Image
           src="/images/me2.png"
@@ -146,13 +146,13 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[51%_center] grayscale-[0.2] md:object-center"
+          className="h-full w-full object-cover object-center grayscale-[0.2]"
         />
       </div>
 
       <div
         aria-hidden="true"
-        className="absolute inset-0 bg-[linear-gradient(180deg,#070a0c_0%,rgba(7,10,12,0.98)_32%,rgba(7,10,12,0.35)_68%,rgba(7,10,12,0.82)_100%)] md:bg-[linear-gradient(90deg,#070a0c_0%,rgba(7,10,12,0.96)_26%,rgba(7,10,12,0.58)_38%,rgba(7,10,12,0.08)_55%,transparent_72%),linear-gradient(0deg,rgba(7,10,12,0.88)_0%,transparent_32%)]"
+        className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.74)_25%,rgba(0,0,0,0.42)_42%,rgba(0,0,0,0.12)_60%,rgba(0,0,0,0.08)_100%),linear-gradient(180deg,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.3)_30%,rgba(0,0,0,0.24)_100%)]"
       />
       <div
         aria-hidden="true"
@@ -161,26 +161,28 @@ export function HeroSection() {
 
       <div
         ref={contentRef}
-        className="relative z-10 mx-auto flex min-h-[760px] w-full max-w-[1440px] flex-col justify-center px-5 py-20 sm:min-h-[790px] sm:px-8 md:min-h-screen md:py-24 lg:px-16 xl:px-20"
+        className="relative z-10 mx-auto flex min-h-[756px] w-full max-w-[1440px] flex-col justify-center px-5 py-20 sm:min-h-[786px] sm:px-8 md:min-h-[calc(100svh_-_0.5rem)] md:py-24 lg:px-16 xl:px-20"
       >
-        <div className="max-w-[500px]">
+        <div className="max-w-[470px]">
           <p
             ref={eyebrowRef}
             className="mb-5 flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs"
           >
             <span className="h-px w-8 bg-white/55" />
+            Bairon Fallas
+            <span className="text-white/25">|</span>
             {profile.role}
           </p>
 
           <h1
             ref={headlineRef}
             id="hero-title"
-            className="max-w-[10.5ch] text-[clamp(2.35rem,10vw,4.4rem)] font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-white md:text-[clamp(3.35rem,4vw,4rem)]"
+            className="max-w-[10.5ch] text-[clamp(2.35rem,10vw,4.2rem)] font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-white md:text-[clamp(2.75rem,3.4vw,4rem)]"
           >
             <span className="block">Código que</span>
             <span className="block">convierte</span>
             <span className="block">ideas en</span>
-            <span className="block">productos.</span>
+            <span className="block">productos</span>
           </h1>
 
           <div ref={copyRef} className="mt-6 max-w-[430px] sm:mt-7">
@@ -223,12 +225,16 @@ export function HeroSection() {
               rel="noopener noreferrer"
               onMouseEnter={() => handleButtonHover(2, true)}
               onMouseLeave={() => handleButtonHover(2, false)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/20 text-white/75 backdrop-blur-md transition-colors hover:border-white/45 hover:bg-white/10 hover:text-white"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-black/20 px-5 py-3 text-xs font-medium uppercase tracking-[0.1em] text-white/75 backdrop-blur-md transition-colors hover:border-white/45 hover:bg-white/10 hover:text-white"
               aria-label="Ver currículum"
             >
-              <FileDown className="h-4 w-4" />
+              <FileDown className="h-3.5 w-3.5" />
+              CV
+              <ArrowDown className="h-3.5 w-3.5" />
             </a>
           </div>
+
+
         </div>
       </div>
     </section>

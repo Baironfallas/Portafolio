@@ -171,7 +171,7 @@ export function Header() {
       {(scrolled || mobileOpen) && (
         <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       )}
-      <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between gap-3 px-5 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-3 px-5 sm:px-8 lg:px-16 xl:px-20">
         <a
           ref={logoRef}
           href="#about"
