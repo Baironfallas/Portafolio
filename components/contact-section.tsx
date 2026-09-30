@@ -64,7 +64,7 @@ export function ContactSection() {
     <section id="contact" className="relative bg-black">
       <div className="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 md:py-20 lg:px-16 xl:px-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
-          <div className="pt-4 lg:pt-8">
+          <div className="min-w-0 pt-4 lg:pt-8">
             <p className="mb-5 flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs">
               <span className="h-px w-8 bg-white/55" />
               Contacto
@@ -83,11 +83,11 @@ export function ContactSection() {
                 href={`mailto:${profile.email}`}
                 className="group flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/[0.02] px-5 py-4 text-left text-white/90 transition-colors hover:border-white/25 hover:bg-white/[0.04]"
               >
-                <div className="flex items-center gap-3 overflow-hidden">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] text-white">
+                <div className="flex min-w-0 items-center gap-3">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] text-white">
                     <Mail className="h-4 w-4" />
                   </span>
-                  <span className="truncate text-lg">fallasbaltodanobairon@gmail.com</span>
+                  <span className="min-w-0 truncate text-lg">fallasbaltodanobairon@gmail.com</span>
                 </div>
                 <ArrowUpRight className="h-5 w-5 shrink-0 text-white/70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
@@ -124,7 +124,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="lg:pl-8">
+          <div className="min-w-0 lg:pl-8">
             <div
               ref={formCardRef}
               className="rounded-[1.75rem] border border-white/15 bg-white/[0.02] p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] backdrop-blur-sm md:p-6"

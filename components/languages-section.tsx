@@ -79,7 +79,7 @@ export function LanguagesSection() {
   return (
     <section
       id="languages"
-      className="relative mx-1 mb-1 flex min-h-[680px] items-center overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black"
+      className="relative mx-1 mb-1 flex items-center overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black md:min-h-[680px]"
     >
       <div
         aria-hidden="true"
