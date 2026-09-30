@@ -4,14 +4,14 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #111111;
+  --background: #000000;
   --foreground: #FFFFFF;
-  --card: #111111;
+  --card: #000000;
   --card-foreground: #FFFFFF;
-  --popover: #111111;
+  --popover: #000000;
   --popover-foreground: #FFFFFF;
   --primary: #FFFFFF;
-  --primary-foreground: #111111;
+  --primary-foreground: #000000;
   --secondary: #1F2937;
   --secondary-foreground: #FFFFFF;
   --muted: #1F2937;
@@ -20,25 +20,25 @@
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  --border: #27272A;
-  --input: #27272A;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
   --ring: #FFFFFF;
   --radius: 0.625rem;
-  --hover: #1F2937;
+  --hover: rgba(255, 255, 255, 0.06);
   --brand: #FFFFFF;
-  --brand-foreground: #111111;
+  --brand-foreground: #000000;
   --brand-rgb: 255, 255, 255;
 }
 
 .dark {
-  --background: #111111;
+  --background: #000000;
   --foreground: #FFFFFF;
-  --card: #111111;
+  --card: #000000;
   --card-foreground: #FFFFFF;
-  --popover: #111111;
+  --popover: #000000;
   --popover-foreground: #FFFFFF;
   --primary: #FFFFFF;
-  --primary-foreground: #111111;
+  --primary-foreground: #000000;
   --secondary: #1F2937;
   --secondary-foreground: #FFFFFF;
   --muted: #1F2937;
@@ -47,12 +47,12 @@
   --accent-foreground: #FFFFFF;
   --destructive: #EF4444;
   --destructive-foreground: #FFFFFF;
-  --border: #27272A;
-  --input: #27272A;
+  --border: rgba(255, 255, 255, 0.08);
+  --input: rgba(255, 255, 255, 0.08);
   --ring: #FFFFFF;
-  --hover: #1F2937;
+  --hover: rgba(255, 255, 255, 0.06);
   --brand: #FFFFFF;
-  --brand-foreground: #111111;
+  --brand-foreground: #000000;
   --brand-rgb: 255, 255, 255;
 }
 
@@ -93,6 +93,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+  html {
+    overflow-x: hidden;
   }
   a:focus-visible,
   button:focus-visible,

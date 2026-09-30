@@ -1,13 +1,13 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {
+  Cloud,
+  Container,
+  Database,
   Monitor,
   Server,
-  Database,
-  Cloud,
   Wrench,
-  Container,
 } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -29,92 +29,134 @@ const iconMap: Record<string, React.ElementType> = {
   Container,
 };
 
+const categoryDescriptions: Record<string, string> = {
+  Frontend: "Interfaces modernas, accesibles y de alto rendimiento.",
+  Backend: "Desarrollo de APIs y servicios escalables.",
+  "Base de datos": "Diseño y gestión de datos eficientes y seguros.",
+  Cloud: "Despliegue y administración de aplicaciones en la nube.",
+  Herramientas: "Herramientas que potencian mi productividad y flujo de trabajo.",
+};
+
 export function SkillsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!containerRef.current) return;
+
+    const categories = containerRef.current.querySelectorAll(".skill-category");
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    if (prefersReduced || !containerRef.current) return;
+    if (prefersReduced) {
+      gsap.set(categories, { opacity: 1, y: 0 });
+      return;
+    }
 
-    const categories = containerRef.current.querySelectorAll(".skill-category");
-
-    gsap.fromTo(
+    const tween = gsap.fromTo(
       categories,
-      {
-        opacity: 0,
-        y: 12,
-      },
+      { opacity: 0, y: 16 },
       {
         opacity: 1,
         y: 0,
-        duration: 0.5,
+        duration: 0.55,
         stagger: 0.08,
         ease: "power2.out",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 85%",
+          start: "top 82%",
           once: true,
         },
       },
     );
+
+    return () => {
+      tween.scrollTrigger?.kill();
+      tween.kill();
+    };
   }, []);
 
   return (
-    <section id="skills" className="section-divider">
-      <div className="mx-auto max-w-[1100px] px-5 py-16 sm:px-6 md:py-20 lg:py-24">
-        <div className="mb-10 flex items-center gap-3">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-border/70 bg-background/40">
-            <Wrench className="h-[18px] w-[18px] text-foreground" />
-          </span>
-          <h2 className="text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-            <RevealText>Habilidades</RevealText>
-          </h2>
-        </div>
-        <div
-          ref={containerRef}
-          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        >
-          {skillCategories.map((category, idx) => {
-            const Icon = iconMap[category.icon];
-            return (
-              <div
-                key={category.name}
-                className="skill-category group relative flex flex-col overflow-hidden rounded-xl border border-border/70 bg-gradient-to-b from-white/[0.02] to-transparent p-5 transition-all duration-200 hover:border-brand/50 hover:shadow-[0_0_0_1px_rgba(var(--brand-rgb),0.5),0_10px_30px_-10px_rgba(var(--brand-rgb),0.35)]"
-                style={{ opacity: 0 }}
-              >
-                <div className="mb-4 flex items-center gap-2.5">
-                  {Icon && (
-                    <span className="flex h-8 w-8 items-center justify-center rounded-md border border-border/70 bg-background/60">
-                      <Icon className="h-4 w-4 text-muted-foreground transition-all duration-300 group-hover:text-foreground" />
-                    </span>
-                  )}
-                  <h3 className="text-sm font-semibold text-foreground">
-                    {category.name}
-                  </h3>
-                  <AnimatedCounter
-                    value={category.skills.length}
-                    className="ml-auto text-xs tabular-nums text-muted-foreground/70"
-                  />
-                </div>
-                <ul className="flex flex-wrap gap-1.5">
-                  {category.skills.map((skill, skillIdx) => (
-                    <li
-                      key={skill}
-                      className="rounded-md border border-border/60 bg-background/40 px-2 py-1 text-xs font-medium leading-none text-muted-foreground transition-all duration-200 hover:-translate-y-0.5 hover:border-border hover:text-foreground cursor-pointer"
-                      style={{
-                        transitionDelay: `${skillIdx * 40}ms`,
-                      }}
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            );
-          })}
+    <section
+      id="skills"
+      className="relative mx-1 mb-1 overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.11] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:72px_72px]"
+      />
+
+      <div className="relative z-10 mx-auto w-full px-5 py-16 sm:px-8 md:py-20 lg:px-[8vw]">
+        <div className="grid gap-12 lg:grid-cols-[minmax(0,0.78fr)_minmax(0,1.22fr)] lg:items-start">
+          <div className="pt-4 lg:pt-8">
+            <p className="mb-5 flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs">
+              <span className="h-px w-8 bg-white/55" />
+              Habilidades
+            </p>
+
+            <h2 className="max-w-[8ch] text-[clamp(2.35rem,10vw,4.2rem)] font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-white md:text-[clamp(2.75rem,3.4vw,4rem)]">
+              <RevealText>Habilidades</RevealText>
+            </h2>
+
+            <p className="mt-6 max-w-[500px] text-base leading-relaxed text-white/62 sm:mt-7 sm:text-lg">
+              Tecnologías y herramientas que utilizo para desarrollar soluciones escalables, eficientes y de calidad.
+            </p>
+          </div>
+
+          <div
+            ref={containerRef}
+            className="grid gap-5 sm:grid-cols-2 lg:gap-6"
+          >
+            {skillCategories.map((category) => {
+              const Icon = iconMap[category.icon];
+              const isTools = category.name === "Herramientas";
+
+              return (
+                <article
+                  key={category.name}
+                  className={`skill-category group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-black/35 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] transition-colors duration-300 hover:border-white/20 ${
+                    isTools ? "sm:col-span-2" : ""
+                  }`}
+                  style={{ opacity: 0 }}
+                >
+                  <div className="flex items-start gap-3.5">
+                    {Icon && (
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/15 bg-white/[0.025]">
+                        <Icon className="h-5 w-5 text-white/85" />
+                      </span>
+                    )}
+
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-3">
+                        <h3 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                          {category.name}
+                        </h3>
+                        <AnimatedCounter
+                          value={category.skills.length}
+                          className="shrink-0 text-xs tabular-nums text-white/50"
+                        />
+                      </div>
+
+                      <p className="mt-1.5 max-w-[36ch] text-sm leading-relaxed text-white/50">
+                        {categoryDescriptions[category.name]}
+                      </p>
+
+                      <ul className="mt-4 flex flex-wrap gap-1.5">
+                        {category.skills.map((skill) => (
+                          <li
+                            key={skill}
+                            className="cursor-default rounded-full border border-white/10 bg-black/20 px-2.5 py-1 text-xs font-medium leading-none text-white/65"
+                          >
+                            {skill}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

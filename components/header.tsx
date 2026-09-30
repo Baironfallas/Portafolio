@@ -18,11 +18,20 @@ const navLinks = [
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeHref, setActiveHref] = useState<string>("");
+  const [scrolled, setScrolled] = useState(false);
   const logoRef = useRef<HTMLAnchorElement>(null);
   const navRef = useRef<HTMLDivElement>(null);
   const linksRef = useRef<Record<number, HTMLAnchorElement | null>>({});
   const mobileNavRef = useRef<HTMLDivElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+
+  // Fondo sólido del header solo después de salir del hero
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   // Indicador de sección activa mientras se hace scroll
   useEffect(() => {
@@ -151,9 +160,18 @@ export function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/70 backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-background/60">
-      <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-border to-transparent" />
-      <div className="mx-auto flex h-16 max-w-[1100px] items-center justify-between gap-3 px-4 sm:px-6">
+    <header
+      className={[
+        "fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300",
+        scrolled || mobileOpen
+          ? "border-border/70 bg-background/70 backdrop-blur-xl backdrop-saturate-150 supports-[backdrop-filter]:bg-background/60"
+          : "border-transparent bg-transparent",
+      ].join(" ")}
+    >
+      {(scrolled || mobileOpen) && (
+        <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+      )}
+      <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-3 px-5 sm:px-8 lg:px-16 xl:px-20">
         <a
           ref={logoRef}
           href="#about"

@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowDown, Mail, FileDown } from "lucide-react";
+import Image from "next/image";
+import { ArrowDown, FileDown, Mail } from "lucide-react";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,229 +15,235 @@ const profile: Profile = profileData;
 export function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const glowRef = useRef<HTMLDivElement>(null);
-  const roleRef = useRef<HTMLParagraphElement>(null);
+  const portraitRef = useRef<HTMLDivElement>(null);
+  const eyebrowRef = useRef<HTMLParagraphElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
-  const subheadlineRef = useRef<HTMLParagraphElement>(null);
+  const copyRef = useRef<HTMLDivElement>(null);
   const buttonRefs = useRef<Record<number, HTMLAnchorElement | null>>({});
 
   useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    const targets = [
-      roleRef.current,
+    const entranceTargets = [
+      eyebrowRef.current,
       headlineRef.current,
-      subheadlineRef.current,
+      copyRef.current,
       ...Object.values(buttonRefs.current).filter(Boolean),
     ];
 
-    if (prefersReduced) {
-      gsap.set(targets, { opacity: 1, y: 0 });
+    if (reducedMotion) {
+      gsap.set(entranceTargets, { clearProps: "all" });
       return;
     }
 
-    const timeline = gsap.timeline();
+    const timeline = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // Entrada progresiva (fade-up) del rol
-    timeline.fromTo(
-      roleRef.current,
-      { opacity: 0, y: 12 },
-      { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" },
-      0
-    );
+    timeline
+      .fromTo(
+        portraitRef.current,
+        { opacity: 0, scale: 1.06 },
+        { opacity: 1, scale: 1, duration: 1.15 },
+        0,
+      )
+      .fromTo(
+        eyebrowRef.current,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.5 },
+        0.1,
+      )
+      .fromTo(
+        headlineRef.current,
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        0.2,
+      )
+      .fromTo(
+        copyRef.current,
+        { opacity: 0, y: 18 },
+        { opacity: 1, y: 0, duration: 0.65 },
+        0.38,
+      )
+      .fromTo(
+        Object.values(buttonRefs.current).filter(Boolean),
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.08 },
+        0.5,
+      );
 
-    // Entrada progresiva del título
-    timeline.fromTo(
-      headlineRef.current,
-      { opacity: 0, y: 12 },
-      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-      0.12
-    );
-
-    // Entrada progresiva del subtítulo
-    timeline.fromTo(
-      subheadlineRef.current,
-      { opacity: 0, y: 12 },
-      { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
-      0.24
-    );
-
-    // Entrada de los botones
-    timeline.fromTo(
-      Object.values(buttonRefs.current).filter(Boolean),
-      { opacity: 0, y: 12 },
-      { opacity: 1, y: 0, duration: 0.5, stagger: 0.08, ease: "power2.out" },
-      0.36
-    );
+    return () => {
+      timeline.kill();
+    };
   }, []);
 
-  // Parallax cinematográfico: al hacer scroll, el contenido se aleja y
-  // el glow de fondo se desplaza para dar sensación de profundidad.
   useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
     ).matches;
-    // En mobile un flick de scroll recorre todo el efecto en una fracción de
-    // segundo y se siente brusco en vez de cinematográfico, así que se omite
-    // por debajo del breakpoint md y se suaviza la intensidad en desktop.
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
 
-    if (prefersReduced || isMobile || !sectionRef.current) return;
+    if (reducedMotion || isMobile || !sectionRef.current) return;
 
-    const scrollTween = gsap.to(contentRef.current, {
-      opacity: 0.4,
-      y: -30,
-      scale: 0.98,
+    const contentTween = gsap.to(contentRef.current, {
+      opacity: 0.55,
+      y: -32,
       ease: "none",
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top top",
+        start: "top top+=64",
         end: "bottom top",
         scrub: true,
       },
     });
 
-    const glowTween = gsap.to(glowRef.current, {
-      y: 80,
-      scale: 1.15,
+    const portraitTween = gsap.to(portraitRef.current, {
+      y: 42,
+      scale: 1.035,
       ease: "none",
       scrollTrigger: {
         trigger: sectionRef.current,
-        start: "top top",
+        start: "top top+=64",
         end: "bottom top",
         scrub: true,
       },
     });
 
     return () => {
-      scrollTween.scrollTrigger?.kill();
-      scrollTween.kill();
-      glowTween.scrollTrigger?.kill();
-      glowTween.kill();
+      contentTween.scrollTrigger?.kill();
+      portraitTween.scrollTrigger?.kill();
+      contentTween.kill();
+      portraitTween.kill();
     };
-  }, []);
-
-  // El glow sigue sutilmente al cursor en desktop para dar profundidad
-  useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    const canHover = window.matchMedia("(hover: hover)").matches;
-
-    if (prefersReduced || !canHover || !sectionRef.current || !glowRef.current) {
-      return;
-    }
-
-    const section = sectionRef.current;
-    const glow = glowRef.current;
-
-    const handleMouseMove = (event: MouseEvent) => {
-      const rect = section.getBoundingClientRect();
-      const relativeX = (event.clientX - rect.left) / rect.width - 0.5;
-
-      // Solo se anima el eje X: el eje Y ya lo controla el parallax de scroll
-      gsap.to(glow, {
-        x: relativeX * 80,
-        duration: 0.8,
-        ease: "power2.out",
-      });
-    };
-
-    section.addEventListener("mousemove", handleMouseMove);
-    return () => section.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   const handleButtonHover = (index: number, isHovering: boolean) => {
     const element = buttonRefs.current[index];
-    if (element) {
-      gsap.to(element, {
-        scale: isHovering ? 1.03 : 1,
-        y: isHovering ? -2 : 0,
-        duration: 0.2,
-        ease: "power2.out",
-      });
-    }
+    if (!element) return;
+
+    gsap.to(element, {
+      y: isHovering ? -3 : 0,
+      duration: 0.2,
+      ease: "power2.out",
+    });
   };
 
   return (
     <section
       ref={sectionRef}
       id="hero"
-      className="relative mx-auto flex max-w-[1100px] flex-col items-center overflow-hidden px-5 pb-16 pt-16 text-center sm:px-6 sm:pb-20 sm:pt-24 md:pb-28 md:pt-36"
+      aria-labelledby="hero-title"
+      className="relative isolate mx-1 mt-1 flex w-[calc(100%_-_0.5rem)] flex-col overflow-hidden rounded-[1.25rem] border border-white/[0.06] bg-black md:block md:min-h-[calc(100svh_-_0.5rem)]"
     >
       <div
-        ref={glowRef}
-        aria-hidden
-        className="pointer-events-none absolute left-1/2 top-24 -z-10 h-[420px] w-[min(90vw,720px)] -translate-x-1/2 rounded-full bg-foreground/[0.05] blur-[120px]"
+        ref={portraitRef}
+        aria-hidden="true"
+        className="relative h-[46vh] max-h-[380px] w-full md:absolute md:inset-y-0 md:right-[-8%] md:left-[18%] md:h-auto md:max-h-none md:w-auto"
+      >
+        <Image
+          src="/images/me2.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="h-full w-full object-cover object-[center_22%] grayscale-[0.2] md:object-center"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black md:hidden"
+        />
+      </div>
+
+      <div
+        aria-hidden="true"
+        className="hidden md:block md:absolute md:inset-0 md:bg-[linear-gradient(90deg,rgba(0,0,0,0.88)_0%,rgba(0,0,0,0.74)_25%,rgba(0,0,0,0.42)_42%,rgba(0,0,0,0.12)_60%,rgba(0,0,0,0.08)_100%),linear-gradient(180deg,rgba(0,0,0,0.52)_0%,rgba(0,0,0,0.3)_30%,rgba(0,0,0,0.24)_100%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.13] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_right,black,transparent_67%)]"
       />
 
-      <div ref={contentRef} className="flex w-full flex-col items-center">
-      <p
-        ref={roleRef}
-        className="mb-5 inline-flex max-w-full items-center gap-2 rounded-full border border-border/70 bg-background/40 px-3 py-1.5 text-[0.7rem] font-medium uppercase tracking-[0.08em] text-muted-foreground backdrop-blur-sm sm:px-3.5 sm:text-xs sm:tracking-[0.14em]"
+      <div
+        ref={contentRef}
+        className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-center px-5 py-8 sm:px-8 sm:py-10 md:min-h-[calc(100svh_-_0.5rem)] md:py-24 lg:px-16 xl:px-20"
       >
-        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand shadow-[0_0_8px_1px] shadow-brand/40" />
-        {profile.role} &middot; {profile.specialization}
-      </p>
+        <div className="max-w-[470px]">
+          <p
+            ref={eyebrowRef}
+            className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs"
+          >
+            <span className="flex items-center gap-3">
+              <span className="h-px w-8 bg-white/55" />
+              Bairon Fallas
+            </span>
+            <span className="flex items-center gap-3">
+              <span className="text-white/25">|</span>
+              {profile.role}
+            </span>
+          </p>
 
-      <h1
-        ref={headlineRef}
-        className="mb-5 max-w-3xl bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-3xl font-bold leading-[1.12] tracking-tight text-transparent text-balance sm:mb-6 sm:text-4xl sm:leading-[1.08] md:text-5xl lg:text-[3.5rem]"
-      >
-        {profile.headline}
-      </h1>
+          <h1
+            ref={headlineRef}
+            id="hero-title"
+            className="max-w-[10.5ch] text-[clamp(2.35rem,10vw,4.2rem)] font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-white md:text-[clamp(2.75rem,3.4vw,4rem)]"
+          >
+            <span className="block">Código que</span>
+            <span className="block">convierte</span>
+            <span className="block">ideas en</span>
+            <span className="block">productos</span>
+          </h1>
 
-      <p
-        ref={subheadlineRef}
-        className="mb-8 max-w-xl text-sm leading-relaxed text-muted-foreground sm:mb-11 sm:text-[1.0625rem]"
-      >
-        {profile.subheadline}
-      </p>
+          <div ref={copyRef} className="mt-6 max-w-[430px] sm:mt-7">
+            <p className="text-base leading-relaxed text-white/62 sm:text-lg">
+              {profile.subheadline}
+            </p>
+          </div>
 
-      <div className="flex w-full flex-col items-stretch gap-3 sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:justify-center">
-        <a
-          ref={(el) => {
-            if (el) buttonRefs.current[0] = el;
-          }}
-          href="#contact"
-          onMouseEnter={() => handleButtonHover(0, true)}
-          onMouseLeave={() => handleButtonHover(0, false)}
-          className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_1px_0_0_rgba(255,255,255,0.4)_inset,0_8px_24px_-8px_rgba(0,0,0,0.5)] transition-all duration-200 hover:opacity-90 hover:shadow-[0_1px_0_0_rgba(255,255,255,0.4)_inset,0_8px_24px_-8px_rgba(0,0,0,0.5),0_0_28px_-4px_rgba(var(--brand-rgb),0.65)]"
-        >
-          <Mail className="h-4 w-4" />
-          Contactar
-        </a>
+          <div className="mt-7 flex flex-wrap items-center gap-3 sm:mt-8">
+            <a
+              ref={(element) => {
+                if (element) buttonRefs.current[0] = element;
+              }}
+              href="#projects"
+              onMouseEnter={() => handleButtonHover(0, true)}
+              onMouseLeave={() => handleButtonHover(0, false)}
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-white px-5 py-3 text-xs font-semibold uppercase tracking-[0.1em] text-black transition-colors hover:bg-white/85"
+            >
+              Explorar proyectos
+              <ArrowDown className="h-3.5 w-3.5 transition-transform group-hover:translate-y-0.5" />
+            </a>
+            <a
+              ref={(element) => {
+                if (element) buttonRefs.current[1] = element;
+              }}
+              href="#contact"
+              onMouseEnter={() => handleButtonHover(1, true)}
+              onMouseLeave={() => handleButtonHover(1, false)}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-black/20 px-5 py-3 text-xs font-medium uppercase tracking-[0.1em] text-white backdrop-blur-md transition-colors hover:border-white/45 hover:bg-white/10"
+            >
+              <Mail className="h-3.5 w-3.5" />
+              Hablemos
+            </a>
+            <a
+              ref={(element) => {
+                if (element) buttonRefs.current[2] = element;
+              }}
+              href={profile.cv_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onMouseEnter={() => handleButtonHover(2, true)}
+              onMouseLeave={() => handleButtonHover(2, false)}
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-black/20 px-5 py-3 text-xs font-medium uppercase tracking-[0.1em] text-white/75 backdrop-blur-md transition-colors hover:border-white/45 hover:bg-white/10 hover:text-white"
+              aria-label="Ver currículum"
+            >
+              <FileDown className="h-3.5 w-3.5" />
+              CV
+              <ArrowDown className="h-3.5 w-3.5" />
+            </a>
+          </div>
 
-        <a
-          ref={(el) => {
-            if (el) buttonRefs.current[1] = el;
-          }}
-          href="#projects"
-          onMouseEnter={() => handleButtonHover(1, true)}
-          onMouseLeave={() => handleButtonHover(1, false)}
-          className="inline-flex items-center justify-center gap-2 rounded-xl border border-border/80 bg-background/40 px-5 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-200 hover:border-border hover:bg-hover"
-        >
-          <ArrowDown className="h-4 w-4" />
-          Ver proyectos
-        </a>
 
-        <a
-          ref={(el) => {
-            if (el) buttonRefs.current[2] = el;
-          }}
-          href={profile.cv_url}
-          target="_blank"
-          rel="noopener noreferrer"
-          onMouseEnter={() => handleButtonHover(2, true)}
-          onMouseLeave={() => handleButtonHover(2, false)}
-          className="inline-flex items-center justify-center gap-2 rounded-xl border border-border/80 bg-background/40 px-5 py-3 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-200 hover:border-border hover:bg-hover"
-        >
-          <FileDown className="h-4 w-4" />
-          Ver CV
-        </a>
-      </div>
+        </div>
       </div>
     </section>
   );
