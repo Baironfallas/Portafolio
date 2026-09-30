@@ -76,9 +76,6 @@ export function EducationSection() {
               {profile.education.map((edu, index) => (
                 <div key={index} className="edu-item relative pl-8 sm:pl-12">
                   <span className="absolute left-[-0.15rem] top-3 flex h-4 w-4 items-center justify-center rounded-full bg-white/85" />
-                  <div className="pointer-events-none absolute -right-2 top-0 text-[clamp(3rem,7vw,7rem)] font-black leading-none tracking-[-0.08em] text-white/[0.06]">
-                    {String(index + 1).padStart(2, "0")}
-                  </div>
 
                   <div className="mb-3 text-[0.7rem] font-medium uppercase tracking-[0.22em] text-white/60">
                     {edu.year}
