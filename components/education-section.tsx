@@ -64,7 +64,7 @@ export function EducationSection() {
               <span className="block">académica</span>
             </h2>
 
-            <p className="mt-6 max-w-[430px] text-sm leading-relaxed text-white/62 sm:mt-7 sm:text-[0.95rem]">
+            <p className="mt-6 max-w-[430px] text-base leading-relaxed text-white/62 sm:mt-7 sm:text-lg">
               Mi recorrido académico en tecnología y desarrollo, que ha fortalecido mi base de conocimientos y habilidades.
             </p>
           </div>

@@ -86,28 +86,20 @@ export function LanguagesSection() {
         className="pointer-events-none absolute inset-0 opacity-[0.13] [background-image:linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_right,black,transparent_88%)]"
       />
 
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute right-[-9%] top-1/2 hidden aspect-square w-[min(53vw,680px)] -translate-y-1/2 rounded-full border border-white/10 opacity-45 [background-image:radial-gradient(circle,rgba(255,255,255,0.32)_1px,transparent_1.4px)] [background-size:11px_11px] [mask-image:radial-gradient(circle_at_44%_50%,black_0%,black_55%,transparent_76%)] md:block"
-      >
-        <div className="absolute inset-[8%] rounded-[50%] border border-white/20" />
-        <div className="absolute left-[-8%] top-[18%] h-[58%] w-[116%] rotate-[18deg] rounded-[50%] border border-white/20" />
-        <div className="absolute left-[-4%] top-[28%] h-[42%] w-[108%] -rotate-[12deg] rounded-[50%] border border-white/15" />
-      </div>
 
       <div className="relative z-10 mx-auto w-full max-w-[1280px] px-5 py-16 sm:px-8 md:py-20 lg:px-16 xl:px-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-center">
           <div className="pt-4 lg:pt-8">
-            <div className="mb-5 flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs">
+            <p className="mb-5 flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs">
               <span className="h-px w-8 bg-white/55" />
-              <span>Idiomas</span>
-            </div>
+              Idiomas
+            </p>
 
-            <h2 className="max-w-[7ch] text-[clamp(3.25rem,6vw,7rem)] font-black uppercase leading-[0.85] tracking-[-0.07em] text-white">
+            <h2 className="max-w-[7ch] text-[clamp(2.35rem,10vw,4.2rem)] font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-white md:text-[clamp(2.75rem,3.4vw,4rem)]">
               Idiomas
             </h2>
 
-            <p className="mt-8 max-w-[430px] text-lg leading-relaxed text-white/70">
+            <p className="mt-6 max-w-[430px] text-base leading-relaxed text-white/62 sm:mt-7 sm:text-lg">
               Me comunico de forma efectiva en diferentes contextos, lo que me permite colaborar en equipos multiculturales y acceder a más oportunidades.
             </p>
           </div>
