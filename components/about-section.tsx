@@ -111,7 +111,9 @@ export function AboutSection() {
             {about.paragraphs.map((text, idx) => (
               <p
                 key={idx}
-                ref={(el) => (paragraphsRef.current[idx] = el)}
+                ref={(el) => {
+                  paragraphsRef.current[idx] = el;
+                }}
                 className={[
                   "leading-relaxed",
                   idx === 0

@@ -21,9 +21,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
-    if (prefersReduced || !cardRef.current) return;
+    if (!cardRef.current) return;
 
-    gsap.fromTo(
+    if (prefersReduced) {
+      gsap.set(cardRef.current, { opacity: 1, y: 0 });
+      return;
+    }
+
+    const tween = gsap.fromTo(
       cardRef.current,
       { opacity: 0, y: 12 },
       {
@@ -41,9 +46,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     );
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.trigger === cardRef.current) t.kill();
-      });
+      tween.scrollTrigger?.kill();
+      tween.kill();
     };
   }, [index]);
 

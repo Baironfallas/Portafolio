@@ -22,7 +22,12 @@ export function AnimateOnScroll({
       "(prefers-reduced-motion: reduce)"
     ).matches;
 
-    if (prefersReduced || !ref.current) return;
+    if (!ref.current) return;
+
+    if (prefersReduced) {
+      gsap.set(ref.current, { opacity: 1, y: 0 });
+      return;
+    }
 
     gsap.fromTo(
       ref.current,

@@ -9,7 +9,7 @@ import profileData from "@/data/profile.json";
 const profile: Profile = profileData;
 
 const navLinks = [
-  { label: "Sobre mí", href: "#about" },
+  { label: "Sobre mí", href: "#hero" },
   { label: "Habilidades", href: "#skills" },
   { label: "Proyectos", href: "#projects" },
   { label: "Contacto", href: "#contact" },
@@ -174,7 +174,7 @@ export function Header() {
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between gap-3 px-5 sm:px-8 lg:px-16 xl:px-20">
         <a
           ref={logoRef}
-          href="#about"
+          href="#hero"
           className="group inline-flex min-w-0 items-center gap-2 text-[0.95rem] font-semibold tracking-tight text-foreground transition-opacity duration-200 hover:opacity-80"
         >
           <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand shadow-[0_0_10px_2px] shadow-brand/40 transition-transform duration-300 group-hover:scale-125" />

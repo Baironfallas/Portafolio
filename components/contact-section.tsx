@@ -27,7 +27,12 @@ export function ContactSection() {
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    if (prefersReduced || !formCardRef.current) return;
+    if (!formCardRef.current) return;
+
+    if (prefersReduced) {
+      gsap.set(formCardRef.current, { opacity: 1, y: 0 });
+      return;
+    }
 
     const tween = gsap.fromTo(
       formCardRef.current,
@@ -53,8 +58,11 @@ export function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:${profile.email}?subject=Contacto desde Portfolio - ${formState.name}&body=${encodeURIComponent(formState.message)}%0A%0AFrom: ${formState.name} (${formState.email})`;
-    window.open(mailtoUrl, "_blank");
+    const subject = `Contacto desde Portfolio - ${formState.name}`;
+    const body = `${formState.message}\n\nDe: ${formState.name} (${formState.email})`;
+    const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Abre el cliente de correo sin dejar una pestaña en blanco
+    window.location.href = mailtoUrl;
 
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 2500);
@@ -207,7 +215,7 @@ export function ContactSection() {
                 >
                   <span className="inline-flex items-center gap-2.5">
                     {submitted ? <Check className="h-4 w-4" /> : <Send className="h-4 w-4" />}
-                    {submitted ? "¡Mensaje listo!" : "Enviar mensaje"}
+                    {submitted ? "Abriendo tu correo…" : "Enviar mensaje"}
                   </span>
                   <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-black/10 bg-black/5 text-black">
                     <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
