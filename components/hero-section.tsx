@@ -7,6 +7,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Profile } from "@/types/profile";
 import profileData from "@/data/profile.json";
+import {
+  EyebrowLine,
+  SectionEyebrow,
+  SectionTitle,
+} from "@/components/section-heading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -141,7 +146,7 @@ export function HeroSection() {
         className="relative h-[46vh] max-h-[380px] w-full sm:h-[52vh] sm:max-h-[460px] lg:absolute lg:inset-0 lg:h-auto lg:max-h-none lg:w-auto"
       >
         <Image
-          src="/images/me2.png"
+          src={profile.hero_image_path}
           alt=""
           fill
           priority
@@ -168,30 +173,32 @@ export function HeroSection() {
         className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col justify-center px-5 py-8 sm:px-8 sm:py-10 lg:min-h-[calc(100svh_-_0.5rem)] lg:py-24 lg:px-16 xl:px-20"
       >
         <div className="max-w-[470px]">
-          <p
+          <SectionEyebrow
             ref={eyebrowRef}
-            className="mb-5 flex flex-wrap items-center gap-x-3 gap-y-1 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs"
+            className="flex-wrap gap-x-3 gap-y-1"
           >
             <span className="flex items-center gap-3">
-              <span className="h-px w-8 bg-white/55" />
-              Bairon Fallas
+              <EyebrowLine />
+              {profile.name}
             </span>
             <span className="flex items-center gap-3">
               <span className="text-white/25">|</span>
               {profile.role}
             </span>
-          </p>
+          </SectionEyebrow>
 
-          <h1
+          <SectionTitle
+            as="h1"
             ref={headlineRef}
             id="hero-title"
-            className="max-w-[10.5ch] text-[clamp(2.35rem,10vw,4.2rem)] font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-white md:text-[clamp(2.75rem,3.4vw,4rem)]"
+            className="max-w-[10.5ch]"
           >
-            <span className="block">Código que</span>
-            <span className="block">convierte</span>
-            <span className="block">ideas en</span>
-            <span className="block">productos</span>
-          </h1>
+            {profile.headline.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </SectionTitle>
 
           <div ref={copyRef} className="mt-6 max-w-[430px] sm:mt-7">
             <p className="text-base leading-relaxed text-white/62 sm:text-lg">

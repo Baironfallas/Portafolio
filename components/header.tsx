@@ -178,7 +178,7 @@ export function Header() {
           className="group inline-flex min-w-0 items-center gap-2 text-[0.95rem] font-semibold tracking-tight text-foreground transition-opacity duration-200 hover:opacity-80"
         >
           <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-brand shadow-[0_0_10px_2px] shadow-brand/40 transition-transform duration-300 group-hover:scale-125" />
-          <span className="truncate">{profile.name}</span>
+          <span className="truncate">{profile.short_name}</span>
         </a>
 
         <nav

@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Profile } from "@/types/profile";
 import profileData from "@/data/profile.json";
+import { SectionHeading } from "@/components/section-heading";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,19 +55,16 @@ export function EducationSection() {
       <div className="relative z-10 mx-auto max-w-[1280px] px-5 py-16 sm:px-8 md:py-20 lg:px-16 xl:px-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
           <div className="pt-4 lg:pt-8">
-            <p className="mb-5 flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs">
-              <span className="h-px w-8 bg-white/55" />
-              Formación
-            </p>
-
-            <h2 className="max-w-[7ch] text-[clamp(2.35rem,10vw,4.2rem)] font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-white md:text-[clamp(2.75rem,3.4vw,4rem)]">
-              <span className="block">Formación</span>
-              <span className="block">académica</span>
-            </h2>
-
-            <p className="mt-6 max-w-[430px] text-base leading-relaxed text-white/62 sm:mt-7 sm:text-lg">
-              Mi recorrido académico en tecnología y desarrollo, que ha fortalecido mi base de conocimientos y habilidades.
-            </p>
+            <SectionHeading
+              eyebrow="Formación"
+              title={
+                <>
+                  <span className="block">Formación</span>
+                  <span className="block">académica</span>
+                </>
+              }
+              description="Mi recorrido académico en tecnología y desarrollo, que ha fortalecido mi base de conocimientos y habilidades."
+            />
           </div>
 
           <div ref={containerRef} className="relative pl-8 sm:pl-10 lg:pl-14">

@@ -13,6 +13,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { SkillCategory } from "@/types/skill";
 import skillsData from "@/data/skills.json";
+import { SectionHeading } from "@/components/section-heading";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { RevealText } from "@/components/reveal-text";
 
@@ -89,18 +90,13 @@ export function SkillsSection() {
       <div className="relative z-10 mx-auto max-w-[1280px] px-5 py-16 sm:px-8 md:py-20 lg:px-16 xl:px-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] lg:items-start">
           <div className="pt-4 lg:pt-8">
-            <p className="mb-5 flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs">
-              <span className="h-px w-8 bg-white/55" />
-              Habilidades
-            </p>
-
-            <h2 className="max-w-[8ch] text-[clamp(2.35rem,10vw,4.2rem)] font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-white md:text-[clamp(2.75rem,3.4vw,4rem)]">
-              <RevealText>Habilidades</RevealText>
-            </h2>
-
-            <p className="mt-6 max-w-[500px] text-base leading-relaxed text-white/62 sm:mt-7 sm:text-lg">
-              Tecnologías y herramientas que utilizo para desarrollar soluciones escalables, eficientes y de calidad.
-            </p>
+            <SectionHeading
+              eyebrow="Habilidades"
+              title={<RevealText>Habilidades</RevealText>}
+              titleClassName="max-w-[8ch]"
+              description="Tecnologías y herramientas que utilizo para desarrollar soluciones escalables, eficientes y de calidad."
+              descriptionClassName="max-w-[500px]"
+            />
           </div>
 
           <div

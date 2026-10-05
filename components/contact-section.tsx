@@ -1,15 +1,41 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowUpRight, Check, Linkedin, Github, Mail, Send, User, AtSign, MessageSquare } from "lucide-react";
+import { ArrowUpRight, Check, Linkedin, Github, Mail, Send, User, AtSign, MessageSquare, type LucideIcon } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { Profile } from "@/types/profile";
 import profileData from "@/data/profile.json";
+import { SectionHeading } from "@/components/section-heading";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const profile: Profile = profileData;
+
+interface ContactLinkProps {
+  href: string;
+  icon: LucideIcon;
+  label: string;
+  external?: boolean;
+}
+
+function ContactLink({ href, icon: Icon, label, external }: ContactLinkProps) {
+  return (
+    <a
+      href={href}
+      {...(external && { target: "_blank", rel: "noopener noreferrer" })}
+      className="group flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/[0.02] px-5 py-4 text-left text-white/90 transition-colors hover:border-white/25 hover:bg-white/[0.04]"
+    >
+      <div className="flex min-w-0 items-center gap-3">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] text-white">
+          <Icon className="h-4 w-4" />
+        </span>
+        <span className="min-w-0 truncate text-lg">{label}</span>
+      </div>
+      <ArrowUpRight className="h-5 w-5 shrink-0 text-white/70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+    </a>
+  );
+}
 
 export function ContactSection() {
   const [formState, setFormState] = useState({
@@ -73,62 +99,17 @@ export function ContactSection() {
       <div className="mx-auto max-w-[1280px] px-5 py-16 sm:px-8 md:py-20 lg:px-16 xl:px-20">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
           <div className="min-w-0 pt-4 lg:pt-8">
-            <p className="mb-5 flex items-center gap-3 text-[0.65rem] font-medium uppercase tracking-[0.24em] text-white/65 sm:text-xs">
-              <span className="h-px w-8 bg-white/55" />
-              Contacto
-            </p>
-
-            <h2 className="max-w-[7ch] text-[clamp(2.35rem,10vw,4.2rem)] font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-white md:text-[clamp(2.75rem,3.4vw,4rem)]">
-              Contacto
-            </h2>
-
-            <p className="mt-6 max-w-[480px] text-base leading-relaxed text-white/62 sm:mt-7 sm:text-lg">
-              Abierto a nuevas oportunidades y colaboraciones. Si tienes un proyecto en mente o deseas discutir una propuesta, estaré encantado de escucharlo.
-            </p>
+            <SectionHeading
+              eyebrow="Contacto"
+              title="Contacto"
+              description="Abierto a nuevas oportunidades y colaboraciones. Si tienes un proyecto en mente o deseas discutir una propuesta, estaré encantado de escucharlo."
+              descriptionClassName="max-w-[480px]"
+            />
 
             <div className="mt-8 space-y-3">
-              <a
-                href={`mailto:${profile.email}`}
-                className="group flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/[0.02] px-5 py-4 text-left text-white/90 transition-colors hover:border-white/25 hover:bg-white/[0.04]"
-              >
-                <div className="flex min-w-0 items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] text-white">
-                    <Mail className="h-4 w-4" />
-                  </span>
-                  <span className="min-w-0 truncate text-lg">fallasbaltodanobairon@gmail.com</span>
-                </div>
-                <ArrowUpRight className="h-5 w-5 shrink-0 text-white/70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-
-              <a
-                href={profile.github_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/[0.02] px-5 py-4 text-left text-white/90 transition-colors hover:border-white/25 hover:bg-white/[0.04]"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] text-white">
-                    <Github className="h-4 w-4" />
-                  </span>
-                  <span className="text-lg">GitHub</span>
-                </div>
-                <ArrowUpRight className="h-5 w-5 shrink-0 text-white/70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
-
-              <a
-                href={profile.linkedin_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/[0.02] px-5 py-4 text-left text-white/90 transition-colors hover:border-white/25 hover:bg-white/[0.04]"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] text-white">
-                    <Linkedin className="h-4 w-4" />
-                  </span>
-                  <span className="text-lg">LinkedIn</span>
-                </div>
-                <ArrowUpRight className="h-5 w-5 shrink-0 text-white/70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </a>
+              <ContactLink href={`mailto:${profile.email}`} icon={Mail} label={profile.email} />
+              <ContactLink href={profile.github_url} icon={Github} label="GitHub" external />
+              <ContactLink href={profile.linkedin_url} icon={Linkedin} label="LinkedIn" external />
             </div>
           </div>
 

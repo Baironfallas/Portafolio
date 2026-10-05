@@ -11,9 +11,10 @@ export interface Language {
 
 export interface Profile {
   name: string;
+  short_name: string;
   role: string;
   specialization: string;
-  headline: string;
+  headline: string[];
   subheadline: string;
   email: string;
   github_url: string;
