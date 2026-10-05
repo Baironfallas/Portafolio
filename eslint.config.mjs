@@ -10,8 +10,5 @@ export default defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Código generado por shadcn/ui
-    "components/ui/**",
-    "hooks/**",
   ]),
 ]);
