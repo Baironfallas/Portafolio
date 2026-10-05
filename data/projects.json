@@ -23,5 +23,17 @@
   "image_url": "/images/projects/RRHH.png",
   "demo_url": "https://rrhh.cacjicaral.com/",
   "github_url": ""
-}
+},
+  {
+    "id": 3,
+    "name": "NOIR - Coctelería de Autor",
+    "description": "Diseño web para un bar de coctelería de autor con estética oscura y elegante, que presenta sus espacios, sedes, carta, eventos y un sistema de reservas.",
+    "problem": "Un bar de alta gama necesitaba una presencia digital que transmitiera su ambiente exclusivo y facilitara a los clientes conocer la carta, las sedes y reservar una mesa.",
+    "what_i_did": "Diseñé y desarrollé el sitio completo: hero de impacto, secciones de experiencia, sedes, carta, eventos y galería, formulario de reservas y contacto, con diseño responsive y una identidad visual en tonos oscuros y dorados.",
+    "stack": ["Next.js", "React", "TypeScript", "TailwindCSS"],
+    "architecture": "Aplicación en Next.js organizada por secciones como componentes reutilizables (Hero, Experiencia, Sedes, Carta, Eventos, Galería, Contacto), con estilos en TailwindCSS y desplegada en Vercel.",
+    "image_url": "/images/projects/noir-bar.webp",
+    "demo_url": "https://bar-jr5h.vercel.app/",
+    "github_url": ""
+  }
 ]

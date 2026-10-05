@@ -19,7 +19,7 @@ export function ProjectsSection() {
           </div>
 
           <div className="grid gap-5 xl:grid-cols-2">
-            {projects.slice(0, 2).map((project, index) => (
+            {projects.map((project, index) => (
               <ProjectCard key={project.id} project={project} index={index} />
             ))}
           </div>
