@@ -15,10 +15,10 @@ export default function Home() {
         <Header />
         <main>
           <HeroSection />
+          <ProjectsSection />
+          <SkillsSection />
           <EducationSection />
           <LanguagesSection />
-          <SkillsSection />
-          <ProjectsSection />
           <ContactSection />
         </main>
         <FooterSection />

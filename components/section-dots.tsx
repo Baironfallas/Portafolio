@@ -4,11 +4,10 @@ import { useEffect, useRef, useState } from "react";
 
 const sections = [
   { id: "hero", label: "Inicio" },
-  { id: "about", label: "Sobre mí" },
+  { id: "projects", label: "Proyectos" },
   { id: "skills", label: "Habilidades" },
   { id: "education", label: "Educación" },
   { id: "languages", label: "Idiomas" },
-  { id: "projects", label: "Proyectos" },
   { id: "contact", label: "Contacto" },
 ];
 
