@@ -99,7 +99,7 @@ export default function RootLayout({
     name: "Bairon Fallas Baltodano",
     alternateName: "Bairon FB",
     url: "https://portafolio-two-rho-64.vercel.app/",
-    email: "fallasbaltodanobairon@gmail.com",
+    email: "fallasbaltodanob@gmail.com",
     jobTitle: "Fullstack Developer",
     knowsAbout: [
       "React",
@@ -112,7 +112,7 @@ export default function RootLayout({
     ],
     sameAs: [
       "https://github.com/Baironfallas",
-      "https://www.linkedin.com/in/bairon-fallas-baltodano-b9b439347/",
+      "https://www.linkedin.com/in/bairon-josue-fallas",
     ],
     image: "https://portafolio-two-rho-64.vercel.app/og-image.png",
     description:

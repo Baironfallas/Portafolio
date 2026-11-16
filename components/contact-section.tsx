@@ -87,7 +87,7 @@ export function ContactSection() {
                   <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/15 bg-white/[0.04] text-white">
                     <Mail className="h-4 w-4" />
                   </span>
-                  <span className="min-w-0 truncate text-lg">fallasbaltodanobairon@gmail.com</span>
+                  <span className="min-w-0 truncate text-lg">fallasbaltodanob@gmail.com</span>
                 </div>
                 <ArrowUpRight className="h-5 w-5 shrink-0 text-white/70 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
