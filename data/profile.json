@@ -11,18 +11,30 @@
   "cv_url": "CV.pdf",
   "education": [
     {
+      "degree": "Bachillerato en Ingeniería en Sistemas de Información",
+      "institution": "Universidad Nacional de Costa Rica",
+      "year": "2022 - 2026",
+      "note": "Plan de estudios completado, pendiente de graduación"
+    },
+    {
+      "degree": "Diplomado en Programación de Aplicaciones Informáticas",
+      "institution": "Universidad Nacional de Costa Rica",
+      "year": "2022 - 2025"
+    },
+    {
       "degree": "Bachillerato en Educación Media",
       "institution": "Colegio Técnico Profesional de Corralillo",
       "year": "2016 - 2021"
-    },
-    {
-      "degree": "Diplomado en Programación de Aplicaciones Informaticas",
-      "institution": "Universidad Nacional de Costa Rica",
-      "year": "2022 - 2025"
     }
   ],
   "languages": [
-    { "name": "Español", "level": "Nativo" },
-    { "name": "Inglés", "level": "Básico (A2)" }
+    {
+      "name": "Español",
+      "level": "Nativo"
+    },
+    {
+      "name": "Inglés",
+      "level": "Básico (A2)"
+    }
   ]
 }

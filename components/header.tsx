@@ -10,6 +10,7 @@ const profile: Profile = profileData;
 
 const navLinks = [
   { label: "Proyectos", href: "#projects" },
+  { label: "Experiencia", href: "#experience" },
   { label: "Habilidades", href: "#skills" },
   { label: "Formación", href: "#education" },
   { label: "Contacto", href: "#contact" },

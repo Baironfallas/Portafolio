@@ -2,6 +2,7 @@ export interface Education {
   degree: string;
   institution: string;
   year: string;
+  note?: string;
 }
 
 export interface Language {
