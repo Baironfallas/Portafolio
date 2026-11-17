@@ -1,27 +1,26 @@
-
 [
   {
-    "id": 1,
-    "name": "Landing Page Fotografía",
-    "description": "Landing page moderna para un estudio fotográfico enfocada en mostrar servicios, portafolio visual y facilitar el contacto con clientes.",
-    "problem": "El estudio necesitaba una página atractiva para presentar sus servicios y portafolio fotográfico de forma profesional y adaptable a dispositivos móviles.",
-    "what_i_did": "Diseñé y desarrollé la landing page completa utilizando React con TypeScript, implementando componentes reutilizables, diseño responsive y optimización visual para destacar las fotografías.",
-    "stack": ["React", "TypeScript", "TailwindCSS", "Vite"],
-    "architecture": "Arquitectura basada en componentes reutilizizables en React, separación de secciones (Hero, About, Gallery, Contact) y estilos con TailwindCSS.",
-    "image_url": "/images/projects/landing.png",
-    "demo_url": "https://landing-page-progra-lll.vercel.app/",
-    "github_url": "https://github.com/Baironfallas/landing-page-progra-lll"
+    "id": 2,
+    "name": "Sistema RRHH - Centro Agrícola de Jicaral",
+    "description": "Plataforma web diseñada para modernizar la gestión de recursos humanos del Centro Agrícola de Jicaral, incluyendo una landing informativa y un panel administrativo para la gestión de empleados y procesos internos.",
+    "problem": "El Centro Agrícola de Jicaral necesitaba digitalizar varios procesos administrativos de recursos humanos que se realizaban de forma manual, como la gestión de empleados, solicitudes internas y cálculos laborales como aguinaldo y liquidaciones.",
+    "what_i_did": "Participé en el desarrollo de una solución web que incluye una landing page institucional para el área de recursos humanos y un módulo administrativo interno. Implementamos funcionalidades para gestionar información de empleados, registrar solicitudes, administrar vacaciones y calcular automáticamente aguinaldos y liquidaciones según los datos registrados.",
+    "stack": ["React", "TypeScript", "TailwindCSS", "NestJS", ".NET", "SQL Server"],
+    "architecture": "Arquitectura basada en separación de responsabilidades entre frontend y backend. El frontend se desarrolló con React y TypeScript utilizando componentes reutilizables, mientras que el backend maneja la lógica de negocio para empleados, solicitudes, vacaciones y cálculos laborales. La información se almacena en una base de datos relacional y se expone mediante APIs para consumo del sistema.",
+    "image_url": "/images/projects/RRHH.png",
+    "demo_url": "https://rrhh.cacjicaral.com/",
+    "github_url": ""
   },
-{
-  "id": 2,
-  "name": "Sistema RRHH - Centro Agrícola de Jicaral",
-  "description": "Plataforma web diseñada para modernizar la gestión de recursos humanos del Centro Agrícola de Jicaral, incluyendo una landing informativa y un panel administrativo para la gestión de empleados y procesos internos.",
-  "problem": "El Centro Agrícola de Jicaral necesitaba digitalizar varios procesos administrativos de recursos humanos que se realizaban de forma manual, como la gestión de empleados, solicitudes internas y cálculos laborales como aguinaldo y liquidaciones.",
-  "what_i_did": "Participé en el desarrollo de una solución web que incluye una landing page institucional para el área de recursos humanos y un módulo administrativo interno. Implementamos funcionalidades para gestionar información de empleados, registrar solicitudes, administrar vacaciones y calcular automáticamente aguinaldos y liquidaciones según los datos registrados.",
-  "stack": ["React", "TypeScript", "TailwindCSS", "NestJS", ".NET", "SQL Server"],
-  "architecture": "Arquitectura basada en separación de responsabilidades entre frontend y backend. El frontend se desarrolló con React y TypeScript utilizando componentes reutilizables, mientras que el backend maneja la lógica de negocio para empleados, solicitudes, vacaciones y cálculos laborales. La información se almacena en una base de datos relacional y se expone mediante APIs para consumo del sistema.",
-  "image_url": "/images/projects/RRHH.png",
-  "demo_url": "https://rrhh.cacjicaral.com/",
-  "github_url": ""
-}
+  {
+    "id": 3,
+    "name": "Finca Cielo Verde",
+    "description": "Sitio web bilingüe (español e inglés) de una finca agroecológica y de permacultura en Acosta, Costa Rica, con actividades, hospedaje, productos frescos, galerías de fotos y contacto por WhatsApp.",
+    "problem": "La finca necesitaba una presencia web para dar a conocer sus recorridos, talleres, cabañas, productos y certificaciones ambientales a visitantes locales y extranjeros.",
+    "what_i_did": "Desarrollé el sitio estático con Astro y Tailwind CSS, con contenido tipado en TypeScript, internacionalización propia en español e inglés, galería de fotos por categorías con visor de imágenes y sitemap por idioma.",
+    "stack": ["Astro", "TypeScript", "TailwindCSS"],
+    "architecture": "Sitio estático generado con Astro, sin frameworks de UI en el cliente. Una pieza por sección, contenido en módulos TypeScript y traducciones en archivos JSON, con rutas separadas por idioma (/ y /en/).",
+    "image_url": "/images/projects/cielo-verde.png",
+    "demo_url": "https://fincacieloverde.com",
+    "github_url": ""
+  }
 ]

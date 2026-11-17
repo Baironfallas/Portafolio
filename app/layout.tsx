@@ -1,14 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Space_Grotesk } from "next/font/google";
+import { Sora } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sora",
 });
 
 export const metadata: Metadata = {
@@ -99,7 +97,7 @@ export default function RootLayout({
     name: "Bairon Fallas Baltodano",
     alternateName: "Bairon FB",
     url: "https://portafolio-two-rho-64.vercel.app/",
-    email: "fallasbaltodanobairon@gmail.com",
+    email: "fallasbaltodanob@gmail.com",
     jobTitle: "Fullstack Developer",
     knowsAbout: [
       "React",
@@ -112,7 +110,7 @@ export default function RootLayout({
     ],
     sameAs: [
       "https://github.com/Baironfallas",
-      "https://www.linkedin.com/in/bairon-fallas-baltodano-b9b439347/",
+      "https://www.linkedin.com/in/bairon-josue-fallas",
     ],
     image: "https://portafolio-two-rho-64.vercel.app/og-image.png",
     description:
@@ -120,7 +118,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es">
       <head>
         <Script
           id="schema-org"
@@ -129,16 +127,8 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          forcedTheme="dark"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+      <body className={`${sora.variable} font-sans antialiased`}>
+        {children}
         <Analytics />
       </body>
     </html>

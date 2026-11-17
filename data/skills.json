@@ -1,27 +1,53 @@
 [
   {
     "name": "Frontend",
-    "icon": "Monitor",
-    "skills": ["React", "Next.js", "TypeScript", "TailwindCSS", "HTML/CSS"]
+    "skills": [
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Tailwind CSS"
+    ]
   },
   {
     "name": "Backend",
-    "icon": "Server",
-    "skills": ["NestJS", "Node.js", ".NET", "REST APIs", "GraphQL"]
+    "skills": [
+      "Node.js",
+      "NestJS",
+      "TypeORM",
+      "APIs REST",
+      "JWT",
+      "Swagger",
+      ".NET",
+      "C#",
+      "Python"
+    ]
   },
   {
-    "name": "Base de datos",
-    "icon": "Database",
-    "skills": ["PostgreSQL", "MongoDB", "SQL Server", "MySQL"]
+    "name": "Bases de datos",
+    "skills": [
+      "MySQL",
+      "MariaDB",
+      "SQL Server",
+      "MongoDB"
+    ]
   },
   {
-    "name": "Cloud",
-    "icon": "Cloud",
-    "skills": ["Railway", "Vercel", "Hostinger","Render"]
+    "name": "Herramientas y pruebas",
+    "skills": [
+      "Git",
+      "GitHub",
+      "GitFlow",
+      "Azure DevOps",
+      "Jest",
+      "Claude Code"
+    ]
   },
   {
-    "name": "Herramientas",
-    "icon": "Wrench",
-    "skills": ["Git", "GitHub", "VS Code", "Visual Studio", "Figma"]
+    "name": "Metodologías",
+    "skills": [
+      "Scrum"
+    ]
   }
 ]
