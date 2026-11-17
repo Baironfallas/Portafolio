@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, Check } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import type { Profile } from "@/types/profile";
 import profileData from "@/data/profile.json";
 
@@ -19,15 +19,19 @@ export function ContactSection() {
     email: "",
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [opened, setOpened] = useState(false);
 
+  // mailto no confirma el envío: el mensaje sale desde la app de correo del visitante.
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoUrl = `mailto:${profile.email}?subject=Contacto desde Portfolio - ${formState.name}&body=${encodeURIComponent(formState.message)}%0A%0AFrom: ${formState.name} (${formState.email})`;
-    window.open(mailtoUrl, "_blank");
-
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 2500);
+    const subject = encodeURIComponent(
+      `Contacto desde Portfolio - ${formState.name}`,
+    );
+    const body = encodeURIComponent(
+      `${formState.message}\n\nDe: ${formState.name} (${formState.email})`,
+    );
+    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
+    setOpened(true);
   };
 
   return (
@@ -131,15 +135,19 @@ export function ContactSection() {
             type="submit"
             className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-white/85"
           >
-            {submitted ? (
-              <>
-                <Check className="h-4 w-4" />
-                Mensaje listo
-              </>
-            ) : (
-              "Enviar mensaje"
-            )}
+            Abrir en mi correo
           </button>
+
+          {opened && (
+            <p role="status" className="text-sm leading-relaxed text-white/60">
+              Se abrió tu app de correo con el mensaje listo. Envíalo desde
+              ahí. Si no se abrió nada, escríbeme a{" "}
+              <a href={`mailto:${profile.email}`} className={textLink}>
+                {profile.email}
+              </a>
+              .
+            </p>
+          )}
         </form>
       </div>
     </section>

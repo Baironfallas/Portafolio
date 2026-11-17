@@ -3,45 +3,34 @@
     "name": "Frontend",
     "skills": [
       "React",
-      "Next.js",
       "TypeScript",
       "JavaScript",
-      "Tailwind CSS",
-      "Vite",
-      "HTML/CSS"
+      "HTML",
+      "CSS",
+      "Tailwind CSS"
     ]
   },
   {
     "name": "Backend",
     "skills": [
-      "NestJS",
       "Node.js",
+      "NestJS",
       "TypeORM",
-      ".NET",
-      "C#",
-      "Python",
-      "REST APIs",
+      "APIs REST",
       "JWT",
       "Swagger",
-      "GraphQL"
+      ".NET",
+      "C#",
+      "Python"
     ]
   },
   {
-    "name": "Base de datos",
+    "name": "Bases de datos",
     "skills": [
       "MySQL",
+      "MariaDB",
       "SQL Server",
-      "PostgreSQL",
       "MongoDB"
-    ]
-  },
-  {
-    "name": "Cloud",
-    "skills": [
-      "Railway",
-      "Vercel",
-      "Hostinger",
-      "Render"
     ]
   },
   {
@@ -52,10 +41,7 @@
       "GitFlow",
       "Azure DevOps",
       "Jest",
-      "Claude Code",
-      "VS Code",
-      "Visual Studio",
-      "Figma"
+      "Claude Code"
     ]
   },
   {
