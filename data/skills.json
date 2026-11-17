@@ -1,7 +1,6 @@
 [
   {
     "name": "Frontend",
-    "icon": "Monitor",
     "skills": [
       "React",
       "Next.js",
@@ -14,7 +13,6 @@
   },
   {
     "name": "Backend",
-    "icon": "Server",
     "skills": [
       "NestJS",
       "Node.js",
@@ -30,7 +28,6 @@
   },
   {
     "name": "Base de datos",
-    "icon": "Database",
     "skills": [
       "MySQL",
       "SQL Server",
@@ -40,7 +37,6 @@
   },
   {
     "name": "Cloud",
-    "icon": "Cloud",
     "skills": [
       "Railway",
       "Vercel",
@@ -50,7 +46,6 @@
   },
   {
     "name": "Herramientas y pruebas",
-    "icon": "Wrench",
     "skills": [
       "Git",
       "GitHub",
@@ -65,7 +60,6 @@
   },
   {
     "name": "Metodologías",
-    "icon": "Container",
     "skills": [
       "Scrum"
     ]

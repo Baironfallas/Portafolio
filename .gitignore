@@ -58,3 +58,4 @@ AGENT.md
 .llm/
 .history/
 PROJECT_CONTEXT.md
+*.tsbuildinfo
