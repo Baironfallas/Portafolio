@@ -34,7 +34,7 @@ export function ContactSection() {
     <section id="contact" className="relative border-t border-white/10 bg-black">
       <div className="mx-auto grid max-w-[1280px] gap-14 px-5 py-20 sm:px-8 md:py-32 lg:grid-cols-12 lg:gap-x-10 lg:px-16 xl:px-20">
         <div className="min-w-0 lg:col-span-7">
-          <h2 className="text-4xl font-semibold tracking-[-0.035em] text-white md:text-5xl">
+          <h2 className="text-4xl font-semibold tracking-[-0.02em] text-white md:text-5xl">
             Contacto
           </h2>
 

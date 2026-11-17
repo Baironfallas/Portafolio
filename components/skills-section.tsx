@@ -7,7 +7,7 @@ export function SkillsSection() {
   return (
     <section id="skills" className="relative border-t border-white/10 bg-black">
       <div className="mx-auto max-w-[1280px] px-5 py-20 sm:px-8 md:py-32 lg:px-16 xl:px-20">
-        <h2 className="text-4xl font-semibold tracking-[-0.035em] text-white md:text-5xl">
+        <h2 className="text-4xl font-semibold tracking-[-0.02em] text-white md:text-5xl">
           Habilidades
         </h2>
 

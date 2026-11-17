@@ -10,7 +10,7 @@ export function EducationSection() {
       className="relative border-t border-white/10 bg-black"
     >
       <div className="mx-auto max-w-[1280px] px-5 py-20 sm:px-8 md:py-32 lg:px-16 xl:px-20">
-        <h2 className="text-4xl font-semibold tracking-[-0.035em] text-white md:text-5xl">
+        <h2 className="text-4xl font-semibold tracking-[-0.02em] text-white md:text-5xl">
           Formación
         </h2>
 
@@ -19,7 +19,7 @@ export function EducationSection() {
             {profile.education.map((edu) => (
               <li key={edu.degree}>
                 <p className="text-sm tabular-nums text-white/55">{edu.year}</p>
-                <h3 className="mt-1.5 text-xl font-semibold leading-snug tracking-tight text-white sm:text-2xl">
+                <h3 className="mt-1.5 text-xl font-semibold leading-snug text-white sm:text-2xl">
                   {edu.degree}
                 </h3>
                 <p className="mt-1 text-white/60">

@@ -79,7 +79,7 @@ export function ExperienceSection() {
       className="relative border-t border-white/10 bg-black"
     >
       <div className="mx-auto grid max-w-[1280px] gap-12 px-5 py-20 sm:px-8 md:py-32 lg:grid-cols-12 lg:gap-x-10 lg:px-16 xl:px-20">
-        <h2 className="text-4xl font-semibold tracking-[-0.035em] text-white md:text-5xl lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
+        <h2 className="text-4xl font-semibold tracking-[-0.02em] text-white md:text-5xl lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
           Experiencia
         </h2>
 
@@ -103,7 +103,7 @@ export function ExperienceSection() {
                   className="absolute left-0 top-2 h-[11px] w-[11px] rounded-full border border-white/50 bg-black transition-colors duration-300 [&.is-on]:border-white [&.is-on]:bg-white"
                 />
                 <p className="text-sm tabular-nums text-white/55">{job.when}</p>
-                <h3 className="mt-2 text-2xl font-semibold leading-tight tracking-tight text-white">
+                <h3 className="mt-2 text-2xl font-semibold leading-tight text-white">
                   {job.org}
                 </h3>
                 <p className="mt-2 text-base text-white/80">

@@ -45,7 +45,7 @@ export function HeroSection() {
       <div
         data-portrait
         aria-hidden="true"
-        className="relative h-[46vh] max-h-[380px] w-full sm:h-[52vh] sm:max-h-[460px] lg:absolute lg:inset-0 lg:h-auto lg:max-h-none lg:w-auto"
+        className="relative h-[46vh] max-h-[380px] w-full sm:h-[52vh] sm:max-h-[460px] lg:absolute lg:inset-y-0 lg:right-0 lg:left-[max(0px,calc((100vw-1280px)/2))] lg:h-auto lg:max-h-none lg:w-auto lg:[mask-image:linear-gradient(90deg,transparent,#000_20%)]"
       >
         <Image
           src="/images/me2.png"
@@ -53,7 +53,7 @@ export function HeroSection() {
           fill
           priority
           sizes="100vw"
-          className="h-full w-full object-cover object-[center_22%] grayscale-[0.2] lg:object-[68%_center]"
+          className="h-full w-full object-cover object-[center_22%] grayscale-[0.2] lg:object-[25%_center]"
         />
         <div
           aria-hidden="true"
@@ -74,7 +74,7 @@ export function HeroSection() {
 
           <h1
             id="hero-title"
-            className="max-w-[10.5ch] text-[clamp(2.35rem,10vw,4.2rem)] font-semibold uppercase leading-[0.88] tracking-[-0.065em] text-white md:text-[clamp(2.75rem,3.4vw,4rem)]"
+            className="max-w-[10.5ch] text-[clamp(2.1rem,9vw,3.6rem)] font-bold uppercase leading-[0.95] tracking-[-0.04em] text-white md:text-[clamp(2.2rem,3vw,3.4rem)]"
           >
             {headlineLines.map((line) => (
               <span

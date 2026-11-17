@@ -46,7 +46,7 @@ export function ProjectsSection() {
     <section ref={rootRef} id="projects" className="relative bg-black">
       <div className="mx-auto max-w-[1280px] px-5 py-20 sm:px-8 md:py-32 lg:px-16 xl:px-20">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <h2 className="text-4xl font-semibold tracking-[-0.035em] text-white md:text-5xl">
+          <h2 className="text-4xl font-semibold tracking-[-0.02em] text-white md:text-5xl">
             Proyectos
           </h2>
           <p className="max-w-[420px] text-base leading-relaxed text-white/70">
@@ -87,7 +87,7 @@ export function ProjectsSection() {
                     flipped ? "lg:col-start-1" : "lg:col-start-9"
                   }`}
                 >
-                  <h3 className="text-2xl font-semibold leading-tight tracking-tight text-white md:text-3xl">
+                  <h3 className="text-2xl font-semibold leading-tight text-white md:text-3xl">
                     {project.name}
                   </h3>
                   <p className="mt-4 text-base leading-relaxed text-white/70">
