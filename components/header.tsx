@@ -114,14 +114,14 @@ export function Header() {
         const mobileLinks = mobileNavRef.current.querySelectorAll("a");
         gsap.fromTo(
           mobileLinks,
-          { opacity: 0, x: -20 },
+          { opacity: 0, x: -8 },
           {
             opacity: 1,
             x: 0,
-            duration: 0.4,
-            stagger: 0.05,
+            duration: 0.35,
+            stagger: 0.04,
             ease: "power2.out",
-            delay: 0.1,
+            delay: 0.05,
           }
         );
       }
@@ -152,7 +152,7 @@ export function Header() {
   const handleMenuClick = () => {
     if (menuButtonRef.current) {
       gsap.to(menuButtonRef.current, {
-        rotation: mobileOpen ? 0 : 180,
+        rotation: mobileOpen ? 0 : 90,
         duration: 0.3,
         ease: "power2.out",
       });

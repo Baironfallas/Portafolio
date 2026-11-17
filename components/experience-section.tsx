@@ -78,7 +78,7 @@ export function ExperienceSection() {
       id="experience"
       className="relative border-t border-white/10 bg-black"
     >
-      <div className="mx-auto grid max-w-[1280px] gap-12 px-5 py-20 sm:px-8 md:py-32 lg:grid-cols-12 lg:gap-x-10 lg:px-16 xl:px-20">
+      <div className="mx-auto grid max-w-[1280px] gap-8 px-5 py-14 sm:px-8 md:py-32 lg:grid-cols-12 lg:gap-x-10 lg:px-16 xl:px-20">
         <h2 className="text-4xl font-semibold tracking-[-0.02em] text-white md:text-5xl lg:sticky lg:top-28 lg:col-span-4 lg:self-start">
           Experiencia
         </h2>
@@ -94,7 +94,7 @@ export function ExperienceSection() {
             className="absolute bottom-0 left-[5px] top-2 w-px origin-top bg-white"
           />
 
-          <div className="space-y-16">
+          <div className="space-y-12">
             {jobs.map((job) => (
               <article key={job.org} className="relative pl-9 sm:pl-12">
                 <span

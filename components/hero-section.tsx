@@ -17,17 +17,39 @@ export function HeroSection() {
   // Única animación orquestada de la página: retrato, titular por líneas, resto del contenido.
   useEffect(() => {
     const mm = gsap.matchMedia();
+    // En móvil la entrada es más corta y con menos desplazamiento.
     mm.add(
-      "(prefers-reduced-motion: no-preference)",
-      () => {
+      {
+        calm: "(prefers-reduced-motion: no-preference) and (max-width: 767px)",
+        full: "(prefers-reduced-motion: no-preference) and (min-width: 768px)",
+      },
+      (ctx) => {
+        const calm = !!ctx.conditions?.calm;
         gsap
           .timeline({ defaults: { ease: "power3.out" } })
-          .from("[data-portrait]", { opacity: 0, scale: 1.06, duration: 1.2 }, 0)
-          .from("[data-line]", { yPercent: 115, duration: 0.9, stagger: 0.1 }, 0.15)
+          .from(
+            "[data-portrait]",
+            { opacity: 0, scale: calm ? 1 : 1.06, duration: calm ? 0.8 : 1.2 },
+            0,
+          )
+          .from(
+            "[data-line]",
+            {
+              yPercent: calm ? 60 : 115,
+              duration: calm ? 0.7 : 0.9,
+              stagger: calm ? 0.06 : 0.1,
+            },
+            calm ? 0.1 : 0.15,
+          )
           .from(
             "[data-fade]",
-            { opacity: 0, y: 14, duration: 0.6, stagger: 0.1 },
-            0.75,
+            {
+              opacity: 0,
+              y: calm ? 8 : 14,
+              duration: calm ? 0.5 : 0.6,
+              stagger: calm ? 0.06 : 0.1,
+            },
+            calm ? 0.5 : 0.75,
           );
       },
       rootRef,

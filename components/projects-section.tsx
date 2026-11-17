@@ -22,17 +22,26 @@ export function ProjectsSection() {
   useEffect(() => {
     const mm = gsap.matchMedia();
     mm.add(
-      "(prefers-reduced-motion: no-preference)",
-      () => {
+      {
+        calm: "(prefers-reduced-motion: no-preference) and (max-width: 767px)",
+        full: "(prefers-reduced-motion: no-preference) and (min-width: 768px)",
+      },
+      (ctx) => {
+        const calm = !!ctx.conditions?.calm;
         gsap.utils.toArray<HTMLElement>("[data-shot]").forEach((shot) => {
+          // En móvil: aparece con un fundido suave en vez del barrido.
           gsap.fromTo(
             shot,
-            { clipPath: "inset(0% 0% 100% 0%)" },
+            calm ? { opacity: 0, y: 12 } : { clipPath: "inset(0% 0% 100% 0%)" },
             {
-              clipPath: "inset(0% 0% 0% 0%)",
-              duration: 1.1,
-              ease: "power3.inOut",
-              scrollTrigger: { trigger: shot, start: "top 80%", once: true },
+              ...(calm
+                ? { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }
+                : {
+                    clipPath: "inset(0% 0% 0% 0%)",
+                    duration: 1.1,
+                    ease: "power3.inOut",
+                  }),
+              scrollTrigger: { trigger: shot, start: "top 85%", once: true },
             },
           );
         });
@@ -44,7 +53,7 @@ export function ProjectsSection() {
 
   return (
     <section ref={rootRef} id="projects" className="relative bg-black">
-      <div className="mx-auto max-w-[1280px] px-5 py-20 sm:px-8 md:py-32 lg:px-16 xl:px-20">
+      <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 md:py-32 lg:px-16 xl:px-20">
         <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
           <h2 className="text-4xl font-semibold tracking-[-0.02em] text-white md:text-5xl">
             Proyectos
@@ -55,7 +64,7 @@ export function ProjectsSection() {
           </p>
         </div>
 
-        <div className="mt-14 space-y-24 md:mt-20 md:space-y-36">
+        <div className="mt-10 space-y-16 md:mt-20 md:space-y-36">
           {projects.map((project, i) => {
             const flipped = i % 2 === 1;
             return (

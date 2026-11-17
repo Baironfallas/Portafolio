@@ -9,12 +9,12 @@ export function EducationSection() {
       id="education"
       className="relative border-t border-white/10 bg-black"
     >
-      <div className="mx-auto max-w-[1280px] px-5 py-20 sm:px-8 md:py-32 lg:px-16 xl:px-20">
+      <div className="mx-auto max-w-[1280px] px-5 py-14 sm:px-8 md:py-32 lg:px-16 xl:px-20">
         <h2 className="text-4xl font-semibold tracking-[-0.02em] text-white md:text-5xl">
           Formación
         </h2>
 
-        <div className="mt-12 grid gap-14 md:mt-16 lg:grid-cols-12 lg:gap-x-10">
+        <div className="mt-8 grid gap-10 md:mt-16 lg:grid-cols-12 lg:gap-x-10">
           <ul className="space-y-8 lg:col-span-7">
             {profile.education.map((edu) => (
               <li key={edu.degree}>
