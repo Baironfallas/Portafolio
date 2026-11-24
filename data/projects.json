@@ -22,5 +22,17 @@
     "image_url": "/images/projects/cielo-verde.png",
     "demo_url": "https://fincacieloverde.com",
     "github_url": ""
+  },
+  {
+    "id": 4,
+    "name": "TuanisCan",
+    "description": "Aplicación web privada para dueños de mascotas y personas que ofrecen servicios de cuidado y paseo. Proyecto en desarrollo.",
+    "problem": "Conectar a dueños de mascotas con personas de confianza de su zona que puedan cuidarlas o pasearlas.",
+    "what_i_did": "Diseño y desarrollo del frontend, la autenticación y la integración con la base de datos, con animaciones y una interfaz bilingüe.",
+    "stack": ["React", "TypeScript", "Supabase", "TailwindCSS"],
+    "architecture": "Aplicación de una sola página con frontend en React y TypeScript, y Supabase como backend para autenticación, datos y almacenamiento.",
+    "image_url": "/images/projects/tuanis.png",
+    "demo_url": "",
+    "github_url": ""
   }
 ]

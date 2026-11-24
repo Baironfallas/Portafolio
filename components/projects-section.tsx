@@ -74,10 +74,10 @@ export function ProjectsSection() {
               >
                 <a
                   data-shot
-                  href={project.demo_url}
+                  href={project.demo_url || undefined}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`Abrir ${project.name}`}
+                  aria-label={project.demo_url ? `Abrir ${project.name}` : project.name}
                   className={`relative block aspect-[2/1] overflow-hidden rounded-lg border border-white/10 bg-secondary lg:col-span-8 lg:row-start-1 ${
                     flipped ? "lg:col-start-5" : "lg:col-start-1"
                   }`}
@@ -106,15 +106,19 @@ export function ProjectsSection() {
                     {project.stack.join(", ")}
                   </p>
                   <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium">
-                    <a
-                      href={project.demo_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={link}
-                    >
-                      Ver proyecto
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </a>
+                    {project.demo_url ? (
+                      <a
+                        href={project.demo_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={link}
+                      >
+                        Ver proyecto
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
+                    ) : (
+                      <span className="text-white/40">Proyecto privado</span>
+                    )}
                     {project.github_url ? (
                       <a
                         href={project.github_url}
