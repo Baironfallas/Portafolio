@@ -5,7 +5,7 @@
     "description": "Plataforma web diseñada para modernizar la gestión de recursos humanos del Centro Agrícola de Jicaral, incluyendo una landing informativa y un panel administrativo para la gestión de empleados y procesos internos.",
     "problem": "El Centro Agrícola de Jicaral necesitaba digitalizar varios procesos administrativos de recursos humanos que se realizaban de forma manual, como la gestión de empleados, solicitudes internas y cálculos laborales como aguinaldo y liquidaciones.",
     "what_i_did": "Participé en el desarrollo de una solución web que incluye una landing page institucional para el área de recursos humanos y un módulo administrativo interno. Implementamos funcionalidades para gestionar información de empleados, registrar solicitudes, administrar vacaciones y calcular automáticamente aguinaldos y liquidaciones según los datos registrados.",
-    "stack": ["React", "TypeScript", "TailwindCSS", "NestJS", ".NET", "SQL Server"],
+    "stack": ["React", "TypeScript", "TailwindCSS", "NestJS", "MySQL"],
     "architecture": "Arquitectura basada en separación de responsabilidades entre frontend y backend. El frontend se desarrolló con React y TypeScript utilizando componentes reutilizables, mientras que el backend maneja la lógica de negocio para empleados, solicitudes, vacaciones y cálculos laborales. La información se almacena en una base de datos relacional y se expone mediante APIs para consumo del sistema.",
     "image_url": "/images/projects/RRHH.png",
     "demo_url": "https://rrhh.cacjicaral.com/",
@@ -21,6 +21,30 @@
     "architecture": "Sitio estático generado con Astro, sin frameworks de UI en el cliente. Una pieza por sección, contenido en módulos TypeScript y traducciones en archivos JSON, con rutas separadas por idioma (/ y /en/).",
     "image_url": "/images/projects/cielo-verde.png",
     "demo_url": "https://fincacieloverde.com",
+    "github_url": ""
+  },
+  {
+    "id": 4,
+    "name": "TuanisCan",
+    "description": "Aplicación web privada para dueños de mascotas y personas que ofrecen servicios de cuidado y paseo. Proyecto en desarrollo.",
+    "problem": "Conectar a dueños de mascotas con personas de confianza de su zona que puedan cuidarlas o pasearlas.",
+    "what_i_did": "Diseño y desarrollo del frontend, la autenticación y la integración con la base de datos, con animaciones y una interfaz bilingüe.",
+    "stack": ["React", "TypeScript", "Supabase", "TailwindCSS"],
+    "architecture": "Aplicación de una sola página con frontend en React y TypeScript, y Supabase como backend para autenticación, datos y almacenamiento.",
+    "image_url": "/images/projects/tuanis.png",
+    "demo_url": "",
+    "github_url": ""
+  },
+  {
+    "id": 5,
+    "name": "LANAKÚ - Sistema de gestión turística",
+    "description": "Aplicación privada de gestión para un sistema de turismo, desarrollada durante mi práctica profesional supervisada en la UNA. Cubre la gestión del hotel (reservas, monedas y reembolsos), el reclutamiento de RRHH y el control de acceso por usuarios, roles y permisos.",
+    "problem": "El hotel necesitaba una herramienta para gestionar reservas y pagos en distintas monedas, procesos de reclutamiento y el acceso de su personal según su rol.",
+    "what_i_did": "Participé en el desarrollo de la aplicación. Lo más fuerte que permite hacer: gestionar reservas del hotel, trabajar con varias monedas, procesar reembolsos, administrar el reclutamiento de personal y controlar quién accede a cada función mediante usuarios, roles y permisos. También genera reportes descargables en PDF, Excel y Word, envía correos automáticos, permite subir imágenes y valida los datos que se ingresan.",
+    "stack": ["NestJS", "TypeScript", "TypeORM", "MySQL", "JWT", "Swagger"],
+    "architecture": "Aplicación modular con NestJS, con un módulo por dominio (hotel, RRHH y accesos). Los datos se guardan en MySQL con TypeORM, la autenticación usa JWT y Passport, y la API está documentada con Swagger. Incluye seguridad con helmet y límite de peticiones, tareas programadas y pruebas con Jest y Supertest.",
+    "image_url": "/images/projects/lanaku.png",
+    "demo_url": "",
     "github_url": ""
   }
 ]
