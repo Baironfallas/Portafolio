@@ -87,7 +87,7 @@ export function ProjectsSection() {
                     alt={`Vista previa de ${project.name}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 800px"
-                    className="object-cover"
+                    className="object-cover object-bottom"
                   />
                 </a>
 
